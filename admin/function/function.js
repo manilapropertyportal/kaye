@@ -88,8 +88,7 @@ function readURL(input) {
         
         reader.onload = function(e) {
         $('#blah').attr('src', e.target.result);
-        const img = $('#blah').attr('src');
-            getImg(img);
+            getImg(e.target.result);
         }
         reader.readAsDataURL(input.files[0]);
     }
@@ -146,16 +145,7 @@ function forAboutNew(){
 
 function getImg(image) {
        header = image;
-        $.ajax({
-            url: 'files/model/model.php',
-            type: 'POST',
-            data: {e:'header',header},
-            dataType: "json",
-            async: false,
-            success: function(data){
-                result=data;
-                
-            }
-        });
+       $.post('files/model/model.php',{e:'admin-header-upload',header},function(data){  result=data },'json')
+        console.log('asdas');
         //$('.admin-upload-new-container').parent().find('#blah')[0].currentSrc
 }   

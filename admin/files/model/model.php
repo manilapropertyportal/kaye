@@ -4,26 +4,27 @@
     $password = '';
     $dbase = 'kaye';
 
-    $conn = new mysqli($servername,$username,$password,$dbase);
+    $mysqli = new mysqli($servername,$username,$password,$dbase);
     session_start();
 
 
     if(isset( $_POST['e'] )) {
         switch($_POST['e']) {
-            case 'header':
+            case 'admin-header-upload':
                 echo $_POST['header'];
-                $app = 'test';
-                $stmt= $conn->prepare("SELECT * FROM header WHERE APP = ?"); 
-                $stmt->bind_param("s", $app); 
-                $stmt->execute();
-                $result = $app;
-                $stmt->bind_result($result);
-                $stmt->fetch();
-                $stmt->close();
+                $stmt = $mysqli -> prepare('INSERT INTO header (app,[value]) VALUES (?,?)');
+                $app = 'John';
+                $value = $_POST['header'];
+                $stmt -> bind_param('sb', $app,$value);
+                $stmt -> execute();
             break;
         }
         
    
    };
+
+
+
+
 
 ?>                  
