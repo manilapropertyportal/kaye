@@ -145,7 +145,25 @@ function forAboutNew(){
 
 function getImg(image) {
        header = image;
-       $.post('files/model/model.php',{e:'admin-header-upload',header},function(data){  result=data },'json')
+       $.post('files/model/model.php',{e:'save_profile',header},function(data){  result=data },'json')
         console.log('asdas');
         //$('.admin-upload-new-container').parent().find('#blah')[0].currentSrc
-}   
+}
+
+function triggerClick(e) {
+    console.log('nasa trigger ka!')
+    document.querySelector('#profileImage').click();
+
+  }
+  function displayImage(e) {
+      console.log('fcc u');
+    if (e.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function(e){
+          console.log('hoy');
+        document.querySelector('#profileDisplay').setAttribute('src', e.target.result);
+        // getImg(e.target.result);
+      }
+      reader.readAsDataURL(e.files[0]);
+    }
+  }  
