@@ -1,0 +1,77 @@
+/* body{
+    overflow:hidden;
+} */
+.admin-sidenav-md{
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    width:300px;   
+}
+.admin-content-md {
+    width: 100%;
+}
+.admin-sidenav{
+    width:300px;  
+    position:absolute;
+    top:55px;
+    left:0;
+    bottom:0;
+    overflow-y: auto;
+}
+.admin-content {
+    position: absolute;
+    right: 0px;
+    left: 300px;
+    height: 90vh;
+    overflow-y: auto;
+}
+.admin-content-card-body-inner {
+    border: 2px solid gray;
+    height: 300px;
+    width: 250px;
+}
+.admin-upload-button-container input[type=file]{
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity:0;
+    font-size: 195px;
+    z-index:15;
+}
+.admin-uploaded-img{
+    display:none;
+    position: absolute;
+    bottom: -40px;
+    right: 0;
+    z-index:999999;
+}
+.admin-content-About-item-container:hover{
+    cursor:pointer;
+}
+.admin-content-About-section textarea{
+    margin-top:2em;
+}
+.page{
+    display:none;
+}
+#blah{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+a{
+    text-decoration:none !important;
+}
+ul{
+    list-style:none;
+    /* padding:0px !important; */
+}
+li:hover{
+    cursor:pointer;
+}
+.dropdown-toggle::after{
+    margin-left:auto !important;
+}   
