@@ -20,7 +20,7 @@
     overflow-y: auto;
 }
 .admin-content {
-    position: absolute;
+    /* position: absolute; */
     right: 0px;
     left: 300px;
     height: 90vh;
@@ -49,9 +49,9 @@
 .admin-content-About-item-container:hover{
     cursor:pointer;
 }
-.admin-content-About-section textarea{
+/* .admin-content-About-section textarea{
     margin-top:2em;
-}
+} */
 .page{
     display:none;
 }

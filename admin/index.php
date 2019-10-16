@@ -82,7 +82,7 @@
                 </div>
             </div> 
         </div>
-        <div class="admin-content">
+        <div class="admin-content position-absolute">
             <div class="admin-content-title container-fluid">
                 <h2 class="mt-4"></h2>  
             </div>
@@ -201,7 +201,7 @@
                 <h2></h2>
                 <div class="admin-content-card">
                     <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
+                        <img class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                         </div>
