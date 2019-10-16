@@ -108,7 +108,7 @@
                 </div>
             </div> 
         </div>
-        <div class="admin-content">
+        <div class="admin-content position-absolute">
             <div class="admin-content-title container-fluid">
                 <h2 class="mt-4"></h2>  
             </div>
