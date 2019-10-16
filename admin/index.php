@@ -140,7 +140,7 @@
               <div class="text-center img-placeholder"  onClick="triggerClick()">
                 <h4>Update image</h4>
               </div>
-              <img src="..." onClick="triggerClick()" id="profileDisplay">
+              <img onClick="triggerClick()" id="profileDisplay">
             </span>
             <input type="file" name="profileImage" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;">
             <label>Profile Image</label>
@@ -244,7 +244,7 @@
                 <h2></h2>
                 <div class="admin-content-card">
                     <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
+                        <img class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                         </div>
