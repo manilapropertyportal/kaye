@@ -3,9 +3,11 @@ $(document).ready(function(){
         if($('.admin-sidenav, .admin-sidenav-md').hasClass('admin-sidenav-open') && $('.admin-content').hasClass("position-absolute")){
             $('.admin-sidenav, .admin-sidenav-md').hide().removeClass('admin-sidenav-open');
             $('.admin-content').removeClass("position-absolute");
+            $('.admin-content').css({'width':'100%'});
         } else {
             $('.admin-sidenav, .admin-sidenav-md').show().addClass('admin-sidenav-open');
             $('.admin-content').addClass("position-absolute");
+            $('.admin-content').css({'width':'calc(100% - 300px)'});
         }
     })
     $('.admin-sidenav-close').click(function(){
@@ -41,12 +43,12 @@ $(document).ready(function(){
     });
 
   
-    $('.admin-About-new-cancel').click(function(){
-        cancellation($(this));
-    });
+    // $('.admin-About-new-cancel').click(function(){
+    //     cancellation($(this));
+    // });
 
     // $('.admin-About-new-Insert').click(forAboutNew)
-    // $('.admin-content-About-item-container').on('click', forAboutEdit)
+    $('.admin-content-About-item-container').on('click', forAboutEdit)
 
 //------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
 //------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
@@ -141,11 +143,11 @@ $(document).ready(function(){
 //-----------------------------------------------------------------ADMIN ABOUT-----------------------------------------------------------------------// 
 //-----------------------------------------------------------------ADMIN ABOUT-----------------------------------------------------------------------// 
 
-function cancellation(element){
-    $(element).parents().siblings("textarea").remove();
-    $(element).parents().eq(0).hide();
-    $('.admin-About-Add').show();
-}
+// function cancellation(element){
+//     $(element).parents().siblings("textarea").remove();
+//     $(element).parents().eq(0).hide();
+//     $('.admin-About-Add').show();
+// }
 
 function forAboutEdit(){
     var thiscontainer = $(this).find("p").html();
@@ -164,14 +166,9 @@ function forAboutEdit(){
         
     } else { 
         $("<div class='d-flex justify-content-end admin-about-edit-btns-container mb-3'><button class='btn btn-secondary admin-saveNew-about mx-2'>Save New Changes</button><button class='btn btn-secondary admin-about-edit-cancel'>Cancel</button></div>").insertAfter($(this));
-        $('.admin-about-edit-cancel').click(function(){
-            $(this).parents().first("div").remove();
-            // console.log($(this).parents().first().prev("div").first().children("textarea"));
-            // backtoPar.html(a.content);
-            backtoPar.html(thiscontainer);
-            editableText.replaceWith(backtoPar)
-            // editableText
-        });
+        
+        //-----------INSERTING-------------//
+
         $(".admin-saveNew-about").click(function(){
             $(this).parents().first("div").remove();
             backtoPar.text(editableText.val());
@@ -180,6 +177,18 @@ function forAboutEdit(){
             // localStorage.setItem("AdminAbout" ,JSON.stringify(AdminAbout));
             // console.log(Object.values(AdminAbout));
         })
+
+        //-----------INSERTING-------------//
+
+        $('.admin-about-edit-cancel').click(function(){
+            $(this).parents().first("div").remove();
+            // console.log($(this).parents().first().prev("div").first().children("textarea"));
+            // backtoPar.html(a.content);
+            backtoPar.html(thiscontainer);
+            editableText.replaceWith(backtoPar)
+            // editableText
+        });
+      
     }
 
 }

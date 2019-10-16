@@ -22,7 +22,7 @@
 .admin-content {
     /* position: absolute; */
     right: 0px;
-    left: 300px;
+    width: calc(100% - 300px);
     height: 90vh;
     overflow-y: auto;
 }
