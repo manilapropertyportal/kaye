@@ -22,7 +22,7 @@
 .admin-content {
     /* position: absolute; */
     right: 0px;
-    left: 300px;
+    width: calc(100% - 300px);
     height: 90vh;
     overflow-y: auto;
 }
@@ -74,8 +74,8 @@ li:hover{
 }
 .dropdown-toggle::after{
     margin-left:auto !important;
-}  
 
+}  
 
 input#uploadImage {
 display: inline-block;
@@ -87,3 +87,9 @@ display: inline-block;
   background-size: 60px 60px;
   cursor: pointer;
 }
+
+}
+/* .admin-content-About-item-container{
+    border: 1px solid black;
+    text-indent: 5px;      
+}    */

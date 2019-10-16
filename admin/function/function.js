@@ -3,9 +3,11 @@ $(document).ready(function(){
         if($('.admin-sidenav, .admin-sidenav-md').hasClass('admin-sidenav-open') && $('.admin-content').hasClass("position-absolute")){
             $('.admin-sidenav, .admin-sidenav-md').hide().removeClass('admin-sidenav-open');
             $('.admin-content').removeClass("position-absolute");
+            $('.admin-content').css({'width':'100%'});
         } else {
             $('.admin-sidenav, .admin-sidenav-md').show().addClass('admin-sidenav-open');
             $('.admin-content').addClass("position-absolute");
+            $('.admin-content').css({'width':'calc(100% - 300px)'});
         }
     })
     $('.admin-sidenav-close').click(function(){
@@ -41,12 +43,12 @@ $(document).ready(function(){
     });
 
   
-    $('.admin-About-new-cancel').click(function(){
-        cancellation($(this));
-    });
+    // $('.admin-About-new-cancel').click(function(){
+    //     cancellation($(this));
+    // });
 
-    $('.admin-About-new-Insert').click(forAboutNew)
-    // $('.admin-content-About-item-container').on('click', forAboutEdit)
+    // $('.admin-About-new-Insert').click(forAboutNew)
+    $('.admin-content-About-item-container').on('click', forAboutEdit)
 
 //------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
 //------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
@@ -129,74 +131,113 @@ function readURL(input) {
   
 
 
-//---------------------------------------------------------------- END OF IMAGE UPLOADING-----------------------------------------------------------//
-//---------------------------------------------------------------- END OF IMAGE UPLOADING-----------------------------------------------------------//
-//---------------------------------------------------------------- END OF IMAGE UPLOADING-----------------------------------------------------------//
-//---------------------------------------------------------------- END OF IMAGE UPLOADING-----------------------------------------------------------//
-//---------------------------------------------------------------- END OF IMAGE UPLOADING-----------------------------------------------------------//
-//---------------------------------------------------------------- END OF IMAGE UPLOADING-----------------------------------------------------------//
-//---------------------------------------------------------------- END OF IMAGE UPLOADING-----------------------------------------------------------//
-//---------------------------------------------------------------- END OF IMAGE UPLOADING-----------------------------------------------------------//
-//---------------------------------------------------------------- END OF IMAGE UPLOADING-----------------------------------------------------------//
-//---------------------------------------------------------------- END OF IMAGE UPLOADING-----------------------------------------------------------//
+//---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
+//---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
+//---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
+//---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
+//---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
+//---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
+//---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
+//---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
+//---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
+//---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
 
 
+//-----------------------------------------------------------------ADMIN ABOUT-----------------------------------------------------------------------// 
+//-----------------------------------------------------------------ADMIN ABOUT-----------------------------------------------------------------------// 
+//-----------------------------------------------------------------ADMIN ABOUT-----------------------------------------------------------------------// 
+//-----------------------------------------------------------------ADMIN ABOUT-----------------------------------------------------------------------// 
+//-----------------------------------------------------------------ADMIN ABOUT-----------------------------------------------------------------------// 
+//-----------------------------------------------------------------ADMIN ABOUT-----------------------------------------------------------------------// 
 
-function cancellation(element){
-    $(element).parents().siblings("textarea").remove();
-    $(element).parents().eq(0).hide();
-    $('.admin-About-Add').show();
-}
+// function cancellation(element){
+//     $(element).parents().siblings("textarea").remove();
+//     $(element).parents().eq(0).hide();
+//     $('.admin-About-Add').show();
+// }
 
 function forAboutEdit(){
-    var thiscontainer = $(this).find("p").html();
+    var thiscontainer = $(this).find("p").html().replace(/\&amp;/g,'&');
     var editableText = $("<textarea class='admin-text-area admin-text-area-edit' name='p' id='p' cols='30' rows='10' style='width:100%;'/>")
     editableText.val(thiscontainer)
     $(this).find("p").replaceWith(editableText);
     editableText.focus();
+    // var data_index = $(this).attr('data-index');
+    // var data = AdminAbout;
+    // var data = JSON.parse(adminAboutToBeParsed);
+    // var data_keys = Object.keys(data)[data_index];
+    var backtoPar = $("<p style='border:1px solid gray;padding:5px;white-space:pre-wrap;'></p>");
+    // var a = Object.values(data)[data_index];
 
     if ($(this).next().hasClass('admin-about-edit-btns-container')){
         
     } else { 
         $("<div class='d-flex justify-content-end admin-about-edit-btns-container mb-3'><button class='btn btn-secondary admin-saveNew-about mx-2'>Save New Changes</button><button class='btn btn-secondary admin-about-edit-cancel'>Cancel</button></div>").insertAfter($(this));
+        
+        //-----------INSERTING-------------//
+
+        $(".admin-saveNew-about").click(function(){
+            $(this).parents().first("div").remove();
+            backtoPar.text(editableText.val());
+            editableText.replaceWith(backtoPar);
+            console.log(editableText.val());
+            // a.content = editableText.val()
+            // localStorage.setItem("AdminAbout" ,JSON.stringify(AdminAbout));
+            // console.log(Object.values(AdminAbout));
+        })
+
+        //-----------INSERTING-------------//
+
         $('.admin-about-edit-cancel').click(function(){
             $(this).parents().first("div").remove();
             // console.log($(this).parents().first().prev("div").first().children("textarea"));
-            console.log(localStorage.getItem("AdminAbout"));
-            console.log(AdminAbout);
+            // backtoPar.html(a.content);
+            backtoPar.html(thiscontainer);
+            editableText.replaceWith(backtoPar)
+            // editableText
         });
+      
     }
 
 }
     
-var AdminAbout = new Array();
-if (localStorage.getItem('data') != null) 
-{
-    AdminAbout = AdminAbout.concat(JSON.parse(localStorage.data));
-    console.log(AdminAbout);
-};
-function forAboutNew(){
+// var AdminAbout = new Array();
+// if (localStorage.getItem('data') != null) 
+// {
+//     AdminAbout = AdminAbout.concat(JSON.parse(localStorage.data));
+//     console.log(AdminAbout);
+// };
+// function forAboutNew(){
 
-    var AdminAboutData = {};
-    var AboutNewToBeReplaced = $(this).parents().siblings("textarea");
-    var AboutNewDiv = $("<div class='admin-content-About-item-container mb-2'><p></p></div>");
-    var AboutNewval = $(this).parents().siblings("textarea").val();
+//     var AdminAboutData = {};
+//     var AboutNewToBeReplaced = $(this).parents().siblings("textarea");
+//     var AboutNewDiv = $("<div class='admin-content-About-item-container mb-2'><p style='border:1px solid gray;padding:5px;white-space:pre-wrap;'></p></div>");
+//     var AboutNewval = $(this).parents().siblings("textarea").val();
 
-    if (AboutNewval != ''){
+//     if (AboutNewval != ''){
 
-        AboutNewDiv.find("p").html(AboutNewval)
-        AboutNewToBeReplaced.replaceWith(AboutNewDiv);
-        AdminAboutData.content = AboutNewval;
-        AdminAbout.push(AdminAboutData);
-        localStorage.setItem("AdminAbout", JSON.stringify(AdminAbout));
-        var AdminAboutLastIndex = AdminAbout.length-1;
-        console.log(AdminAboutLastIndex);
+//         AboutNewToBeReplaced.replaceWith(AboutNewDiv);
+//         AboutNewDiv.find("p").html(AboutNewval)
+//         AdminAboutData.content = AboutNewval;
+//         AdminAbout.push(AdminAboutData);
+//         localStorage.setItem("AdminAbout", JSON.stringify(AdminAbout));
+//         var AdminAboutLastIndex = AdminAbout.length-1;
+//         AboutNewDiv.attr('data-index', AdminAboutLastIndex);
         
-        $('.admin-About-Add').show();
-        $(this).parents().eq(0).hide();
+//         $('.admin-About-Add').show();
+//         $(this).parents().eq(0).hide();
 
-    } else {
-        console.log(cancellation($(this)));
-    }
+//     } else {
+//         console.log(cancellation($(this)));
+//     }
 
-}
+// }
+
+//------------------------------------------------------------END OF ADMIN ABOUT----------------------------------------------------------//
+//------------------------------------------------------------END OF ADMIN ABOUT----------------------------------------------------------//
+//------------------------------------------------------------END OF ADMIN ABOUT----------------------------------------------------------//
+//------------------------------------------------------------END OF ADMIN ABOUT----------------------------------------------------------//
+//------------------------------------------------------------END OF ADMIN ABOUT----------------------------------------------------------//
+//------------------------------------------------------------END OF ADMIN ABOUT----------------------------------------------------------//
+//------------------------------------------------------------END OF ADMIN ABOUT----------------------------------------------------------//
+//------------------------------------------------------------END OF ADMIN ABOUT----------------------------------------------------------//
