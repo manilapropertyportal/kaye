@@ -150,7 +150,7 @@ $(document).ready(function(){
 // }
 
 function forAboutEdit(){
-    var thiscontainer = $(this).find("p").html();
+    var thiscontainer = $(this).find("p").html().replace(/\&amp;/g,'&');
     var editableText = $("<textarea class='admin-text-area admin-text-area-edit' name='p' id='p' cols='30' rows='10' style='width:100%;'/>")
     editableText.val(thiscontainer)
     $(this).find("p").replaceWith(editableText);
@@ -173,6 +173,7 @@ function forAboutEdit(){
             $(this).parents().first("div").remove();
             backtoPar.text(editableText.val());
             editableText.replaceWith(backtoPar);
+            console.log(editableText.val());
             // a.content = editableText.val()
             // localStorage.setItem("AdminAbout" ,JSON.stringify(AdminAbout));
             // console.log(Object.values(AdminAbout));

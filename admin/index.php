@@ -117,20 +117,7 @@
             <section class="page admin-content-About-section">
                 <div class="container">
                     <div class="admin-content-About-item-container">
-                        <p style="border:1px solid gray;padding:5px;white-space:pre-wrap;">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi mi mi, tristique id tempor ut, sodales quis justo. 
-                            In hac habitasse platea dictumst. Phasellus tincidunt, enim quis ultricies vulputate, purus diam imperdiet dui, 
-                            non ultricies velit ligula congue massa. Nullam sed facilisis ligula. Nullam et eleifend tellus. Ut placerat nulla 
-                            turpis, nec pretium diam sollicitudin ac. Sed dignissim mi id sem bibendum convallis. Nullam enim purus, venenatis 
-                            nec accumsan id, fermentum nec leo. Integer sed purus ligula. Etiam nulla augue, facilisis a massa a, aliquet venenatis 
-                            ante. Proin cursus vitae dui sed consequat. 
-
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi mi mi, tristique id tempor ut, sodales quis justo. 
-                            In hac habitasse platea dictumst. Phasellus tincidunt, enim quis ultricies vulputate, purus diam imperdiet dui, 
-                            non ultricies velit ligula congue massa. Nullam sed facilisis ligula. Nullam et eleifend tellus. Ut placerat nulla 
-                            turpis, nec pretium diam sollicitudin ac. Sed dignissim mi id sem bibendum convallis. Nullam enim purus, venenatis 
-                            nec accumsan id, fermentum nec leo. Integer sed purus ligula. Etiam nulla augue, facilisis a massa a, aliquet venenatis 
-                        </p>
+                        <p style="border:1px solid gray;padding:5px;white-space:pre-wrap;"></p>
                     </div>
                     <!-- <button class="btn btn-secondary admin-About-Add">Add New</button> -->
                     <span class="admin-About-btns" style="display:none;">
@@ -140,7 +127,7 @@
                 </div>
             </section>
             <section class="page admin-content-Units-section">
-                
+
             </section>
         </div>
     </div>
