@@ -10,32 +10,6 @@
     <link rel="stylesheet" href="style/style.css">  
     <title>Kaye Admin</title>
 </head>
-<style>
-.form-div { margin-top: 100px; border: 1px solid #e0e0e0; }
-#profileDisplay { display: block; height: 210px; width: 60%; margin: 0px auto; border-radius: 50%; }
-.img-placeholder {
-  width: 60%;
-  color: white;
-  height: 100%;
-  background: black;
-  opacity: .7;
-  height: 210px;
-  border-radius: 50%;
-  z-index: 2;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  display: none;
-}
-.img-placeholder h4 {
-  margin-top: 40%;
-  color: white;
-}
-.img-div:hover .img-placeholder {
-  display: block;
-  cursor: pointer;
-}
-</style>
 <body>
     <nav class="navbar navbar-dark bg-dark">
         <div>
@@ -114,6 +88,7 @@
             </div>
             <section class="page admin-content-Header-section">
                 <div class="admin-content-card-container row container h-100 m-auto">
+                
                     <!-- <div class="admin-content-card-body col-4 my-5 admin-upload-new-container">
                         <div class="admin-content-card-body-inner m-auto">
                             <div class="h-100 d-flex align-items-center px-3 position-relative admin-upload-new">
@@ -124,36 +99,18 @@
                                     <input class="w-100" type="file" id="admin-header-upload" name="admim-header-pic" accept="image/*">
                                 </div>
                             </div>
-                        </div>
-                        <div class="admin-content-card-body-description text-center">1 Bedroom</div>
+                        </div> -->
+
+                        <!-- <div class="admin-content-card-body-description text-center">1 Bedroom</div>
                     </div> -->
 
-                    <form action="files/model/model.php" method="post" enctype="multipart/form-data">
-          <h2 class="text-center mb-3 mt-3">Update profile</h2>
-          <?php if (!empty($msg)): ?>
-            <div class="alert <?php echo $msg_class ?>" role="alert">
-              <?php echo $msg; ?>
-            </div>
-          <?php endif; ?>
-          <div class="form-group text-center" style="position: relative;" >
-            <span class="img-div">
-              <div class="text-center img-placeholder"  onClick="triggerClick()">
-                <h4>Update image</h4>
-              </div>
-              <img src="..." onClick="triggerClick()" id="profileDisplay">
-            </span>
-            <input type="file" name="profileImage" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;">
-            <label>Profile Image</label>
-          </div>
-          <div class="form-group">
-            <label>Bio</label>
-            <textarea name="bio" id="bio" class="form-control"></textarea>
-          </div>
-          <div class="form-group">
-            <button type="submit" id="save_profile" name="save_profile" class="btn btn-primary btn-block" >Save User</button>
-  
-          </div>
-        </form>
+                    <form id="form" action="files/model/model.php" method="post" enctype="multipart/form-data">
+                            
+                    <input id="uploadImage" type="file" accept="image/*" name="image" />
+                        <div id="preview"><img src="favicon.ico" /></div><br>
+                            <input class="btn btn-success" type="submit" value="Upload">
+                        </form>
+                    <div id="err"></div>
 
                 </div> 
             </section>
