@@ -1,12 +1,11 @@
 $(document).ready(function(){
-
-    
-
     $('.admin-sidenavburger').click(function(){
-        if($('.admin-sidenav, .admin-sidenav-md').hasClass('admin-sidenav-open')){
+        if($('.admin-sidenav, .admin-sidenav-md').hasClass('admin-sidenav-open') && $('.admin-content').hasClass("position-absolute")){
             $('.admin-sidenav, .admin-sidenav-md').hide().removeClass('admin-sidenav-open');
+            $('.admin-content').removeClass("position-absolute");
         } else {
             $('.admin-sidenav, .admin-sidenav-md').show().addClass('admin-sidenav-open');
+            $('.admin-content').addClass("position-absolute");
         }
     })
     $('.admin-sidenav-close').click(function(){
