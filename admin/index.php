@@ -127,7 +127,38 @@
                 </div>
             </section>
             <section class="page admin-content-Units-section">
-
+                <div class="container">
+                    <div class="w-100 Admin-Unit-grid">
+                        <button class="btn btn-secondary m-auto" style="height:40px;width:180px">Add New Unit Photo</button>
+                        <div>
+                            <div class="admin-units-image-holder"></div>
+                            <div class="my-2 admin-units-floorplan-image-holder"></div>
+                        </div>
+                        <div>
+                            <div class="admin-units-image-holder"></div>
+                            <div class="my-2 admin-units-floorplan-image-holder"></div>
+                        </div>
+                        <div>
+                            <div class="admin-units-image-holder"></div>
+                            <div class="my-2 admin-units-floorplan-image-holder"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="page admin-content-Maps-section">
+                <div class="container">
+                    <div>
+                        <iframe width="100%" height="450" frameborder="0" style="border:0" src allowfullscreen></iframe>
+                        <div>
+                            <input class="mb-2 w-100" type="textbox"/>
+                        </div>
+                        <span>
+                            <button class="btn btn-secondary Admin-change-map">
+                                Change Map
+                            </button>
+                        </span>
+                    </div>
+                </div>
             </section>
         </div>
     </div>

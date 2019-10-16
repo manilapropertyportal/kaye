@@ -50,6 +50,8 @@ $(document).ready(function(){
     // $('.admin-About-new-Insert').click(forAboutNew)
     $('.admin-content-About-item-container').on('click', forAboutEdit)
 
+    $('.Admin-change-map').click(AdminMap)
+
 //------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
 //------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
 //------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
@@ -234,6 +236,13 @@ function forAboutEdit(){
 //------------------------------------------------------------END OF ADMIN ABOUT----------------------------------------------------------//
 //------------------------------------------------------------END OF ADMIN ABOUT----------------------------------------------------------//
 //------------------------------------------------------------END OF ADMIN ABOUT----------------------------------------------------------//
+
+function AdminMap(){
+    var MapAddress = $(this).parents("span").siblings("div").children("input").val();
+    var frameSource = $(this).parents("span").siblings("iframe");
+    console.log(MapAddress)
+    console.log(frameSource.attr('src','https://maps.google.com/?q='+encodeURIComponent(MapAddress)+'&output=embed'));
+}
 
 // function getImg(image) {
 //        header = image;
