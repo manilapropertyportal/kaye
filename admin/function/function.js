@@ -77,9 +77,17 @@ $(document).ready(function(){
 
     // });
 
+    $("#uploadImage").on('change',function(e) {
+        readURL(this);
+        console.log(this);
+        $('#preview-img').removeClass('d-none')
+      });
+
+
     $("#form").on('submit',(function(e) {
         console.log('submitted!');
         console.log(e);
+        // $.post('files/model/model.php',{e:'save_profile',header},function(data){  result=data },'json')
         e.preventDefault();
             var images = new FormData(this);
             images.append('e', 'save_header');
@@ -107,19 +115,18 @@ $(document).ready(function(){
 
 // $(document).on("click", ".admin-content-About-item-container" , forAboutEdit)
 
-// function readURL(input) {
-//     if (input.files && input.files[0]) {
-//         var reader = new FileReader();
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
         
-//         reader.onload = function(e) {
-//         $('#blah').attr('src', e.target.result);
-//             // getImg(e.target.result);
-//         }
-//         reader.readAsDataURL(input.files[0]);
-//     }
-// }
-
-
+        reader.onload = function(e) {
+        $('#preview-img').attr('src', e.target.result);
+            // getImg(e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+  
 
 
 //---------------------------------------------------------------- END OF IMAGE UPLOADING-----------------------------------------------------------//
@@ -193,29 +200,3 @@ function forAboutNew(){
     }
 
 }
-
-// function getImg(image) {
-//        header = image;
-//        $.post('files/model/model.php',{e:'save_profile',header},function(data){  result=data },'json')
-//         console.log('asdas');
-//         //$('.admin-upload-new-container').parent().find('#blah')[0].currentSrc
-// }
-
-// function triggerClick(e) {
-//     console.log('nasa trigger ka!')
-//     document.querySelector('#profileImage').click();
-
-//   }
-//   function displayImage(e) {
-//     if (e.files[0]) {
-//       var reader = new FileReader();
-//       reader.onload = function(e){
-//           console.log($('#profileImage').val().split('\\')[2]);
-//         header = $('#profileImage').val().split('\\')[2];
-//         document.querySelector('#profileDisplay').setAttribute('src', e.target.result);
-//         $.post('files/model/model.php',{e:'save_header',header},function(){},'json')
-//         // getImg(e.target.result);
-//       }
-//       reader.readAsDataURL(e.files[0]);
-//     }
-//   }

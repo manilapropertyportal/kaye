@@ -33,7 +33,7 @@
                     if(in_array($ext, $valid_extensions)) { 
                       $path = $path.strtolower($final_image); 
                         if(move_uploaded_file($tmp,$path)) {
-                          echo "<img src='files/model/$path' />";
+                          // echo "<img src='files/model/$path' />";
                           $str = explode('/', $path);
                           $value = $str[1];
                           $stmt = $mysqli -> prepare(" INSERT headers (value) VALUES (?) ");
