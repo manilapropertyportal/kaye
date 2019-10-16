@@ -60,64 +60,67 @@ $(document).ready(function(){
 
     
 
-    $("#admin-header-upload").on('change',function(e) {
-        var uploadedd = `<div class="admin-content-card-body col-4 my-5"><div class="admin-content-card-body-inner m-auto admin-image-banner-item"><div class="h-100 d-flex align-items-center px-3 position-relative"><img id="blah" src="#" alt="your image"/><div class="justify-content-end admin-uploaded-img"><button class="btn btn-secondary admin-edit-banner mx-2">Edit</button><button class="btn btn-secondary cancel">Cancel</button></div></div></div></div>`
+    // $("#admin-header-upload").on('change',function(e) {
+    //     var uploadedd = `<div class="admin-content-card-body col-4 my-5"><div class="admin-content-card-body-inner m-auto admin-image-banner-item"><div class="h-100 d-flex align-items-center px-3 position-relative"><img id="blah" src="#" alt="your image"/><div class="justify-content-end admin-uploaded-img"><button class="btn btn-secondary admin-edit-banner mx-2">Edit</button><button class="btn btn-secondary cancel">Cancel</button></div></div></div></div>`
 
-        $(uploadedd).insertBefore('.admin-upload-new-container');      
-        readURL(this);
+    //     $(uploadedd).insertBefore('.admin-upload-new-container');      
+    //     readURL(this);
         
-        $('#blah').click(function(){
-           $('.admin-uploaded-img').show().addClass('d-flex');
-           $(this).css({opacity:'0.5'});
-        });  
-        $('.cancel').click(function(){
-            $('.admin-uploaded-img').removeClass('d-flex').hide();
-            $('#blah').css({opacity:'1'});
-        });
+    //     $('#blah').click(function(){
+    //        $('.admin-uploaded-img').show().addClass('d-flex');
+    //        $(this).css({opacity:'0.5'});
+    //     });  
+    //     $('.cancel').click(function(){
+    //         $('.admin-uploaded-img').removeClass('d-flex').hide();
+    //         $('#blah').css({opacity:'1'});
+    //     });
 
-    });
+    // });
+
+    $("#form").on('submit',(function(e) {
+        console.log('submitted!');
+        console.log(e);
+        e.preventDefault();
+            var images = new FormData(this);
+            images.append('e', 'save_header');
+                    $.ajax({
+                        url: "files/model/model.php",
+                        type: "POST",
+                        data:  images,
+                        contentType: false,
+                        cache: false,
+                        processData:false,
+                            success: function(data) {
+                                console.log(data);
+                                if(data=='invalid') {
+                                    $("#err").html("Invalid File !").fadeIn();
+                                } else {
+                                    $("#preview").html(data).fadeIn();
+                                    $("#form")[0].reset(); 
+                                }
+                            },  
+                    });
+    
+       }));
+
 });
 
 // $(document).on("click", ".admin-content-About-item-container" , forAboutEdit)
 
-function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
+// function readURL(input) {
+//     if (input.files && input.files[0]) {
+//         var reader = new FileReader();
         
-        reader.onload = function(e) {
-        $('#blah').attr('src', e.target.result);
-            // getImg(e.target.result);
-        }
-        reader.readAsDataURL(input.files[0]);
-    }
-}
+//         reader.onload = function(e) {
+//         $('#blah').attr('src', e.target.result);
+//             // getImg(e.target.result);
+//         }
+//         reader.readAsDataURL(input.files[0]);
+//     }
+// }
 
 
-$("#form").on('submit',(function(e) {
-    console.log('submitted!');
-    console.log(e);
-    e.preventDefault();
-        var images = new FormData(this);
-        images.append('e', 'save_header');
-                $.ajax({
-                    url: "files/model/model.php",
-                    type: "POST",
-                    data:  images,
-                    contentType: false,
-                    cache: false,
-                    processData:false,
-                        success: function(data) {
-                            console.log(data);
-                            if(data=='invalid') {
-                                $("#err").html("Invalid File !").fadeIn();
-                            } else {
-                                $("#preview").html(data).fadeIn();
-                                $("#form")[0].reset(); 
-                            }
-                        },  
-                });
 
-   }));
 
 //---------------------------------------------------------------- END OF IMAGE UPLOADING-----------------------------------------------------------//
 //---------------------------------------------------------------- END OF IMAGE UPLOADING-----------------------------------------------------------//
