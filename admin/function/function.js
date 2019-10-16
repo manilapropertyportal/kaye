@@ -41,10 +41,9 @@ $(document).ready(function(){
         $(this).hide();
     });
 
+  
     $('.admin-About-new-cancel').click(function(){
-        console.log($(this).parents().siblings("textarea").remove())
-        console.log($(this).parents().eq(0).hide())
-        $('.admin-About-Add').show();
+        cancellation($(this));
     });
 
     $('.admin-About-new-Insert').click(forAboutNew)
@@ -107,39 +106,62 @@ function readURL(input) {
 
 
 
+function cancellation(element){
+    $(element).parents().siblings("textarea").remove();
+    $(element).parents().eq(0).hide();
+    $('.admin-About-Add').show();
+}
+
 function forAboutEdit(){
     var thiscontainer = $(this).find("p").html();
     var editableText = $("<textarea class='admin-text-area admin-text-area-edit' name='p' id='p' cols='30' rows='10' style='width:100%;'/>")
     editableText.val(thiscontainer)
     $(this).find("p").replaceWith(editableText);
     editableText.focus();
+
     if ($(this).next().hasClass('admin-about-edit-btns-container')){
-        console.log("meron")     
-    } else {
-        console.log("wala")
-        $("<div class='d-flex justify-content-end admin-about-edit-btns-container'><button class='btn btn-secondary admin-saveNew-about mx-2'>Save New Changes</button><button class='btn btn-secondary admin-about-edit-cancel'>Cancel</button></div>").insertAfter($(this));
+        
+    } else { 
+        $("<div class='d-flex justify-content-end admin-about-edit-btns-container mb-3'><button class='btn btn-secondary admin-saveNew-about mx-2'>Save New Changes</button><button class='btn btn-secondary admin-about-edit-cancel'>Cancel</button></div>").insertAfter($(this));
+        $('.admin-about-edit-cancel').click(function(){
+            $(this).parents().first("div").remove();
+            // console.log($(this).parents().first().prev("div").first().children("textarea"));
+            console.log(localStorage.getItem("AdminAbout"));
+            console.log(AdminAbout);
+        });
     }
+
 }
     
 var AdminAbout = new Array();
-
+if (localStorage.getItem('data') != null) 
+{
+    AdminAbout = AdminAbout.concat(JSON.parse(localStorage.data));
+    console.log(AdminAbout);
+};
 function forAboutNew(){
 
     var AdminAboutData = {};
     var AboutNewToBeReplaced = $(this).parents().siblings("textarea");
-    var AboutNewDiv = $("<div class='admin-content-About-item-container'><p></p></div>");
+    var AboutNewDiv = $("<div class='admin-content-About-item-container mb-2'><p></p></div>");
     var AboutNewval = $(this).parents().siblings("textarea").val();
-    AboutNewDiv.find("p").html(AboutNewval)
-    AboutNewToBeReplaced.replaceWith(AboutNewDiv);
-    AdminAboutData.content = AboutNewval;
-    AdminAbout.push(AdminAboutData);
-    console.log(AdminAbout)
-    console.log(localStorage.setItem("AdminAbout",JSON.stringify(AdminAbout)));
-    var AdminAboutStorage = JSON.parse(localStorage.getItem("AdminAbout"));
-    console.log(AdminAboutStorage)
 
-    $('.admin-About-Add').show();
-    $(this).parents().eq(0).hide();
+    if (AboutNewval != ''){
+
+        AboutNewDiv.find("p").html(AboutNewval)
+        AboutNewToBeReplaced.replaceWith(AboutNewDiv);
+        AdminAboutData.content = AboutNewval;
+        AdminAbout.push(AdminAboutData);
+        localStorage.setItem("AdminAbout", JSON.stringify(AdminAbout));
+        var AdminAboutLastIndex = AdminAbout.length-1;
+        console.log(AdminAboutLastIndex);
+        
+        $('.admin-About-Add').show();
+        $(this).parents().eq(0).hide();
+
+    } else {
+        console.log(cancellation($(this)));
+    }
 
 }
 
