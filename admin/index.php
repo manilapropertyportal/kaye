@@ -103,15 +103,21 @@
 
                         <!-- <div class="admin-content-card-body-description text-center">1 Bedroom</div>
                     </div> -->
-
-                    <form id="form" action="files/model/model.php" method="post" enctype="multipart/form-data">
-                            
-                    <input id="uploadImage" type="file" accept="image/*" name="image" />
-                        <div id="preview"><img src="favicon.ico" /></div><br>
-                            <input class="btn btn-success" type="submit" value="Upload">
-                        </form>
-                    <div id="err"></div>
-
+                                <div class="admin-content-card-body col-4 my-5 admin-upload-new-container">
+                                    <div class="admin-content-card-body-inner m-auto">
+                                        <div class="h-100 d-flex align-items-center px-3 position-relative admin-upload-new">
+                                           
+                                                <form id="form" class="h-60 mt-5" action="files/model/model.php" method="post" enctype="multipart/form-data">
+                                                
+                                                <input class="w-100" id="uploadImage" type="file" accept="image/*" name="image" />
+                                                    <div id="preview"><img id="preview-img" class="d-none position-absolute m-auto" src="#" alt="your image"/>
+                                                    </div>
+                                                        <input class="btn btn-success d-flex" type="submit" value="Upload">
+                                                    </form>
+                                                <div id="err"></div>
+                                        </div>
+                                    </div>
+                                </div>
                 </div> 
             </section>
             <section class="page admin-content-About-section">

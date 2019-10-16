@@ -29,15 +29,19 @@
                   $img = $_FILES['image']['name'];
                   $tmp = $_FILES['image']['tmp_name'];
                   $ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
-                  $final_image = rand(1000,1000000).$img;
+                  $final_image = rand(1000,1000000).'-'.$img;
                     if(in_array($ext, $valid_extensions)) { 
                       $path = $path.strtolower($final_image); 
                         if(move_uploaded_file($tmp,$path)) {
-                          echo "<img src='files/model/$path' />";
                           $str = explode('/', $path);
                           $value = $str[1];
-                          $stmt = $mysqli -> prepare(" INSERT headers (value) VALUES (?) ");
+                          echo "<img src='files/model/$path' class='$value d-none position-absolute m-auto' />";
+                          $stmt = $mysqli -> prepare("INSERT headers (value) VALUES (?) ");
                           $stmt -> bind_param('s',$value);
+
+                          while ($stmt -> fetch()) { 
+                            print_r($value); 
+                        }
                           $stmt -> execute();
                         }
                     } else {

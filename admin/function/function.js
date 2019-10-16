@@ -81,6 +81,13 @@ $(document).ready(function(){
 
     // });
 
+    $("#uploadImage").on('change',function(e) {
+        readURL(this);
+        console.log(this);
+        $('#preview-img').removeClass('d-none');
+      });
+
+
     $("#form").on('submit',(function(e) {
         console.log('submitted!');
         console.log(e);
@@ -99,31 +106,54 @@ $(document).ready(function(){
                                 if(data=='invalid') {
                                     $("#err").html("Invalid File !").fadeIn();
                                 } else {
-                                    $("#preview").html(data).fadeIn();
-                                    $("#form")[0].reset(); 
+                                    // $("#preview-img").html(data).fadeIn();
+                                    var a = $(data).attr('class').split(' ')[0],
+                                        c = $(data).attr('src');
+                                    console.log(a);
+                                    console.log(c);
+                                    $(data).removeClass('d-none');
+                                    console.log($(data).removeClass('d-none'));
+                                    $('#preview-img').addClass('d-none');
+                                    // $("#form")[0].reset(); 
+
+                                    var b = `<div class="admin-content-card-body col-4 my-5 admin-upload-new-container">
+                                    <div class="admin-content-card-body-inner m-auto">
+                                        <div class="h-100 d-flex align-items-center px-3 position-relative admin-upload-new">
+                                           
+                                                <form id="form" class="h-60 mt-5" action="files/model/model.php" method="post" enctype="multipart/form-data">
+                                                
+                                             
+                                                    <img id="preview" class="`+a+` position-absolute m-auto" src="`+c+`" alt="your image"/>
+                                                   
+                                                        
+                                                    </form>
+                                        </div>
+                                    </div>
+                                </div>`
+                                console.log(b);
+                                $(b).insertBefore('.admin-upload-new-container');
                                 }
                             },  
                     });
-    
+                    // $.post('files/model/model.php',{e:'view_header',header},function(data){  result=data },'json')
        }));
 
 });
 
 // $(document).on("click", ".admin-content-About-item-container" , forAboutEdit)
 
-// function readURL(input) {
-//     if (input.files && input.files[0]) {
-//         var reader = new FileReader();
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
         
-//         reader.onload = function(e) {
-//         $('#blah').attr('src', e.target.result);
-//             // getImg(e.target.result);
-//         }
-//         reader.readAsDataURL(input.files[0]);
-//     }
-// }
-
-
+        reader.onload = function(e) {
+        $('#preview-img').attr('src', e.target.result);
+            // getImg(e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+  
 
 
 //---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
