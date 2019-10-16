@@ -82,14 +82,13 @@ $(document).ready(function(){
     $("#uploadImage").on('change',function(e) {
         readURL(this);
         console.log(this);
-        $('#preview-img').removeClass('d-none')
+        $('#preview-img').removeClass('d-none');
       });
 
 
     $("#form").on('submit',(function(e) {
         console.log('submitted!');
         console.log(e);
-        // $.post('files/model/model.php',{e:'save_profile',header},function(data){  result=data },'json')
         e.preventDefault();
             var images = new FormData(this);
             images.append('e', 'save_header');
@@ -105,12 +104,36 @@ $(document).ready(function(){
                                 if(data=='invalid') {
                                     $("#err").html("Invalid File !").fadeIn();
                                 } else {
-                                    $("#preview").html(data).fadeIn();
-                                    $("#form")[0].reset(); 
+                                    // $("#preview-img").html(data).fadeIn();
+                                    var a = $(data).attr('class').split(' ')[0],
+                                        c = $(data).attr('src');
+                                    console.log(a);
+                                    console.log(c);
+                                    $(data).removeClass('d-none');
+                                    console.log($(data).removeClass('d-none'));
+                                    $('#preview-img').addClass('d-none');
+                                    // $("#form")[0].reset(); 
+
+                                    var b = `<div class="admin-content-card-body col-4 my-5 admin-upload-new-container">
+                                    <div class="admin-content-card-body-inner m-auto">
+                                        <div class="h-100 d-flex align-items-center px-3 position-relative admin-upload-new">
+                                           
+                                                <form id="form" class="h-60 mt-5" action="files/model/model.php" method="post" enctype="multipart/form-data">
+                                                
+                                             
+                                                    <img id="preview" class="`+a+` position-absolute m-auto" src="`+c+`" alt="your image"/>
+                                                   
+                                                        
+                                                    </form>
+                                        </div>
+                                    </div>
+                                </div>`
+                                console.log(b);
+                                $(b).insertBefore('.admin-upload-new-container');
                                 }
                             },  
                     });
-    
+                    // $.post('files/model/model.php',{e:'view_header',header},function(data){  result=data },'json')
        }));
 
 });
