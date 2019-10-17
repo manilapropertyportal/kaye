@@ -28,15 +28,12 @@ $(document).ready(function(){
             const content_page_sections = this.dataset.page;
             const title = decodeURIComponent(content_page_sections);
             console.log(decodeURIComponent(content_page_sections));
+            console.log($('.admin-content-title h2').text(content_page_sections));
             $('.admin-content-title h2').text(content_page_sections);
             $('.page').hide();
             $('.admin-content-'+title+'-section').show();
-                if(title == 'Header') {
-                    viewHeader(function(output){
-                        console.log(output);
-                        $(output).insertAfter('.header');
-                    });
-                } else {
+                if (title == 'Header') {
+                    viewHeader();
                 }
         } else {
             // $('.alert').alert()
@@ -89,72 +86,85 @@ $(document).ready(function(){
 
     // });
 
-    $("#uploadImage").on('change',function(e) {
-        readURL(this);
-        console.log(this);
-        $('#preview-img').removeClass('d-none');
-        $(".header-upload").toggleClass('d-none d-flex');
-      });
 
 
 });
 // $(document).on("click", ".admin-content-About-item-container" , forAboutEdit)
 
+
+$(".header-form").on('submit',(function(e) {
+    console.log('submitted!');
+    e.preventDefault();
+        const description = $('#uploadImage').val().split('\\')[2];
+        const name = description.split('.')[0];
+        const images = new FormData(this);
+            images.append('e', 'save_header');
+            images.append('name', name);
+            images.append('description', description);
+                $.ajax({
+                    url: "files/model/model.php",
+                    type: "POST",
+                    data:  images,
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                        success: function(data) {
+                            console.log(data);
+                            if(data == 'error') {
+                                console.log('bobobobobobo');
+                                alert('Bobo Choose File muna!');
+                            } else {
+                                $('#preview-img').removeClass('d-flex').addClass('d-none').removeAttr('src');
+                                $(data).insertAfter('.admin-content-card-body:first');
+                                $(".header-upload").toggleClass('d-flex d-none');
+                                $("#form").trigger('reset');
+                            }
+                        }, 
+                });
+})); 
+
+function uploadImage() {
+    $("#uploadImage").on('change',function(e) {
+        readURL(this);
+        console.log(this);
+        $('#preview-img').removeClass('d-none');
+        const a = $('.header-upload');
+            if (a.hasClass('d-none') == true){
+                    a.removeClass('d-none').addClass('d-flex');
+            }
+      }); 
+}
+
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
-        
-        reader.onload = function(e) {
-        $('#preview-img').attr('src', e.target.result);
-        // insertHeader();
-        console.log('read');
-        }
-        reader.readAsDataURL(input.files[0]);
+            reader.onload = function(e) {
+                $('#preview-img').attr('src', e.target.result);
+            console.log(e);
+            console.log(input.files[0])
+            }
+            reader.readAsDataURL(input.files[0]);
     }
+   
 }
-  
-// function insertHeader() {
-  
-    $(".header-form").on('submit',(function(e) {
-        // if ($('#preview-img').hasClass('d-none') == false) {
-        console.log('submitted!');
-        e.preventDefault();
-            const description = $('#uploadImage').val().split('\\')[2];
-            const name = description.split('.')[0];
-            const images = new FormData(this);
-                images.append('e', 'save_header');
-                images.append('name', name);
-                images.append('description', description);
-                    $.ajax({
-                        url: "files/model/model.php",
-                        type: "POST",
-                        data:  images,
-                        contentType: false,
-                        cache: false,
-                        processData:false,
-                            success: function(data) {
-                                console.log(data);
-                                if(data == 'error') {
-                                    console.log('bobobobobobo');
-                                    alert('Bobo Choose File muna!');
-                                } else {
-                                    $('#preview-img').addClass('d-none').removeAttr('src');
-                                    $(data).insertAfter('.admin-content-card-body:first');
-                                    $(".header-upload").toggleClass('d-flex d-none');
-                                    $("#form").trigger('reset');
-                                }
-                            }, 
-                    });
-                // }  
-    }));
-      
-// }
 
 function viewHeader(header) {
     $.post('files/model/model.php',{e:'view_header'},function(data){ 
-       header(data);
-      
-    });
+        console.log('view');
+    //    header(data);
+    //         viewHeader(function(output){
+    //         console.log(output);
+    //         });
+        const a = $(data).length+1;
+        const b = $('.admin-content-card-body').length;
+        const c = $('.admin-content-card-container');
+            if (a != b) {
+                c.html(c.html()+data);
+            }
+           uploadImage();
+        });
+
+        
 }
 
 //---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//

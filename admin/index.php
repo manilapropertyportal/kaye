@@ -88,36 +88,21 @@
             </div>
             <section class="page admin-content-Header-section">
                 <div class="admin-content-card-container row container h-100 m-auto">
-                
-                    <!-- <div class="admin-content-card-body col-4 my-5 admin-upload-new-container">
+                    <div class="admin-content-card-body col-4 my-5 admin-upload-new-container header">
                         <div class="admin-content-card-body-inner m-auto">
                             <div class="h-100 d-flex align-items-center px-3 position-relative admin-upload-new">
-                                <div class="admin-picture-header d-flex w-100 admin-upload-button-container">
-                                    <span class="w-100 h-100 text-center h1">
-                                        <i class="fas fa-plus-circle"></i>
-                                    </span>
-                                    <input class="w-100" type="file" id="admin-header-upload" name="admim-header-pic" accept="image/*">
+                                <form id="form" class="h-60 mt-5 header-form" action="files/model/model.php" method="post" enctype="multipart/form-data">
+                                    <input class="w-100" id="uploadImage" type="file" accept="image/*" name="image" />
+                                        <div id="preview">
+                                            <img id="preview-img" class="d-none position-absolute m-auto" src="#" alt="your image"/>
+                                        </div>
+                                            <input class="header-upload btn btn-success d-none" type="submit" value="Upload">
+                                </form>
+                                    <div id="err">
                                 </div>
                             </div>
-                        </div> -->
-
-                        <!-- <div class="admin-content-card-body-description text-center">1 Bedroom</div>
-                    </div> -->
-                                <div class="admin-content-card-body col-4 my-5 admin-upload-new-container header">
-                                    <div class="admin-content-card-body-inner m-auto">
-                                        <div class="h-100 d-flex align-items-center px-3 position-relative admin-upload-new">
-                                           
-                                                <form id="form" class="h-60 mt-5 header-form" action="files/model/model.php" method="post" enctype="multipart/form-data">
-                                                
-                                                <input class="w-100" id="uploadImage" type="file" accept="image/*" name="image" />
-                                                    <div id="preview"><img id="preview-img" class="d-none position-absolute m-auto" src="#" alt="your image"/>
-                                                    </div>
-                                                        <input class="header-upload btn btn-success d-none" type="submit" value="Upload">
-                                                    </form>
-                                                <div id="err"></div>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
                 </div> 
             </section>
             <section class="page admin-content-About-section">
