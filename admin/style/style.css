@@ -58,12 +58,17 @@
 }
 .admin-units-image-holder,.admin-units-floorplan-image-holder{
     width:250px;
-    height:350px;
+    height:300px;
     border:1px solid gray;
     margin:auto;
 }
-.admin-units-image-holder:hover{
+.admin-units-image-holder:hover,.admin-units-floorplan-image-holder:hover,.admin-unit-modal-holder:nth-of-type(2) div h5:hover{
     cursor:pointer;
+}
+.Admin-unit-modal-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 50%;
 }
 .page{
     display:none;

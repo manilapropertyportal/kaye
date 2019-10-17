@@ -52,6 +52,8 @@ $(document).ready(function(){
 
     $('.Admin-change-map').click(AdminMap)
 
+    $('.AdminUnit-ADNEW').click(AdminUnitsAddNew)
+
 //------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
 //------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
 //------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
@@ -122,11 +124,11 @@ $(document).ready(function(){
                                            
                                                 <form id="form" class="h-60 mt-5" action="files/model/model.php" method="post" enctype="multipart/form-data">
                                                 
-                                             
+                                            
                                                     <img id="preview" class="`+a+` position-absolute m-auto" src="`+c+`" alt="your image"/>
-                                                   
-                                                        
-                                                    </form>
+                                                
+                                                    
+                                                </form>
                                         </div>
                                     </div>
                                 </div>`
@@ -183,7 +185,7 @@ function readURL(input) {
 
 function forAboutEdit(){
     var thiscontainer = $(this).find("p").html().replace(/\&amp;/g,'&');
-    var editableText = $("<textarea class='admin-text-area admin-text-area-edit' name='p' id='p' cols='30' rows='10' style='width:100%;'/>")
+    var editableText = $("<textarea class='admin-text-area admin-text-area-edit' name='p' id='p' cols='30' rows='10' style='width:100%;'/>");
     editableText.val(thiscontainer)
     $(this).find("p").replaceWith(editableText);
     editableText.focus();
@@ -267,6 +269,27 @@ function forAboutEdit(){
 //------------------------------------------------------------END OF ADMIN ABOUT----------------------------------------------------------//
 //------------------------------------------------------------END OF ADMIN ABOUT----------------------------------------------------------//
 
+//------------------------------------------------------------ADMIN UNITS-----------------------------------------------------------------//
+//------------------------------------------------------------ADMIN UNITS-----------------------------------------------------------------//
+//------------------------------------------------------------ADMIN UNITS-----------------------------------------------------------------//
+//------------------------------------------------------------ADMIN UNITS-----------------------------------------------------------------//
+
+function AdminUnitsAddNew(){
+    var AdminUnitsNewContainer = 
+    `<div class='grid-item-container'>
+        <div class='admin-units-image-holder my-2' data-toggle='modal' data-target='.bd-example-modal-xl'></div>
+        <span class='d-flex justify-content-center mt-1'>
+            <h5>Title Here</h5>
+        </span>
+    </div>`
+    $(AdminUnitsNewContainer).insertBefore($(this));
+    $(this).hide();
+}
+
+//------------------------------------------------------------END OF ADMIN UNITS----------------------------------------------------------//
+//------------------------------------------------------------END OF ADMIN UNITS----------------------------------------------------------//
+//------------------------------------------------------------END OF ADMIN UNITS----------------------------------------------------------//
+//------------------------------------------------------------END OF ADMIN UNITS----------------------------------------------------------//
 function AdminMap(){
     var MapAddress = $(this).parents("span").siblings("div").children("input").val();
     var frameSource = $(this).parents("span").siblings("iframe");
