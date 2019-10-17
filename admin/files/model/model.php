@@ -45,8 +45,8 @@
                                         </div>
                                       </div>';
                           echo $remarks;
-                          $stmt = $mysqli -> prepare("INSERT headers (NAME,DESCRIPTION,VALUE,REMARKS) VALUES (?,?,?,?) ");
-                          $stmt -> bind_param('ssss',$name,$description,$value,$remarks);
+                          $stmt = $mysqli -> prepare("INSERT headers (NAME,DESCRIPTION,VALUE) VALUES (?,?,?) ");
+                          $stmt -> bind_param('sss',$name,$description,$value);
 
                         //   while ($stmt -> fetch()) { 
                         //     print_r($value); 
@@ -59,7 +59,24 @@
                 }
             break;
             case 'view_header':
-                echo 'view header pasok!';
+                $var = '';
+                $stmt = $mysqli -> prepare('SELECT NAME, DESCRIPTION, VALUE FROM headers'); 
+                $stmt -> execute(); 
+                $stmt -> store_result(); 
+                $stmt -> bind_result($name, $description, $value); 
+                  while ($stmt -> fetch()) { 
+                      // echo $name; 
+                      // echo $description; 
+                      // echo $value;
+                      $var  = '<div class="'.$name.' admin-content-card-body col-4 my-5 admin-upload-new-container">
+                          <div class="admin-content-card-body-inner m-auto">
+                            <div class="h-100 d-flex align-items-center px-3 position-relative admin-upload-new">
+                              <img id="preview-img" class="'.$name.' h-100 mt-5 position-absolute m-auto" src="files/model/uploads/'.$value.'" alt="your image"/>
+                            </div>
+                          </div>
+                        </div>';
+                    echo $var;
+                  }
             break;
         }
 }
