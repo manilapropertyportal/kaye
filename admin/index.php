@@ -238,7 +238,44 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    ....
+                <div class="row">
+                    <div class="my-2 col-12 col-lg-6 admin-unit-modal-holder">
+                        <h5 class="text-center">Unit</h5>
+                        <div class="admin-units-image-holder mb-2"></div>
+                        <div class="w-50 m-auto">
+                            <h5 class="text-center">Select Category</h5>
+                        </div>
+                    </div>
+                    <div class="my-2 col-12 col-lg-6 admin-unit-modal-holder">
+                        <h5 class="text-center">Floor Plan</h5>
+                        <div class="admin-units-floorplan-image-holder mb-2"></div>
+                        <div class="w-50 m-auto">
+                            <h5 class="text-center">Click to Change Size(in sqr.m.)</h5>
+                        </div>
+                    </div>
+                    <div class="Admin-unit-modal-grid-container">
+                        <div class="Admin-unit-modal-grid-item text-center">
+                            <div class="mx-2 mb-1">Category:</div>
+                            <div class="mx-2 mb-1">Unit-type:</div>
+                        </div>
+                        <div class="Admin-unit-modal-grid-item">
+                            <div class="mb-1">
+                                <select class="w-100">
+                                    <option></option>
+                                    <option value="OneBedroom">1 BedRoom</option>
+                                    <option value="TwoBedroom">2 BedRoom</option>
+                                    <option value="Studio">Studio</option>
+                                    <option value="FamilySuite">Family Suite</option>
+                                </select>
+                            </div>
+                            <div class="mb-1">
+                                <select class="w-100">
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" name="add" >Save changes</button>
