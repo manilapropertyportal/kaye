@@ -35,6 +35,8 @@
                         if(move_uploaded_file($tmp,$path)) {
                           $str = explode('/', $path); $value = $str[1];
                           $str = explode('.',$value); $nClass = $str[0];
+                          $apptype = $_POST['apptype'];
+                          $appname = $_POST['appname'];
                           $name = $_POST['name'];
                           $description = $_POST['description'];
                           $remarks = '<div class="'.$nClass.' admin-content-card-body col-4 my-5 admin-upload-new-container">
@@ -45,8 +47,8 @@
                                         </div>
                                       </div>';
                           echo $remarks;
-                          $stmt = $mysqli -> prepare("INSERT headers (NAME,DESCRIPTION,VALUE) VALUES (?,?,?) ");
-                          $stmt -> bind_param('sss',$name,$description,$value);
+                          $stmt = $mysqli -> prepare("INSERT headers (APPTYPE,APPNAME,NAME,DESCRIPTION,VALUE) VALUES (?,?,?,?,?) ");
+                          $stmt -> bind_param('sssss',$apptype,$appname,$name,$description,$value);
 
                         //   while ($stmt -> fetch()) { 
                         //     print_r($value); 
@@ -60,10 +62,10 @@
             break;
             case 'view_header':
                 $var = '';
-                $stmt = $mysqli -> prepare('SELECT NAME, DESCRIPTION, VALUE FROM headers ORDER BY ID DESC'); 
+                $stmt = $mysqli -> prepare('SELECT APPTYPE, APPNAME, NAME, DESCRIPTION, VALUE FROM headers ORDER BY ID DESC'); 
                 $stmt -> execute(); 
                 $stmt -> store_result(); 
-                $stmt -> bind_result($name, $description, $value); 
+                $stmt -> bind_result($apptype, $appname, $name, $description, $value); 
                   while ($stmt -> fetch()) { 
                       // echo $name; 
                       // echo $description; 

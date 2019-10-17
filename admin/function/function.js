@@ -109,42 +109,94 @@ $(document).ready(function(){
 
     // });
 
-
+    $(".header-form").on('submit',(function(e) {
+        console.log('submitted!');
+        e.preventDefault();
+            const apptype = $('.admin-content-title .title').text();
+            const appname = $('.admin-selected-project').text();
+            const description = $('#uploadImage').val().split('\\')[2];
+            const name = description.split('.')[0];
+            const images = new FormData(this);
+                images.append('e', 'save_header');
+                images.append('apptype', apptype);
+                images.append('appname', appname);
+                images.append('name', name);
+                images.append('description', description);
+                    $.ajax({
+                        url: "files/model/model.php",
+                        type: "POST",
+                        data:  images,
+                        contentType: false,
+                        cache: false,
+                        processData:false,
+                            success: function(data) {
+                                console.log(data);
+                                if(data == 'error') {
+                                    console.log('bobobobobobo');
+                                    alert('Bobo Choose File muna!');
+                                } else {
+                                    $('#preview-img').removeClass('d-flex').addClass('d-none').removeAttr('src');
+                                    $(data).insertAfter('.admin-content-card-body:first');
+                                    $(".header-upload").toggleClass('d-flex d-none');
+                                    $("#form").trigger('reset');
+                                }
+                            }, 
+                    });
+    }));
 
 });
 // $(document).on("click", ".admin-content-About-item-container" , forAboutEdit)
 
+function saveHeader()  {
 
-$(".header-form").on('submit',(function(e) {
-    console.log('submitted!');
-    e.preventDefault();
-        const description = $('#uploadImage').val().split('\\')[2];
-        const name = description.split('.')[0];
-        const images = new FormData(this);
-            images.append('e', 'save_header');
-            images.append('name', name);
-            images.append('description', description);
-                $.ajax({
-                    url: "files/model/model.php",
-                    type: "POST",
-                    data:  images,
-                    contentType: false,
-                    cache: false,
-                    processData:false,
-                        success: function(data) {
-                            console.log(data);
-                            if(data == 'error') {
-                                console.log('bobobobobobo');
-                                alert('Bobo Choose File muna!');
-                            } else {
-                                $('#preview-img').removeClass('d-flex').addClass('d-none').removeAttr('src');
-                                $(data).insertAfter('.admin-content-card-body:first');
-                                $(".header-upload").toggleClass('d-flex d-none');
-                                $("#form").trigger('reset');
-                            }
-                        }, 
-                });
-})); 
+    $(".header-form").on('submit',(function(e) {
+        console.log('submitted!');
+        e.preventDefault();
+            const apptype = $('.admin-content-title .title').text();
+            const appname = $('.admin-selected-project').text();
+            const description = $('#uploadImage').val().split('\\')[2];
+            const name = description.split('.')[0];
+            const images = new FormData(this);
+                images.append('e', 'save_header');
+                images.append('apptype', apptype);
+                images.append('appname', appname);
+                images.append('name', name);
+                images.append('description', description);
+                    $.ajax({
+                        url: "files/model/model.php",
+                        type: "POST",
+                        data:  images,
+                        contentType: false,
+                        cache: false,
+                        processData:false,
+                            success: function(data) {
+                                console.log(data);
+                                if(data == 'error') {
+                                    console.log('bobobobobobo');
+                                    alert('Bobo Choose File muna!');
+                                } else {
+                                    $('#preview-img').removeClass('d-flex').addClass('d-none').removeAttr('src');
+                                    $(data).insertAfter('.admin-content-card-body:first');
+                                    $(".header-upload").toggleClass('d-flex d-none');
+                                    $("#form").trigger('reset');
+                                }
+                            }, 
+                    });
+    }));
+}
+
+function editImage() {
+    $('#preview-img').on('click',function(){
+        console.log(this)
+        // const a = this;
+        // $(this).remove();
+         $(this).addClass('d-none').attr('src','#');
+        $('#uploadImage').trigger('click');
+        console.log($('#uploadImage')[0]);
+        readURL($('#uploadImage')[0]);
+    });
+    saveHeader();
+}
 
 function uploadImage() {
     $("#uploadImage").on('change',function(e) {
@@ -155,16 +207,18 @@ function uploadImage() {
             if (a.hasClass('d-none') == true){
                     a.removeClass('d-none').addClass('d-flex');
             }
-      }); 
+      });
+      editImage(); 
 }
 
 function readURL(input) {
+    console.log(input);
     if (input.files && input.files[0]) {
         var reader = new FileReader();
             reader.onload = function(e) {
                 $('#preview-img').attr('src', e.target.result);
             console.log(e);
-            console.log(input.files[0])
+            console.log(input.files[0]);
             }
             reader.readAsDataURL(input.files[0]);
     }
