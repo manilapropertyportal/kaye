@@ -55,6 +55,27 @@ $(document).ready(function(){
 
     $('.AdminUnit-ADNEW').click(AdminUnitsAddNew)
 
+    $('.admin-unit-modal-holder:nth-of-type(2) div h5').click(AdminUnitSQR)
+    // [
+    //     {
+    //         'OneBedroom':
+    //             [
+    //                 {'UnitType':'withsomething'},
+    //                 {'UnitType':'nosomething'}
+    //             ]
+    //     },
+    //     {
+    //         'TwoBedroom':
+    //             [
+    //                 {'UnitType':'withsomething'},
+    //                 {'UnitType':'nosomething'}
+    //             ]
+    //     }
+    // ]
+    $('.Admin-unit-modal-grid-container select:first-of-type').on('change' ,function(){
+        console.log($(this).val());
+    });
+
 //------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
 //------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
 //------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
@@ -281,6 +302,37 @@ function AdminUnitsAddNew(){
     $(this).hide();
 }
 
+function AdminUnitSQR(){
+    var AdminUnitDefVal = $(this).html();
+    var AdminUnitToBeReplacedEL = $(this);
+    var AdminUnitnewEL = $("<input type='textbox' class='AdminUnitTextBox w-100'/>")
+    $(AdminUnitnewEL).val(AdminUnitDefVal)
+    $(AdminUnitToBeReplacedEL).replaceWith($(AdminUnitnewEL));
+    AdminUnitnewEL.focus();
+    $(AdminUnitnewEL).on("keypress keyup blur",function (event) {
+        //this.value = this.value.replace(/[^0-9\.]/g,'');
+        $(this).val($(this).val().replace(/[^0-9\.]/g,''));
+        if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+            event.preventDefault();
+        }
+    });
+    AdminUnitnewEL.blur(onBlur);
+}
+
+function onBlur(){
+    var backtoReadable = $("<h5 class='text-center'></h5>")
+    if($(this).val() != '..' && $(this).val() != ''){
+        console.log("Meron");
+        backtoReadable.html($(this).val())
+        $(this).replaceWith(backtoReadable);
+        backtoReadable.click(AdminUnitSQR);
+    } else {
+        backtoReadable.html("Click to Change Size(in sqr.m.)")
+        $(this).replaceWith(backtoReadable);
+        backtoReadable.click(AdminUnitSQR);
+    }
+    console.log($(this).val());
+}
 //------------------------------------------------------------END OF ADMIN UNITS----------------------------------------------------------//
 //------------------------------------------------------------END OF ADMIN UNITS----------------------------------------------------------//
 //------------------------------------------------------------END OF ADMIN UNITS----------------------------------------------------------//

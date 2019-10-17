@@ -103,19 +103,12 @@
 
                         <!-- <div class="admin-content-card-body-description text-center">1 Bedroom</div>
                     </div> -->
-                                <div class="admin-content-card-body col-4 my-5 admin-upload-new-container">
-                                    <div class="admin-content-card-body-inner m-auto">
-                                        <div class="h-100 d-flex align-items-center px-3 position-relative admin-upload-new">
-                                           
-                                                <form id="form" class="h-60 mt-5" action="files/model/model.php" method="post" enctype="multipart/form-data">
-                                                
-                                                <input class="w-100" id="uploadImage" type="file" accept="image/*" name="image" />
-                                                    <div id="preview"><img id="preview-img" class="d-none position-absolute m-auto" src="#" alt="your image"/>
-                                                    </div>
-                                                        <input class="header-upload btn btn-success d-none" type="submit" value="Upload">
-                                                    </form>
-                                                <div id="err"></div>
-                                        </div>
+                    <div class="my-2 admin-content-card-body col-4 mb-5 admin-upload-new-container">
+                        <div class="admin-content-card-body-inner m-auto">
+                            <div class="h-100 d-flex align-items-center px-3 position-relative admin-upload-new">
+                                <form id="form" class="h-60 mt-5" action="files/model/model.php" method="post" enctype="multipart/form-data">
+                                <input class="w-100" id="uploadImage" type="file" accept="image/*" name="image" />
+                                    <div id="preview"><img id="preview-img" class="d-none position-absolute m-auto" src="#" alt="your image"/>
                                     </div>
                                     <input class="btn btn-success d-flex" type="submit" value="Upload">
                                     </form>
@@ -263,16 +256,16 @@
                 <div class="row">
                     <div class="my-2 col-12 col-lg-6 admin-unit-modal-holder">
                         <h5 class="text-center">Unit</h5>
-                        <div class="admin-units-image-holder"></div>
+                        <div class="admin-units-image-holder mb-2"></div>
                         <div class="w-50 m-auto">
                             <h5 class="text-center">Select Category</h5>
                         </div>
                     </div>
                     <div class="my-2 col-12 col-lg-6 admin-unit-modal-holder">
                         <h5 class="text-center">Floor Plan</h5>
-                        <div class="admin-units-floorplan-image-holder"></div>
+                        <div class="admin-units-floorplan-image-holder mb-2"></div>
                         <div class="w-50 m-auto">
-                            <h5 class="text-center">Click to Change Description</h5>
+                            <h5 class="text-center">Click to Change Size(in sqr.m.)</h5>
                         </div>
                     </div>
                     <div class="Admin-unit-modal-grid-container">
@@ -283,14 +276,16 @@
                         <div class="Admin-unit-modal-grid-item">
                             <div class="mb-1">
                                 <select class="w-100">
-                                    <option value="1 Bedroom">1 BedRoom</option>
-                                    <option value="1 Bedroom">2 BedRoom</option>
+                                    <option></option>
+                                    <option value="OneBedroom">1 BedRoom</option>
+                                    <option value="TwoBedroom">2 BedRoom</option>
                                     <option value="Studio">Studio</option>
-                                    <option value="Family Suite">Family Suite</option>
+                                    <option value="FamilySuite">Family Suite</option>
                                 </select>
                             </div>
                             <div class="mb-1">
                                 <select class="w-100">
+                                    <option></option>
                                 </select>
                             </div>
                         </div>
