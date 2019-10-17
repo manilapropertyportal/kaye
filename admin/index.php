@@ -117,7 +117,12 @@
                                                 <div id="err"></div>
                                         </div>
                                     </div>
-                                </div>
+                                    <input class="btn btn-success d-flex" type="submit" value="Upload">
+                                    </form>
+                                <div id="err"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div> 
             </section>
             <section class="page admin-content-About-section">
@@ -135,19 +140,15 @@
             <section class="page admin-content-Units-section">
                 <div class="container">
                     <div class="w-100 Admin-Unit-grid">
-                        <button class="btn btn-secondary m-auto" style="height:40px;width:180px">Add New Unit Photo</button>
-                        <div>
+                        <button class="btn btn-secondary my-2 m-auto AdminUnit-ADNEW" style="height:40px;width:180px">Add New Unit Photo</button>
+                        <!-- <div>
                             <div class="admin-units-image-holder"></div>
                             <div class="my-2 admin-units-floorplan-image-holder"></div>
-                        </div>
-                        <div>
-                            <div class="admin-units-image-holder"></div>
-                            <div class="my-2 admin-units-floorplan-image-holder"></div>
-                        </div>
-                        <div>
-                            <div class="admin-units-image-holder"></div>
-                            <div class="my-2 admin-units-floorplan-image-holder"></div>
-                        </div>
+                            <span class="d-none justify-content-center admin-units-edit-btns-container mt-1">
+                                <button class="btn btn-secondary mx-2 Admin-unit-save">Save</button>
+                                <button class="btn btn-secondary mx-2 Admin-unit-cancel">Cancel</button>
+                            </span>
+                        </div> -->
                     </div>
                 </div>
             </section>
@@ -168,6 +169,9 @@
             </section>
         </div>
     </div>
+
+    <!-------------------------------------------------------------- SMALLDEVICE ------------------------------------------------------>
+
     <div class="d-flex d-md-none">
         <div class="bg-secondary admin-sidenav-md admin-sidenav-open">
             <div class="container">
@@ -243,6 +247,9 @@
             </div>
         </div>
     </div>
+
+    <!-------------------------------------------------------------- SMALLDEVICE ------------------------------------------------------>
+
     <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
@@ -253,11 +260,46 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    ....
+                <div class="row">
+                    <div class="my-2 col-12 col-lg-6 admin-unit-modal-holder">
+                        <h5 class="text-center">Unit</h5>
+                        <div class="admin-units-image-holder"></div>
+                        <div class="w-50 m-auto">
+                            <h5 class="text-center">Select Category</h5>
+                        </div>
+                    </div>
+                    <div class="my-2 col-12 col-lg-6 admin-unit-modal-holder">
+                        <h5 class="text-center">Floor Plan</h5>
+                        <div class="admin-units-floorplan-image-holder"></div>
+                        <div class="w-50 m-auto">
+                            <h5 class="text-center">Click to Change Description</h5>
+                        </div>
+                    </div>
+                    <div class="Admin-unit-modal-grid-container">
+                        <div class="Admin-unit-modal-grid-item text-center">
+                            <div class="mx-2 mb-1">Category:</div>
+                            <div class="mx-2 mb-1">Unit-type:</div>
+                        </div>
+                        <div class="Admin-unit-modal-grid-item">
+                            <div class="mb-1">
+                                <select class="w-100">
+                                    <option value="1 Bedroom">1 BedRoom</option>
+                                    <option value="1 Bedroom">2 BedRoom</option>
+                                    <option value="Studio">Studio</option>
+                                    <option value="Family Suite">Family Suite</option>
+                                </select>
+                            </div>
+                            <div class="mb-1">
+                                <select class="w-100">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" name="add" >Save changes</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary Admin-unit-modal-save" name="save" >Save changes</button>
+                    <button type="button" class="btn btn-secondary Admin-unit-modal-cancel" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
         </div>
