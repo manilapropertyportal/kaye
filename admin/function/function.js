@@ -51,6 +51,8 @@ $(document).ready(function(){
     // $('.admin-About-new-Insert').click(forAboutNew)
     $('.admin-content-About-item-container').on('click', forAboutEdit)
 
+    $('.Admin-change-map').click(AdminMap)
+
 //------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
 //------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
 //------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
@@ -259,3 +261,36 @@ function forAboutEdit(){
 //------------------------------------------------------------END OF ADMIN ABOUT----------------------------------------------------------//
 //------------------------------------------------------------END OF ADMIN ABOUT----------------------------------------------------------//
 //------------------------------------------------------------END OF ADMIN ABOUT----------------------------------------------------------//
+
+function AdminMap(){
+    var MapAddress = $(this).parents("span").siblings("div").children("input").val();
+    var frameSource = $(this).parents("span").siblings("iframe");
+    console.log(MapAddress)
+    console.log(frameSource.attr('src','https://maps.google.com/?q='+encodeURIComponent(MapAddress)+'&output=embed'));
+}
+
+// function getImg(image) {
+//        header = image;
+//        $.post('files/model/model.php',{e:'save_profile',header},function(data){  result=data },'json')
+//         console.log('asdas');
+//         //$('.admin-upload-new-container').parent().find('#blah')[0].currentSrc
+// }
+
+// function triggerClick(e) {
+//     console.log('nasa trigger ka!')
+//     document.querySelector('#profileImage').click();
+
+//   }
+//   function displayImage(e) {
+//     if (e.files[0]) {
+//       var reader = new FileReader();
+//       reader.onload = function(e){
+//           console.log($('#profileImage').val().split('\\')[2]);
+//         header = $('#profileImage').val().split('\\')[2];
+//         document.querySelector('#profileDisplay').setAttribute('src', e.target.result);
+//         $.post('files/model/model.php',{e:'save_header',header},function(){},'json')
+//         // getImg(e.target.result);
+//       }
+//       reader.readAsDataURL(e.files[0]);
+//     }
+//   }

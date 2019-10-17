@@ -52,6 +52,19 @@
 /* .admin-content-About-section textarea{
     margin-top:2em;
 } */
+.Admin-Unit-grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.admin-units-image-holder,.admin-units-floorplan-image-holder{
+    width:250px;
+    height:350px;
+    border:1px solid gray;
+    margin:auto;
+}
+.admin-units-image-holder:hover{
+    cursor:pointer;
+}
 .page{
     display:none;
 }
