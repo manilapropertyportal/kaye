@@ -22,19 +22,31 @@ $(document).ready(function(){
             $('.admin-selected-section').text('')
         }
     })
-    $('.admin-sections li').on('click',function(event){
+    $('.admin-sections li').click(function(event){
         if ($('.admin-selected-project').text() != ''){ 
             event.preventDefault();
             const content_page_sections = this.dataset.page;
             const title = decodeURIComponent(content_page_sections);
-            console.log(decodeURIComponent(content_page_sections));
-            console.log($('.admin-content-title h2').text(content_page_sections));
+            console.log(title);
             $('.admin-content-title h2').text(content_page_sections);
             $('.page').hide();
             $('.admin-content-'+title+'-section').show();
-                if (title == 'Header') {
-                    viewHeader();
-                }
+                switch (title) {
+                    case 'Header':
+                        console.log('nasa header ka na');
+                        $('#'+title).click(function(){
+                            var $this = $(this);
+                                if ($this.data('clicked')) { } else {
+                                    $this.data('clicked',true);
+                                        viewHeader();
+                                }
+                        });
+                    break;
+                    case 'About':
+
+                    break;
+                }    
+            
         } else {
             // $('.alert').alert()
         }
@@ -109,82 +121,95 @@ $(document).ready(function(){
 
     // });
 
-    $(".header-form").on('submit',(function(e) {
-        console.log('submitted!');
-        e.preventDefault();
-            const apptype = $('.admin-content-title .title').text();
-            const appname = $('.admin-selected-project').text();
-            const description = $('#uploadImage').val().split('\\')[2];
-            const name = description.split('.')[0];
-            const images = new FormData(this);
-                images.append('e', 'save_header');
-                images.append('apptype', apptype);
-                images.append('appname', appname);
-                images.append('name', name);
-                images.append('description', description);
-                    $.ajax({
-                        url: "files/model/model.php",
-                        type: "POST",
-                        data:  images,
-                        contentType: false,
-                        cache: false,
-                        processData:false,
-                            success: function(data) {
-                                console.log(data);
-                                if(data == 'error') {
-                                    console.log('bobobobobobo');
-                                    alert('Bobo Choose File muna!');
-                                } else {
-                                    $('#preview-img').removeClass('d-flex').addClass('d-none').removeAttr('src');
-                                    $(data).insertAfter('.admin-content-card-body:first');
-                                    $(".header-upload").toggleClass('d-flex d-none');
-                                    $("#form").trigger('reset');
-                                }
-                            }, 
-                    });
-    }));
+    // $(".header-form").on('submit',(function(e) {
+    //     console.log('submitted 1');
+    //     e.preventDefault();
+    //         const apptype = $('.admin-content-title .title').text();
+    //         const appname = $('.admin-selected-project').text();
+    //         const a = appname.replace(/\s/g,'');
+    //         const app = $('#'+a).parents('.collapse').prop('class').split(' ')[0].split('-')[2];
+    //         console.log(app);
+    //         const description = $('#uploadImage').val().split('\\')[2];
+    //         const name = description.split('.')[0];
+    //         const images = new FormData(this);
+    //             images.append('e', 'save_header');
+    //             images.append('app', app);
+    //             images.append('apptype', apptype);
+    //             images.append('appname', appname);
+    //             images.append('name', name);
+    //             images.append('description', description);
+    //                 $.ajax({
+    //                     url: "files/model/model.php",
+    //                     type: "POST",
+    //                     data:  images,
+    //                     contentType: false,
+    //                     cache: false,
+    //                     processData:false,
+    //                         success: function(data) {
+    //                             console.log(data);
+    //                             if(data == 'error') {
+    //                                 console.log('bobobobobobo');
+    //                                 alert('Bobo Choose File muna!');
+    //                             } else {
+    //                                 $('#preview-img').removeClass('d-flex').addClass('d-none').removeAttr('src');
+    //                                 $(data).insertAfter('.admin-content-card-body:first');
+    //                                 $(".header-upload").toggleClass('d-flex d-none');
+    //                                 $("#form").trigger('reset');
+    //                             }
+    //                         }, 
+    //                 });
+    // }));
 
 });
-// $(document).on("click", ".admin-content-About-item-container" , forAboutEdit)
 
-function saveHeader()  {
+function saving(param,app,apptype,appname,description,name,value)  {
+    switch (param) {
+        case 'header':
+            $(".header-form").on('submit',(function(e) {
+                console.log('submitted 2');
+                e.preventDefault();
+                    const apptype = $('.admin-content-title .title').text();
+                    const appname = $('.admin-selected-project').text();
+                    const a = appname.replace(/\s/g,'');
+                    const app = $('#'+a).parents('.collapse').prop('class').split(' ')[0].split('-')[2];
+                    console.log(app);
+                    const description = $('#uploadImage').val().split('\\')[2];
+                    const name = description.split('.')[0];
+                    const images = new FormData(this);
+                        images.append('e', 'save_header');
+                        images.append('app', app);
+                        images.append('apptype', apptype);
+                        images.append('appname', appname);
+                        images.append('name', name);
+                        images.append('description', description);
+                            $.ajax({
+                                url: "files/model/model.php",
+                                type: "POST",
+                                data:  images,
+                                contentType: false,
+                                cache: false,
+                                processData:false,
+                                    success: function(data) {
+                                        console.log(data);
+                                        if(data == 'error') {
+                                            console.log('bobobobobobo');
+                                            alert('Bobo Choose File muna!');
+                                        } else {
+                                            $('#preview-img').removeClass('d-flex').addClass('d-none').removeAttr('src');
+                                            $(data).insertAfter('.admin-content-card-body:first');
+                                            $(".header-upload").toggleClass('d-flex d-none');
+                                            $("#form").trigger('reset');
+                                        }
+                                    }, 
+                            });
+            }));
+        break;
+        case 'about':
+            console.log('ABOUT PRE');
+        break;
 
-    $(".header-form").on('submit',(function(e) {
-        console.log('submitted!');
-        e.preventDefault();
-            const apptype = $('.admin-content-title .title').text();
-            const appname = $('.admin-selected-project').text();
-            const description = $('#uploadImage').val().split('\\')[2];
-            const name = description.split('.')[0];
-            const images = new FormData(this);
-                images.append('e', 'save_header');
-                images.append('apptype', apptype);
-                images.append('appname', appname);
-                images.append('name', name);
-                images.append('description', description);
-                    $.ajax({
-                        url: "files/model/model.php",
-                        type: "POST",
-                        data:  images,
-                        contentType: false,
-                        cache: false,
-                        processData:false,
-                            success: function(data) {
-                                console.log(data);
-                                if(data == 'error') {
-                                    console.log('bobobobobobo');
-                                    alert('Bobo Choose File muna!');
-                                } else {
-                                    $('#preview-img').removeClass('d-flex').addClass('d-none').removeAttr('src');
-                                    $(data).insertAfter('.admin-content-card-body:first');
-                                    $(".header-upload").toggleClass('d-flex d-none');
-                                    $("#form").trigger('reset');
-                                }
-                            }, 
-                    });
-    }));
+    }
 }
-
 function editImage() {
     $('#preview-img').on('click',function(){
         console.log(this)
@@ -195,11 +220,11 @@ function editImage() {
         console.log($('#uploadImage')[0]);
         readURL($('#uploadImage')[0]);
     });
-    saveHeader();
+    saving('header');
 }
 
 function uploadImage() {
-    $("#uploadImage").on('change',function(e) {
+    $("#uploadImage").on('click',function(e) {
         readURL(this);
         console.log(this);
         $('#preview-img').removeClass('d-none');
@@ -238,7 +263,8 @@ function viewHeader(header) {
             if (a != b) {
                 c.html(c.html()+data);
             }
-           uploadImage();
+            uploadImage();
+
         });
 
         
@@ -297,6 +323,7 @@ function forAboutEdit(){
             // a.content = editableText.val()
             // localStorage.setItem("AdminAbout" ,JSON.stringify(AdminAbout));
             // console.log(Object.values(AdminAbout));
+            saving('about');
         })
 
         //-----------INSERTING-------------//

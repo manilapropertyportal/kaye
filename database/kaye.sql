@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2019 at 01:01 PM
+-- Generation Time: Oct 17, 2019 at 08:15 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.13
 
@@ -25,26 +25,38 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `about`
+--
+
+CREATE TABLE `about` (
+  `ID` int(60) NOT NULL,
+  `APP` varchar(60) NOT NULL,
+  `APPTYPE` varchar(60) NOT NULL,
+  `APPNAME` varchar(60) NOT NULL,
+  `NAME` varchar(60) NOT NULL,
+  `DESCRIPTION` varchar(255) NOT NULL,
+  `VALUE` varchar(255) NOT NULL,
+  `REMARKS` longtext NOT NULL,
+  `CREATEDDATE` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `headers`
 --
 
 CREATE TABLE `headers` (
   `ID` int(11) NOT NULL,
+  `APP` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `APPTYPE` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `APPNAME` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `NAME` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `DESCRIPTION` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `VALUE` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
-  `REMARKS` longtext COLLATE utf8_unicode_ci NOT NULL
+  `REMARKS` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `CREATEDDATE` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `headers`
---
-
-INSERT INTO `headers` (`ID`, `NAME`, `DESCRIPTION`, `VALUE`, `REMARKS`) VALUES
-(187, '1', '1.jpg', '661937-1.jpg', ''),
-(188, '2', '2.jpg', '541137-2.jpg', ''),
-(189, 'ResumePic', 'ResumePic.jpg', '56180-resumepic.jpg', ''),
-(190, '12', '12.png', '853656-12.png', '');
 
 -- --------------------------------------------------------
 
@@ -97,6 +109,12 @@ INSERT INTO `sections` (`id`, `app`, `appname`, `name`, `description`, `value`, 
 --
 
 --
+-- Indexes for table `about`
+--
+ALTER TABLE `about`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `headers`
 --
 ALTER TABLE `headers`
@@ -119,10 +137,16 @@ ALTER TABLE `sections`
 --
 
 --
+-- AUTO_INCREMENT for table `about`
+--
+ALTER TABLE `about`
+  MODIFY `ID` int(60) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `headers`
 --
 ALTER TABLE `headers`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=191;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=309;
 
 --
 -- AUTO_INCREMENT for table `projects`
