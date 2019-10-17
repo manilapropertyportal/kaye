@@ -103,19 +103,21 @@
 
                         <!-- <div class="admin-content-card-body-description text-center">1 Bedroom</div>
                     </div> -->
-                    <div class="my-2 admin-content-card-body col-4 mb-5 admin-upload-new-container">
-                        <div class="admin-content-card-body-inner m-auto">
-                            <div class="h-100 d-flex align-items-center px-3 position-relative admin-upload-new">
-                                <form id="form" class="h-60 mt-5" action="files/model/model.php" method="post" enctype="multipart/form-data">
-                                <input class="w-100" id="uploadImage" type="file" accept="image/*" name="image" />
-                                    <div id="preview"><img id="preview-img" class="d-none position-absolute m-auto" src="#" alt="your image"/>
+                                <div class="admin-content-card-body col-4 my-5 admin-upload-new-container header">
+                                    <div class="admin-content-card-body-inner m-auto">
+                                        <div class="h-100 d-flex align-items-center px-3 position-relative admin-upload-new">
+                                           
+                                                <form id="form" class="h-60 mt-5 header-form" action="files/model/model.php" method="post" enctype="multipart/form-data">
+                                                
+                                                <input class="w-100" id="uploadImage" type="file" accept="image/*" name="image" />
+                                                    <div id="preview"><img id="preview-img" class="d-none position-absolute m-auto" src="#" alt="your image"/>
+                                                    </div>
+                                                        <input class="header-upload btn btn-success d-none" type="submit" value="Upload">
+                                                    </form>
+                                                <div id="err"></div>
+                                        </div>
                                     </div>
-                                    <input class="btn btn-success d-flex" type="submit" value="Upload">
-                                    </form>
-                                <div id="err"></div>
-                            </div>
-                        </div>
-                    </div>
+                                </div>
                 </div> 
             </section>
             <section class="page admin-content-About-section">
@@ -133,15 +135,19 @@
             <section class="page admin-content-Units-section">
                 <div class="container">
                     <div class="w-100 Admin-Unit-grid">
-                        <button class="btn btn-secondary my-2 m-auto AdminUnit-ADNEW" style="height:40px;width:180px">Add New Unit Photo</button>
-                        <!-- <div>
+                        <button class="btn btn-secondary m-auto" style="height:40px;width:180px">Add New Unit Photo</button>
+                        <div>
                             <div class="admin-units-image-holder"></div>
                             <div class="my-2 admin-units-floorplan-image-holder"></div>
-                            <span class="d-none justify-content-center admin-units-edit-btns-container mt-1">
-                                <button class="btn btn-secondary mx-2 Admin-unit-save">Save</button>
-                                <button class="btn btn-secondary mx-2 Admin-unit-cancel">Cancel</button>
-                            </span>
-                        </div> -->
+                        </div>
+                        <div>
+                            <div class="admin-units-image-holder"></div>
+                            <div class="my-2 admin-units-floorplan-image-holder"></div>
+                        </div>
+                        <div>
+                            <div class="admin-units-image-holder"></div>
+                            <div class="my-2 admin-units-floorplan-image-holder"></div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -162,9 +168,6 @@
             </section>
         </div>
     </div>
-
-    <!-------------------------------------------------------------- SMALLDEVICE ------------------------------------------------------>
-
     <div class="d-flex d-md-none">
         <div class="bg-secondary admin-sidenav-md admin-sidenav-open">
             <div class="container">
@@ -240,9 +243,6 @@
             </div>
         </div>
     </div>
-
-    <!-------------------------------------------------------------- SMALLDEVICE ------------------------------------------------------>
-
     <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
@@ -293,8 +293,8 @@
                 </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary Admin-unit-modal-save" name="save" >Save changes</button>
-                    <button type="button" class="btn btn-secondary Admin-unit-modal-cancel" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" name="add" >Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
         </div>

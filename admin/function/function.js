@@ -22,15 +22,22 @@ $(document).ready(function(){
             $('.admin-selected-section').text('')
         }
     })
-    $('.admin-sections li').click(function(event){
+    $('.admin-sections li').on('click',function(event){
         if ($('.admin-selected-project').text() != ''){ 
             event.preventDefault();
             const content_page_sections = this.dataset.page;
+            const title = decodeURIComponent(content_page_sections);
             console.log(decodeURIComponent(content_page_sections));
             $('.admin-content-title h2').text(content_page_sections);
             $('.page').hide();
-            $('.admin-content-'+ decodeURIComponent(content_page_sections)+'-section').show();
-            viewHeader();
+            $('.admin-content-'+title+'-section').show();
+                if(title == 'Header') {
+                    viewHeader(function(output){
+                        console.log(output);
+                        $(output).insertAfter('.header');
+                    });
+                } else {
+                }
         } else {
             // $('.alert').alert()
         }
@@ -131,7 +138,7 @@ function readURL(input) {
   
 // function insertHeader() {
   
-    $("#form").on('submit',(function(e) {
+    $(".header-form").on('submit',(function(e) {
         // if ($('#preview-img').hasClass('d-none') == false) {
         console.log('submitted!');
         e.preventDefault();
@@ -161,17 +168,16 @@ function readURL(input) {
                                 }
                             }, 
                     });
-                // }      
+                // }  
     }));
-    //    viewHeader();
+      
 // }
 
-function viewHeader() {
-    console.log('view nigga!')
-    // $.post('files/model/model.php',{e:'view_header'},function(data){  
-    //     result=data;
-    //     console.log(result);
-    // },'json')
+function viewHeader(header) {
+    $.post('files/model/model.php',{e:'view_header'},function(data){ 
+       header(data);
+      
+    });
 }
 
 //---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
@@ -201,7 +207,7 @@ function viewHeader() {
 
 function forAboutEdit(){
     var thiscontainer = $(this).find("p").html().replace(/\&amp;/g,'&');
-    var editableText = $("<textarea class='admin-text-area admin-text-area-edit' name='p' id='p' cols='30' rows='10' style='width:100%;'/>");
+    var editableText = $("<textarea class='admin-text-area admin-text-area-edit' name='p' id='p' cols='30' rows='10' style='width:100%;'/>")
     editableText.val(thiscontainer)
     $(this).find("p").replaceWith(editableText);
     editableText.focus();
