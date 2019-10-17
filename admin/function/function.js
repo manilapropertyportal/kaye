@@ -30,6 +30,7 @@ $(document).ready(function(){
             $('.admin-content-title h2').text(content_page_sections);
             $('.page').hide();
             $('.admin-content-'+ decodeURIComponent(content_page_sections)+'-section').show();
+            viewHeader();
         } else {
             // $('.alert').alert()
         }
@@ -83,15 +84,38 @@ $(document).ready(function(){
         readURL(this);
         console.log(this);
         $('#preview-img').removeClass('d-none');
+        $(".header-upload").toggleClass('d-none d-flex');
       });
 
 
+});
+// $(document).on("click", ".admin-content-About-item-container" , forAboutEdit)
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        
+        reader.onload = function(e) {
+        $('#preview-img').attr('src', e.target.result);
+        // insertHeader();
+        console.log('read');
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+  
+// function insertHeader() {
+  
     $("#form").on('submit',(function(e) {
+        // if ($('#preview-img').hasClass('d-none') == false) {
         console.log('submitted!');
-        console.log(e);
         e.preventDefault();
-            var images = new FormData(this);
-            images.append('e', 'save_header');
+            const description = $('#uploadImage').val().split('\\')[2];
+            const name = description.split('.')[0];
+            const images = new FormData(this);
+                images.append('e', 'save_header');
+                images.append('name', name);
+                images.append('description', description);
                     $.ajax({
                         url: "files/model/model.php",
                         type: "POST",
@@ -101,58 +125,29 @@ $(document).ready(function(){
                         processData:false,
                             success: function(data) {
                                 console.log(data);
-                                if(data=='invalid') {
-                                    $("#err").html("Invalid File !").fadeIn();
+                                if(data == 'error') {
+                                    console.log('bobobobobobo');
+                                    alert('Bobo Choose File muna!');
                                 } else {
-                                    // $("#preview-img").html(data).fadeIn();
-                                    var a = $(data).attr('class').split(' ')[0],
-                                        c = $(data).attr('src');
-                                    console.log(a);
-                                    console.log(c);
-                                    $(data).removeClass('d-none');
-                                    console.log($(data).removeClass('d-none'));
-                                    $('#preview-img').addClass('d-none');
-                                    // $("#form")[0].reset(); 
-
-                                    var b = `<div class="admin-content-card-body col-4 my-5 admin-upload-new-container">
-                                    <div class="admin-content-card-body-inner m-auto">
-                                        <div class="h-100 d-flex align-items-center px-3 position-relative admin-upload-new">
-                                           
-                                                <form id="form" class="h-60 mt-5" action="files/model/model.php" method="post" enctype="multipart/form-data">
-                                                
-                                             
-                                                    <img id="preview" class="`+a+` position-absolute m-auto" src="`+c+`" alt="your image"/>
-                                                   
-                                                        
-                                                    </form>
-                                        </div>
-                                    </div>
-                                </div>`
-                                console.log(b);
-                                $(b).insertBefore('.admin-upload-new-container');
+                                    $('#preview-img').addClass('d-none').removeAttr('src');
+                                    $(data).insertAfter('.admin-content-card-body:first');
+                                    $(".header-upload").toggleClass('d-flex d-none');
+                                    $("#form").trigger('reset');
                                 }
-                            },  
+                            }, 
                     });
-                    // $.post('files/model/model.php',{e:'view_header',header},function(data){  result=data },'json')
-       }));
+                // }      
+    }));
+    //    viewHeader();
+// }
 
-});
-
-// $(document).on("click", ".admin-content-About-item-container" , forAboutEdit)
-
-function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        
-        reader.onload = function(e) {
-        $('#preview-img').attr('src', e.target.result);
-            // getImg(e.target.result);
-        }
-        reader.readAsDataURL(input.files[0]);
-    }
+function viewHeader() {
+    console.log('view nigga!')
+    // $.post('files/model/model.php',{e:'view_header'},function(data){  
+    //     result=data;
+    //     console.log(result);
+    // },'json')
 }
-  
-
 
 //---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
 //---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//

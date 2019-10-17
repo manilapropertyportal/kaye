@@ -112,7 +112,7 @@
                                                 <input class="w-100" id="uploadImage" type="file" accept="image/*" name="image" />
                                                     <div id="preview"><img id="preview-img" class="d-none position-absolute m-auto" src="#" alt="your image"/>
                                                     </div>
-                                                        <input class="btn btn-success d-flex" type="submit" value="Upload">
+                                                        <input class="header-upload btn btn-success d-none" type="submit" value="Upload">
                                                     </form>
                                                 <div id="err"></div>
                                         </div>
