@@ -60,7 +60,7 @@
             break;
             case 'view_header':
                 $var = '';
-                $stmt = $mysqli -> prepare('SELECT NAME, DESCRIPTION, VALUE FROM headers'); 
+                $stmt = $mysqli -> prepare('SELECT NAME, DESCRIPTION, VALUE FROM headers ORDER BY ID DESC'); 
                 $stmt -> execute(); 
                 $stmt -> store_result(); 
                 $stmt -> bind_result($name, $description, $value); 
