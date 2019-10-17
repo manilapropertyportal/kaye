@@ -33,21 +33,33 @@
                     if(in_array($ext, $valid_extensions)) { 
                       $path = $path.strtolower($final_image); 
                         if(move_uploaded_file($tmp,$path)) {
-                          $str = explode('/', $path);
-                          $value = $str[1];
-                          echo "<img src='files/model/$path' class='$value d-none position-absolute m-auto' />";
-                          $stmt = $mysqli -> prepare("INSERT headers (value) VALUES (?) ");
-                          $stmt -> bind_param('s',$value);
+                          $str = explode('/', $path); $value = $str[1];
+                          $str = explode('.',$value); $nClass = $str[0];
+                          $name = $_POST['name'];
+                          $description = $_POST['description'];
+                          $remarks = '<div class="'.$nClass.' admin-content-card-body col-4 my-5 admin-upload-new-container">
+                                        <div class="admin-content-card-body-inner m-auto">
+                                          <div class="h-100 d-flex align-items-center px-3 position-relative admin-upload-new">
+                                            <img id="preview-img" class="'.$nClass.' h-100 mt-5 position-absolute m-auto" src="files/model/'.$path.'" alt="your image"/>
+                                          </div>
+                                        </div>
+                                      </div>';
+                          echo $remarks;
+                          $stmt = $mysqli -> prepare("INSERT headers (NAME,DESCRIPTION,VALUE,REMARKS) VALUES (?,?,?,?) ");
+                          $stmt -> bind_param('ssss',$name,$description,$value,$remarks);
 
-                          while ($stmt -> fetch()) { 
-                            print_r($value); 
-                        }
+                        //   while ($stmt -> fetch()) { 
+                        //     print_r($value); 
+                        // }
                           $stmt -> execute();
                         }
                     } else {
-                      echo 'Invalid!';
+                      echo 'error';
                     }
                 }
+            break;
+            case 'view_header':
+                echo 'view header pasok!';
             break;
         }
 }
