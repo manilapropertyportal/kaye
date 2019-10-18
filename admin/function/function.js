@@ -63,25 +63,38 @@ $(document).ready(function(){
     $('.AdminUnit-ADNEW').click(AdminUnitsAddNew)
 
     $('.admin-unit-modal-holder:nth-of-type(2) div h5').click(AdminUnitSQR)
-    // [
-    //     {
-    //         'OneBedroom':
-    //             [
-    //                 {'UnitType':'withsomething'},
-    //                 {'UnitType':'nosomething'}
-    //             ]
-    //     },
-    //     {
-    //         'TwoBedroom':
-    //             [
-    //                 {'UnitType':'withsomething'},
-    //                 {'UnitType':'nosomething'}
-    //             ]
-    //     }
-    // ]
-    $('.Admin-unit-modal-grid-container select:first-of-type').on('change' ,function(){
-        console.log($(this).val());
+    
+    var AdminUnitsCategory = []
+    var Admin_unit_1b = {"OneBedRoom":[{"UnitType":"only"},{"UnitType":"with balcony"},{"UnitType":"end unit"},{"UnitType":"end unit with balcony"},{"UnitType":"with den"},{"UnitType":"with den and balcony"},{"UnitType":"corner den with balcony"}]};
+    var Admin_unit_2b = {"TwoBedRoom":[{"UnitType":"only"},{"UnitType":"with balcony"},{"UnitType":"end unit"},{"UnitType":"end unit with balcony"},{"UnitType":"with mezzanine"},{"UnitType":"end unit with mezzanine"},{"UnitType":"with mezzanine and balcony"},{"UnitType":"end unit with mezzanine with balcony"},{"UnitType":"Family Suite A"},{"UnitType":"Family Suite B"}]};
+    var Admin_unit_studio = {"Studio":[{"UnitType":"unit only"},{"UnitType":"unit with balcony"},{"UnitType":"deluxe with balcony"},{"UnitType":"combined two studio units"}]};
+    var Admin_unit_famsuite = {"FamilySuite":[{"UnitType":"A with balcony"},{"UnitType":"B with balcony"}]};
+    AdminUnitsCategory.push(Admin_unit_1b,Admin_unit_2b,Admin_unit_studio,Admin_unit_famsuite);
+    console.log(AdminUnitsCategory)
+
+    $('.admin-unit-category-dd').on('change' ,function(){
+        var cat = $(this).find(":selected").attr('data-index');
+        var UniTtypeOptions = $(this).parents().first().next("div").find("select");
+        var aa = Object.values(Object.values(AdminUnitsCategory)[cat])[0];
+        var aalength = Object.keys(Object.values(aa)).length;
+        var bb = '';
+        var i = 0;
+        while (i < aalength) {
+            bb += "<option>"+Object.values(aa)[i].UnitType+"</option>"
+            i++;
+        }
+        $(UniTtypeOptions).html("<option></option>"+bb);
+        $('.AuC').html($(this).val());
+        $('.admin-unit-unittype-dd').on('change',function(){
+            $('.AuT').html(' '+$(this).val());
+            $('.admin-units-image-holder').next("div").find("h5").text();
+        });
     });
+
+    
+    $(document).on("click", ".admin-units-image",AdminUnitEditing)
+        
+    
 
 //------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
 //------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
@@ -299,13 +312,14 @@ function forAboutEdit(){
 function AdminUnitsAddNew(){
     var AdminUnitsNewContainer = 
     `<div class='grid-item-container'>
-        <div class='admin-units-image-holder my-2' data-toggle='modal' data-target='.bd-example-modal-xl'></div>
+        <div class='admin-units-image my-2' data-toggle='modal' data-target='.bd-example-modal-xl'></div>
         <span class='d-flex justify-content-center mt-1'>
             <h5>Title Here</h5>
         </span>
     </div>`
     $(AdminUnitsNewContainer).insertBefore($(this));
     $(this).hide();
+    // $('.admin-units-image').click(function)
 }
 
 function AdminUnitSQR(){
@@ -328,17 +342,83 @@ function AdminUnitSQR(){
 function onBlur(){
     var backtoReadable = $("<h5 class='text-center'></h5>")
     if($(this).val() != '..' && $(this).val() != ''){
-        console.log("Meron");
         backtoReadable.html($(this).val())
         $(this).replaceWith(backtoReadable);
         backtoReadable.click(AdminUnitSQR);
     } else {
-        backtoReadable.html("Click to Change Size(in sqr.m.)")
+        backtoReadable.html("Click to Change Size(in sqr m)")
         $(this).replaceWith(backtoReadable);
         backtoReadable.click(AdminUnitSQR);
     }
-    console.log($(this).val());
 }
+
+// if (localStorage.getItem('data') != null) 
+// {
+//     AdminAbout = AdminAbout.concat(JSON.parse(localStorage.data));
+//     console.log(AdminAbout);
+// };
+
+var AdminUnitMainArray = new Array();
+function AdminUnitSaving(){
+    var e = {};
+    var a = $('.Admin-unit-new').find("select.admin-unit-category-dd").val()
+    var b = $('.Admin-unit-new').find("select.admin-unit-unittype-dd").val()
+    var c = $('.Admin-unit-new').find("div.admin-units-floorplan-image-holder").next("div").find("h5").text()
+    var d  = "IMAGE URL HERE"
+    e.UnitCategory = a;
+    e.UnitType = b;
+    e.UnitSize = c;
+    e.UnitImageURL = d;
+    AdminUnitMainArray.push(e);
+    var f = AdminUnitMainArray.length-1;
+    console.log(AdminUnitMainArray);
+    $('.AdminUnit-ADNEW').prev("div.grid-item-container").first().attr('data-index', f);
+    // $('.admin-units-image').next().find("h5").html(e.UnitCategory+' '+e.UnitType);
+    $('.AdminUnit-ADNEW').show();
+    // $(".modal").removeClass('Admin-unit-new')
+}
+
+
+function AdminUnitEditing(){
+    var data_index = $(this).parents("div.grid-item-container").attr('data-index');
+    console.log(data_index);
+    if (data_index == undefined){
+        console.log("undefined boi")
+        var a = $('.Admin-unit-new').find("select.admin-unit-category-dd").val('')
+        var b = $('.Admin-unit-new').find("select.admin-unit-unittype-dd").val('')
+        var c = $('.Admin-unit-new').find("div.admin-units-floorplan-image-holder").next("div").find("h5").text('Click to Change Size(in sqr m)')
+        $(".Admin-unit-Save").click(AdminUnitSaving)
+    } else {
+        console.log("meron")
+        console.log(data_index)
+        console.log(AdminUnitMainArray)
+        var valuess = AdminUnitMainArray
+        $(".AuC").html(valuess[data_index].UnitCategory)
+        $(".Aut").html(valuess[data_index].UnitType)
+        $('.admin-unit-category-dd').val(valuess[data_index].UnitCategory)
+        $('.admin-unit-unittype-dd').val(valuess[data_index].UnitType)
+        $('.admin-units-floorplan-image-holder').next("div").find("h5").text(valuess[data_index].UnitSize)
+        console.log(valuess)
+
+        $(".Admin-unit-Save").click(function(){
+            // AdminUnitMainArray[data_index].UnitCategory = $('.admin-unit-category-dd').val()
+            // var b = $('.admin-unit-unittype-dd').val()
+            // var c = $('.admin-units-floorplan-image-holder').next("div").find("h5").text()
+            // var d  = "IMAGE URL HERE"
+            // console.log(AdminUnitMainArray[data_index].UnitCategory = $('.admin-unit-unittype-dd').val())
+
+        });
+    }
+   
+}
+
+// function AdminUnitImageTitle(){
+//     var AUIT = $('.admin-units-image').parents("div.grid-item-container").attr('data-index');
+//     $('.admin-units-image').parents("div.grid-item-container").attr('data-index',AUIT).children().find("h5");
+//     console.log(AdminUnitMainArray[AUIT])
+//     // $('.admin-units-image').next().find("h5").html(AdminUnitMainArray[AUIT].UnitCategory+' '+AdminUnitMainArray[AUIT].UnitType)
+// }
+
 //------------------------------------------------------------END OF ADMIN UNITS----------------------------------------------------------//
 //------------------------------------------------------------END OF ADMIN UNITS----------------------------------------------------------//
 //------------------------------------------------------------END OF ADMIN UNITS----------------------------------------------------------//
