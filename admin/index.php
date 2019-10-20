@@ -120,19 +120,7 @@
             <section class="page admin-content-Units-section">
                 <div class="container">
                     <div class="w-100 Admin-Unit-grid">
-                        <button class="btn btn-secondary m-auto" style="height:40px;width:180px">Add New Unit Photo</button>
-                        <div>
-                            <div class="admin-units-image-holder"></div>
-                            <div class="my-2 admin-units-floorplan-image-holder"></div>
-                        </div>
-                        <div>
-                            <div class="admin-units-image-holder"></div>
-                            <div class="my-2 admin-units-floorplan-image-holder"></div>
-                        </div>
-                        <div>
-                            <div class="admin-units-image-holder"></div>
-                            <div class="my-2 admin-units-floorplan-image-holder"></div>
-                        </div>
+                        <button class="btn btn-secondary m-auto AdminUnit-ADNEW" style="height:40px;width:180px">Add New Unit Photo</button>
                     </div>
                 </div>
             </section>
@@ -228,7 +216,7 @@
             </div>
         </div>
     </div>
-    <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div class="modal fade bd-example-modal-xl Admin-unit-new" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
@@ -238,19 +226,22 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                <div class="row">
+                <div class="row admin-unit-change">
                     <div class="my-2 col-12 col-lg-6 admin-unit-modal-holder">
                         <h5 class="text-center">Unit</h5>
                         <div class="admin-units-image-holder mb-2"></div>
                         <div class="w-50 m-auto">
-                            <h5 class="text-center">Select Category</h5>
+                            <h5 class="text-center AdminUnitName">
+                                <span class="AuC">Select Category</span>
+                                <span class="AuT"></span>
+                            </h5>
                         </div>
                     </div>
                     <div class="my-2 col-12 col-lg-6 admin-unit-modal-holder">
                         <h5 class="text-center">Floor Plan</h5>
                         <div class="admin-units-floorplan-image-holder mb-2"></div>
                         <div class="w-50 m-auto">
-                            <h5 class="text-center">Click to Change Size(in sqr.m.)</h5>
+                            <h5 class="text-center">Click to Change Size(in sqr m)</h5>
                         </div>
                     </div>
                     <div class="Admin-unit-modal-grid-container">
@@ -260,16 +251,16 @@
                         </div>
                         <div class="Admin-unit-modal-grid-item">
                             <div class="mb-1">
-                                <select class="w-100">
+                                <select class="admin-unit-category-dd w-100">
                                     <option></option>
-                                    <option value="OneBedroom">1 BedRoom</option>
-                                    <option value="TwoBedroom">2 BedRoom</option>
-                                    <option value="Studio">Studio</option>
-                                    <option value="FamilySuite">Family Suite</option>
+                                    <option value="One Bedroom" data-index=0>1 BedRoom</option>
+                                    <option value="Two Bedroom" data-index=1>2 BedRoom</option>
+                                    <option value="Studio" data-index=2>Studio</option>
+                                    <option value="Family Suite" data-index=3>Family Suite</option>
                                 </select>
                             </div>
                             <div class="mb-1">
-                                <select class="w-100">
+                                <select class="admin-unit-unittype-dd w-100">
                                     <option></option>
                                 </select>
                             </div>
@@ -278,8 +269,9 @@
                 </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" name="add" >Save changes</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary Admin-unit-Save" data-dismiss="modal" name="add">Save changes</button>
+                    <button type="button" class="btn btn-secondary Admin-unit-Cancel" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-secondary Admin-unit-Delete" data-dismiss="modal">Delete</button>
                 </div>
             </div>
         </div>
