@@ -227,23 +227,27 @@ function uploadImage() {
     $("#uploadImage").on('click',function(e) {
         readURL(this);
         console.log(this);
-        $('#preview-img').removeClass('d-none');
-        const a = $('.header-upload');
-            if (a.hasClass('d-none') == true){
-                    a.removeClass('d-none').addClass('d-flex');
-            }
+        console.log('fuckk u');
       });
       editImage(); 
 }
 
 function readURL(input) {
     console.log(input);
+    console.log(input.files);
+    console.log(input.files[0]);
     if (input.files && input.files[0]) {
         var reader = new FileReader();
             reader.onload = function(e) {
+    console.log(e.target.result);
                 $('#preview-img').attr('src', e.target.result);
             console.log(e);
             console.log(input.files[0]);
+        //     $('#preview-img').removeClass('d-none');
+        // const a = $('.header-upload');
+        //     if (a.hasClass('d-none') == true){
+        //             a.removeClass('d-none').addClass('d-flex');
+        //     }
             }
             reader.readAsDataURL(input.files[0]);
     }
