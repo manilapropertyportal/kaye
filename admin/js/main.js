@@ -44,7 +44,6 @@ const _main = {
                                 cache: false,
                                 processData:false,
                                     success: function(data) {
-                                        console.log(data);
                                         if(data == 'error') {
                                             console.log('bobobobobobo');
                                             alert('Bobo Choose File muna!');
@@ -138,8 +137,24 @@ const _main = {
         saving: function(param) {
             console.log('save data');
         },
-        view: function(param) {
+        view: function(param,id) {
             console.log('view data');
+            console.log(url);
+            console.log(param);
+            console.log(id);
+            $.post(url,{e:param},function(data){ 
+                        console.log(data);
+                    //    header(data);
+                    //         viewHeader(function(output){
+                    //         console.log(output);
+                    //         });
+                        let a = $(data).length+1;
+                        let b = id.length;
+                        let c = id.attr('class').split(' ')[0];
+                            if (a != b) {
+                                $(data).insertAfter('.'+c+':first');
+                            }
+                        });
         },
 
     }

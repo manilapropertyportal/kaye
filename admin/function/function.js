@@ -32,30 +32,41 @@ $(document).ready(function(){
             $('.admin-content-title h2').text(content_page_sections);
             $('.page').hide();
             $('.admin-content-'+title+'-section').show();
+                
                 switch (title) {
                     case 'Header':
                         // $('#'+title).change(function(){
                             var $this = $(this);
-                                if ($this.data('clicked')) { } else {
+                                if ($this.data('clicked')) { console.log('oops') } else {
                                     $this.data('clicked',true);
                                         // viewHeader();    
-                                        const chooseImage = document.getElementById('uploadImage');
-                                        const submitImage = document.getElementById('inputGroupFileAddon04')
-                                        $('#'+chooseImage.id).on('change',function(){
-                                            _main._events.change('image',this);
-                                        });
-                                        $('#'+submitImage.id).on('click',function(e){
-                                            e.preventDefault();
-                                            _main._properties.insert('image',$('#'+chooseImage.id));
-                                        })
-                                        
+                                        let chooseImage = document.getElementById('uploadImage');
+                                        let submitImage = document.getElementById('inputGroupFileAddon04');
+                                        let view = 'view_'+title.toLowerCase();
+
+                                            _main._method.view(view,$('.admin-content-card-body'));
+                                                $('#'+chooseImage.id).on('change',function(){
+                                                    console.log('new Upload');
+                                                    _main._events.change('image',this);
+                                                });
+                                                $('#'+submitImage.id).on('click',function(e){
+                                                    e.preventDefault();
+                                                    _main._properties.insert('image',$('#'+chooseImage.id));
+                                                });
+                                                
+                                              
                                 }
+                                // $('.close').parents('.849507-resumepic').on('click',function(){
+                                //     console.log('clck me')
+                                // });
                         // });
                     break;
                     case 'About':
 
                     break;
-                }    
+                }
+               
+               
             
         } else {
             // $('.alert').alert()
