@@ -40,20 +40,17 @@
                           $appname = $_POST['appname'];
                           $name = $_POST['name'];
                           $description = $_POST['description'];
-                          $remarks = '<div class="'.$nClass.' admin-content-card-body col-4 my-5 admin-upload-new-container">
-                                        <div class="admin-content-card-body-inner m-auto">
-                                          <div class="h-100 d-flex align-items-center px-3 position-relative admin-upload-new">
-                                            <img id="preview-img" class="'.$nClass.' h-100 mt-5 position-absolute m-auto" src="files/model/'.$path.'" alt="your image"/>
-                                          </div>
-                                        </div>
-                                      </div>';
+                          $remarks = '<div class="'.$nClass.' card admin-content-card-body" style="width: 18rem;">
+                      <img src="files/model/'.$path.'" class="'.$nClass.' card-img-top p-2 shadow-lg bg-light rounded" alt="Header Image" style="height: 20rem;">
+                      <div class="card-body text-center">
+                        <p class="card-text">" '.$name.' "</p>
+                      </div>
+                    </div>';
+
+                                      
                           echo $remarks;
                           $stmt = $mysqli -> prepare("INSERT headers (APP,APPTYPE,APPNAME,NAME,DESCRIPTION,VALUE) VALUES (?,?,?,?,?,?) ");
                           $stmt -> bind_param('ssssss',$app, $apptype, $appname, $name, $description, $value);
-
-                        //   while ($stmt -> fetch()) { 
-                        //     print_r($value); 
-                        // }
                           $stmt -> execute();
                         }
                     } else {

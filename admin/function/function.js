@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
     $('.admin-sidenavburger').click(function(){
         if($('.admin-sidenav, .admin-sidenav-md').hasClass('admin-sidenav-open') && $('.admin-content').hasClass("position-absolute")){
             $('.admin-sidenav, .admin-sidenav-md').hide().removeClass('admin-sidenav-open');
@@ -33,14 +34,23 @@ $(document).ready(function(){
             $('.admin-content-'+title+'-section').show();
                 switch (title) {
                     case 'Header':
-                        console.log('nasa header ka na');
-                        $('#'+title).click(function(){
+                        // $('#'+title).change(function(){
                             var $this = $(this);
                                 if ($this.data('clicked')) { } else {
                                     $this.data('clicked',true);
-                                        viewHeader();
+                                        // viewHeader();    
+                                        const chooseImage = document.getElementById('uploadImage');
+                                        const submitImage = document.getElementById('inputGroupFileAddon04')
+                                        $('#'+chooseImage.id).on('change',function(){
+                                            _main._events.change('image',this);
+                                        });
+                                        $('#'+submitImage.id).on('click',function(e){
+                                            e.preventDefault();
+                                            _main._properties.insert('image',$('#'+chooseImage.id));
+                                        })
+                                        
                                 }
-                        });
+                        // });
                     break;
                     case 'About':
 
@@ -175,117 +185,119 @@ $(document).ready(function(){
 
 });
 
-function saving(param,app,apptype,appname,description,name,value)  {
-    switch (param) {
-        case 'header':
-            $(".header-form").on('submit',(function(e) {
-                console.log('submitted 2');
-                e.preventDefault();
-                    const apptype = $('.admin-content-title .title').text();
-                    const appname = $('.admin-selected-project').text();
-                    const a = appname.replace(/\s/g,'');
-                    const app = $('#'+a).parents('.collapse').prop('class').split(' ')[0].split('-')[2];
-                    console.log(app);
-                    const description = $('#uploadImage').val().split('\\')[2];
-                    const name = description.split('.')[0];
-                    const images = new FormData(this);
-                        images.append('e', 'save_header');
-                        images.append('app', app);
-                        images.append('apptype', apptype);
-                        images.append('appname', appname);
-                        images.append('name', name);
-                        images.append('description', description);
-                            $.ajax({
-                                url: "files/model/model.php",
-                                type: "POST",
-                                data:  images,
-                                contentType: false,
-                                cache: false,
-                                processData:false,
-                                    success: function(data) {
-                                        console.log(data);
-                                        if(data == 'error') {
-                                            console.log('bobobobobobo');
-                                            alert('Bobo Choose File muna!');
-                                        } else {
-                                            $('#preview-img').removeClass('d-flex').addClass('d-none').removeAttr('src');
-                                            $(data).insertAfter('.admin-content-card-body:first');
-                                            $(".header-upload").toggleClass('d-flex d-none');
-                                            $("#form").trigger('reset');
-                                        }
-                                    }, 
-                            });
-            }));
-        break;
-        case 'about':
-            console.log('ABOUT PRE');
-        break;
 
-    }
-}
-function editImage() {
-    $('#preview-img').on('click',function(){
-        console.log(this)
-        // const a = this;
-        // $(this).remove();
-         $(this).addClass('d-none').attr('src','#');
-        $('#uploadImage').trigger('click');
-        console.log($('#uploadImage')[0]);
-        readURL($('#uploadImage')[0]);
-    });
-    saving('header');
-}
+// function saving(param,app,apptype,appname,description,name,value)  {
+//     switch (param) {
+//         case 'header':
+//             $(".header-form").on('submit',(function(e) {
+//                 console.log('submitted 2');
+//                 e.preventDefault();
+//                     const apptype = $('.admin-content-title .title').text();
+//                     const appname = $('.admin-selected-project').text();
+//                     const a = appname.replace(/\s/g,'');
+//                     const app = $('#'+a).parents('.collapse').prop('class').split(' ')[0].split('-')[2];
+//                     console.log(app);
+//                     const description = $('#uploadImage').val().split('\\')[2];
+//                     const name = description.split('.')[0];
+//                     const images = new FormData(this);
+//                         images.append('e', 'save_header');
+//                         images.append('app', app);
+//                         images.append('apptype', apptype);
+//                         images.append('appname', appname);
+//                         images.append('name', name);
+//                         images.append('description', description);
+//                             $.ajax({
+//                                 url: "files/model/model.php",
+//                                 type: "POST",
+//                                 data:  images,
+//                                 contentType: false,
+//                                 cache: false,
+//                                 processData:false,
+//                                     success: function(data) {
+//                                         console.log(data);
+//                                         if(data == 'error') {
+//                                             console.log('bobobobobobo');
+//                                             alert('Bobo Choose File muna!');
+//                                         } else {
+//                                             $('#preview-img').removeClass('d-flex').addClass('d-none').removeAttr('src');
+//                                             $(data).insertAfter('.admin-content-card-body:first');
+//                                             $(".header-upload").toggleClass('d-flex d-none');
+//                                             $("#form").trigger('reset');
+//                                         }
+//                                     }, 
+//                             });
+//             }));
+//         break;
+//         case 'about':
+//             console.log('ABOUT PRE');
+//         break;
 
-function uploadImage() {
-    $("#uploadImage").on('click',function(e) {
-        readURL(this);
-        console.log(this);
-        console.log('fuckk u');
-      });
-      editImage(); 
-}
+//     }
+// }
+// function editImage() {
+//     $('#preview-img').on('click',function(){
+//         console.log(this)
+//         // const a = this;
+//         // $(this).remove();
+//          $(this).addClass('d-none').attr('src','#');
+//         $('#uploadImage').trigger('click');
+//         console.log($('#uploadImage')[0]);
+//         readURL($('#uploadImage')[0]);
+//     });
+//     saving('header');
+//     // _main._properties.insert();
+// }
 
-function readURL(input) {
-    console.log(input);
-    console.log(input.files);
-    console.log(input.files[0]);
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-            reader.onload = function(e) {
-    console.log(e.target.result);
-                $('#preview-img').attr('src', e.target.result);
-            console.log(e);
-            console.log(input.files[0]);
-        //     $('#preview-img').removeClass('d-none');
-        // const a = $('.header-upload');
-        //     if (a.hasClass('d-none') == true){
-        //             a.removeClass('d-none').addClass('d-flex');
-        //     }
-            }
-            reader.readAsDataURL(input.files[0]);
-    }
+// function uploadImage() {
+//     $("#uploadImage").on('click',function(e) {
+//         readURL(this);
+//         console.log(this);
+//         console.log('fuckk u');
+//       });
+//       editImage(); 
+// }
+
+// function readURL(input) {
+//     console.log(input);
+//     console.log(input.files);
+//     console.log(input.files[0]);
+//     if (input.files && input.files[0]) {
+//         var reader = new FileReader();
+//             reader.onload = function(e) {
+//     console.log(e.target.result);
+//                 $('#preview-img').attr('src', e.target.result);
+//             console.log(e);
+//             console.log(input.files[0]);
+//         //     $('#preview-img').removeClass('d-none');
+//         // const a = $('.header-upload');
+//         //     if (a.hasClass('d-none') == true){
+//         //             a.removeClass('d-none').addClass('d-flex');
+//         //     }
+//             }
+//             reader.readAsDataURL(input.files[0]);
+//     }
    
-}
+// }
 
-function viewHeader(header) {
-    $.post('files/model/model.php',{e:'view_header'},function(data){ 
-        console.log('view');
-    //    header(data);
-    //         viewHeader(function(output){
-    //         console.log(output);
-    //         });
-        const a = $(data).length+1;
-        const b = $('.admin-content-card-body').length;
-        const c = $('.admin-content-card-container');
-            if (a != b) {
-                c.html(c.html()+data);
-            }
-            uploadImage();
+// function viewHeader(header) {
+//     $.post('files/model/model.php',{e:'view_header'},function(data){ 
+//         console.log('view');
+//     //    header(data);
+//     //         viewHeader(function(output){
+//     //         console.log(output);
+//     //         });
+//         const a = $(data).length+1;
+//         const b = $('.admin-content-card-body').length;
+//         const c = $('.admin-content-card-container');
+//             if (a != b) {
+//                 c.html(c.html()+data);
+//             }
+//             uploadImage();
 
-        });
+//         });
 
         
-}
+// }
 
 //---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
 //---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
