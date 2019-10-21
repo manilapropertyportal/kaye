@@ -84,7 +84,7 @@
         </div>
         <div class="admin-content position-absolute">
             <div class="admin-content-title container-fluid">
-                <h2 class="title mt-4"></h2>  
+                <h2 class="title mt-4 shadow-sm p-3 mb-1 bg-white rounded"></h2>  
             </div>
             <section class="page admin-content-Header-section">
                 <div class="admin-content-card-container row container h-100 m-auto">
