@@ -1,4 +1,5 @@
 $(document).ready(function(){
+   
 
     $('.admin-sidenavburger').click(function(){
         if($('.admin-sidenav, .admin-sidenav-md').hasClass('admin-sidenav-open') && $('.admin-content').hasClass("position-absolute")){
@@ -24,39 +25,77 @@ $(document).ready(function(){
         }
     })
     $('.admin-sections li').click(function(event){
-        if ($('.admin-selected-project').text() != ''){ 
+        if ($('.admin-selected-project').text() != ''){
             event.preventDefault();
             const content_page_sections = this.dataset.page;
             const title = decodeURIComponent(content_page_sections);
-            console.log(title);
             $('.admin-content-title h2').text(content_page_sections);
             $('.page').hide();
             $('.admin-content-'+title+'-section').show();
-                
-                switch (title) {
-                    case 'Header':
-                            var $this = $(this);
-                                if ($this.data('clicked')) { console.log('oops') } else {
-                                    $this.data('clicked',true);
-                                        let chooseImage = document.getElementById('uploadImage');
-                                        let submitImage = document.getElementById('inputGroupFileAddon04');
-                                        let view = 'view_'+title.toLowerCase();
-                                           
-                                            $('#'+chooseImage.id).on('change',function(){
-                                                console.log('new Upload');
-                                                _main._events.change('image',this);
-                                            });
-                                            $('#'+submitImage.id).on('click',function(e){
-                                                e.preventDefault();
-                                                _main._properties.insert('image',$('#'+chooseImage.id));
-                                            });
-                                                _main._method.view(view,$('.admin-content-card-body'));
-                                }
-                    break;
-                    case 'About':
 
-                    break;
-                }
+                const _app = $('#'+$('.admin-selected-project').text()).parents('.collapse').attr('class').split(' ')[0].split('-')[2];
+                    var newData = [
+                        {
+                            app:  _app.replace(/\b[a-z]/g, function(letter){
+                                    return letter.toUpperCase();
+                                    }), // Premier
+                            apptype: title, // Header
+                            appname: $('.admin-selected-project').text(), // Coast
+                            actionView: 'view_'+title.toLowerCase(),
+                            actionInsert: 'save_'+title.toLowerCase(),
+                            actionDelete: 'delete_'+title.toLowerCase(),
+                            do: {
+                                close: 'close',
+                                click: 'click',
+                                change: 'change',
+                            },
+                            class: {
+                                this: '',
+                                file: 'asdasd',
+                                upload: 'uploadImage',
+                                card: '.admin-content-card-body',
+
+                            },
+                            id: {
+                                file: '#uploadImage',
+                                upload: '#inputGroupFileAddon04'
+                            },
+                            section: {
+                                header: 'Header',
+                                about: 'About',
+                            },
+                            this: {
+                                choose: $('#uploadImage')[0],
+                            },
+                            css: {
+                                dflex: 'd-flex',
+                                dnone: 'd-none'
+                            },
+                        }
+                    ];
+                    console.log(newData[0]);
+                        switch (title) {
+                            case 'Header':
+                                    var $this = $(this);
+                                        if ($this.data('clicked')) { } else {
+                                            $this.data('clicked',true);
+                                                let uploadImage = newData[0].id.file;
+                                                let uploadButton = newData[0].id.upload;
+                                                
+                                                    $(uploadImage).on('change',function(){
+                                                        _main._events.change(newData[0]);
+                                                    });
+                                                    $(uploadButton).on('click',function(e){
+                                                        e.preventDefault();
+                                                        _main._properties.insert(newData[0]);
+                                                    });
+                                                        _main._method.view(newData[0]);
+                                        }
+                            break;
+                            case 'About':
+
+                            break;
+                        }
                
                
             
@@ -116,8 +155,6 @@ $(document).ready(function(){
     
     $(document).on("click", ".admin-units-image",AdminUnitEditing)
 });
-
-
 
 //-----------------------------------------------------------------ADMIN ABOUT-----------------------------------------------------------------------// 
 //-----------------------------------------------------------------ADMIN ABOUT-----------------------------------------------------------------------// 

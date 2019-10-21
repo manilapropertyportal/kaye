@@ -1,5 +1,4 @@
 var url = "files/model/model.php";
-var app = $('.admin-content-title .title').text();
 
 const _main = {
     data: {
@@ -16,24 +15,21 @@ const _main = {
         this._data = value;
     },
     _properties: {
-        insert: function(param,elem){
+        insert: function(newData){
             console.log('insert data');
-            switch(param) {
-                case 'image':
-                    let input = elem[0];
-                    let apptype = $('.admin-content-title .title').text();
-                    let appname = $('.admin-selected-project').text();
-                    let a = appname.replace(/\s/g,'');
-                    let app = $('#'+a).parents('.collapse').prop('class').split(' ')[0].split('-')[2];
-                    console.log(app);
+            let sectionHeader = newData.section.header;
+            let uploadId = newData.id.upload;
+            switch(newData.apptype) {
+                case sectionHeader:
+                    let input = newData.this.choose;
                     let description = input.files[0].name;
                     let name = description.split('.')[0];
                     let images = new FormData();
                         images.append('image', input.files[0]);
-                        images.append('e', 'save_header');
-                        images.append('app', app);
-                        images.append('apptype', apptype);
-                        images.append('appname', appname);
+                        images.append('e', newData.actionInsert);
+                        images.append('app', newData.app);
+                        images.append('apptype', newData.apptype);
+                        images.append('appname', newData.appname);
                         images.append('name', name);
                         images.append('description', description);
                             $.ajax({
@@ -44,15 +40,17 @@ const _main = {
                                 cache: false,
                                 processData:false,
                                     success: function(data) {
+                                        // let newAction = 'view_'+newData.apptype.toLowerCase();
                                         if(data == 'error') {
                                             console.log('bobobobobobo');
                                             alert('Bobo Choose File muna!');
                                         } else {
-                                            $('#inputGroupFileAddon04').removeClass('d-flex').addClass('d-none')
-                                            elem.removeAttr('style');
+                                            $(uploadId).removeClass('d-flex').addClass('d-none')
+                                            $(newData.id.file).removeAttr('style');
                                             $('.card-title').text('No file chosen');
                                             $(data).insertAfter('.admin-content-card-body:first');
-                                            _main._method.view('view_header',$('.admin-content-card-body'));
+                                            // _main._method.view(appname,apptype,newAction,$('.admin-content-card-body'));
+                                            _main._method.view(newData);
                                         }
                                     },
                                     
@@ -66,11 +64,9 @@ const _main = {
         update: function(param){
             console.log('update data');
         },
-        delete: function(param,id,data){
+        delete: function(newData){
             console.log('delete data');
-            console.log(param);
-            console.log(id);
-            console.log(data.header);
+            console.log(newData);
             // $.post(url,{e:param,app,apptype,appname,value},function(data){ 
             //     console.log(data);
 
@@ -83,11 +79,13 @@ const _main = {
 
     },
     _events: {
-        click: function(param,elem) {
-            switch(param) {
-                case 'header':
-                    if (elem == 'close') {
-                        $('.close').parents('.admin-content-card-body').on('click',function() {
+        click: function(newData) {
+            console.log('click data');
+            let cardClass = newData.class.card;
+            switch(newData.apptype) {
+                case 'Header':
+                    if (newData.do.close) {
+                        $('.close').parents(cardClass).on('click',function() {
                             let toRemove = $(this).attr('class').split(' ')[0];
                             console.log('tickle me');
                             console.log(toRemove);
@@ -95,9 +93,8 @@ const _main = {
                             var c = {'header':'ako ay header','appname':'appname'}
                             b.push(c);
                             console.log(b);
-                            console.log(b.header);
                             $('.'+toRemove).remove();
-                            _main._properties.delete('delete_header',toRemove,b[0]);
+                            _main._properties.delete(newData.actionDelete,toRemove,b[0]);
                         });
                     }
                 break;
@@ -107,14 +104,15 @@ const _main = {
         load: function(id) {
             console.log(id +' load me');
         },
-        change: function(param,elem) {
-            switch(param) {
-                case 'image':
-                    let $this = elem;
-                    let name = elem.files[0].name;
+        change: function(newData) {
+            switch(newData.apptype) {
+                case 'Header':
+                    let $this = newData.this.choose;
+                    let name = $this.files[0].name;
+                    let uploadImage = newData.id.file;
                         if ($this.files && $this.files[0]) {
                             var reader = new FileReader();
-                            let img = $('#'+elem.id);
+                            let img = $(uploadImage);
                                 reader.onload = function(e) {
                                     img.siblings('.card-body').children('.card-title').text(name);
                                     img.css({
@@ -131,42 +129,39 @@ const _main = {
             }
 
         },
-        submit: function(param,id,data) {
-            switch(param) {
-                case 'header':
+        submit: function(newData,elem) {
+            switch(newData.apptype) {
+                case 'Header':
                 break;
                 case 'text':
                 break;
             }
         },
-        hover: function(id) {
-            console.log(id +' hover me');
+        hover: function(newData,elem) {
+            console.log('hover me');
         },
     },
     _method: {
-        saving: function(param) {
+        saving: function(newData,elem) {
             console.log('save data');
         },
-        view: function(param,id) {
+        view: function(newData) {
             console.log('view data');
-            console.log(url);
-            console.log(param);
-            console.log(id);
-            let header = param.split('_')[1];
-            $.post(url,{e:param},function(data){ 
-                        console.log(data);
-                    //    header(data);
-                    //         viewHeader(function(output){
-                    //         console.log(output);
-                    //         });
-                        let a = $(data).length+1;
-                        let b = id.length;
-                        let c = id.attr('class').split(' ')[0];
-                            if (a != b) {
-                                $(data).insertAfter('.'+c+':first');
-                            }
+            let cardClass = $(newData.class.card);
+            let e = newData.actionView;
+                $.post(url,{e},function(data){ 
+                        //    header(data);
+                        //         viewHeader(function(output){
+                        //         console.log(output);
+                        //         });
+                            let a = $(data).length+1;
+                            let b = cardClass.length;
+                            let c = cardClass.attr('class').split(' ')[0];
+                                if (a != b) {
+                                    $(data).insertAfter('.'+c+':first');
+                                }
 
-                            _main._events.click(header,'close');
+                                _main._events.click(newData);
 
                         });
         },
@@ -174,34 +169,3 @@ const _main = {
     }
 
 }
- 
- 
- function bs_input_file() {
-                $(".input-file").before(
-                    function() {
-                        if ( ! $(this).prev().hasClass('input-ghost') ) {
-                            var element = $("<input type='file' class='input-ghost' style='visibility:hidden; height:0; position: absolute>");
-                            element.attr("name",$(this).attr("name"));
-                            element.change(function(){
-                                element.next(element).find('input').val((element.val()).split('\\').pop());
-                            });
-                            $(this).find("button.btn-choose").click(function(){
-                                element.click();
-                            });
-                            $(this).find("button.btn-reset").click(function(){
-                                element.val(null);
-                                $(this).parents(".input-file").find('input').val('');
-                            });
-                            $(this).find('input').css("cursor","pointer");
-                            $(this).find('input').mousedown(function() {
-                                $(this).parents('.input-file').prev().click();
-                                return false;
-                            });
-                            return element;
-                        }
-                    }
-                );
-            }
-                $(function() {
-                    bs_input_file();
-                });
