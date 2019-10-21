@@ -62,7 +62,7 @@
             break;
             case 'view_header':
                 $var = '';
-                $stmt = $mysqli -> prepare('SELECT APP, APPTYPE, APPNAME, NAME, DESCRIPTION, VALUE FROM headers ORDER BY ID DESC'); 
+                $stmt = $mysqli -> prepare("SELECT APP, APPTYPE, APPNAME, NAME, DESCRIPTION, VALUE FROM headers ORDER BY ID DESC"); 
                 $stmt -> execute(); 
                 $stmt -> store_result(); 
                 $stmt -> bind_result($app, $apptype, $appname, $name, $description, $value); 
@@ -86,9 +86,13 @@
                   }
             break;
             case 'delete_header':
-              $stmt = $mysqli -> prepare('DELETE FROM users WHERE id = ?');
-              $userId = 4;
-              $stmt -> bind_param('i', $userId);
+                  echo 'rows affected: ';
+              $app = $_POST['app'];
+              $apptype = $_POST['apptype'];
+              $appname = $_POST['appname'];
+              $value = $_POST['value'].'%';
+              $stmt = $mysqli -> prepare("DELETE FROM headers WHERE APP = ? AND APPTYPE = ? AND APPNAME = ? AND VALUE LIKE ? ");
+              $stmt -> bind_param('ssss', $app,$apptype,$appname,$value);
               $stmt -> execute();
 
               // number of deleted rows
