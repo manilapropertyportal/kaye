@@ -45,10 +45,10 @@ const _main = {
                                                 alert('Bobo Choose File muna!');
                                             } else {
                                                 $(uploadId).removeClass('d-flex').addClass('d-none')
-                                                $(newData.id.file).removeAttr('style');
+                                                $(newData.id.file).removeAttr('style').val('');
                                                 $('.card-title').text('No file chosen');
                                                 $(data).insertAfter('.admin-content-card-body:first');
-                                                _main._method.view(newData);
+                                                _main._properties.select(newData);
                                             }
                                         },
                                         
@@ -59,7 +59,26 @@ const _main = {
             }
 
         },
-        update: function(param){
+        select: function(newData) {
+            console.log('select data');
+            let cardClass = $(newData.class.card);
+            let e = newData.actionView;
+                $.post(url,{e},function(data){ 
+                        //    header(data);
+                        //         viewHeader(function(output){
+                        //         console.log(output);
+                        //         });
+                            let a = $(data).length+1;
+                            let b = cardClass.length;
+                            let c = cardClass.attr('class').split(' ')[0];
+                                if (a != b) {
+                                    $(data).insertAfter('.'+c+':first');
+                                }
+                                _main._events.click(newData);
+
+                        });
+        },
+        update: function(newData){
             console.log('update data');
         },
         delete: function(newData,remove){
@@ -74,8 +93,6 @@ const _main = {
                 $.post(url,{e,app,apptype,appname,value,file},function(){ 
                 });
         },
-
-
     },
     _events: {
         click: function(newData) {
@@ -85,22 +102,20 @@ const _main = {
             let close = newData.do.close;
                 switch(newData.apptype) {
                     case 'Header':
-                        if (newData.do.close) {
-                            $('.'+close).parents(cardClass).on('click',function() {
-                                var remove = [{
-                                    db: $(this).attr('class').split(' ')[0],
-                                    file: $(cardClass+' '+cardSrc).attr('src').split('/')[3],
-                                }]
-                                    $('.'+remove[0].db).remove();
-                                        _main._properties.delete(newData,remove[0]);
-                            });
-                        }
+                        $('.'+close).on('click',function() {
+                            let a = $(cardClass+' '+cardSrc).attr('src').split('/')[3]
+                                if (newData.do.close) {
+                                    var remove = [{
+                                        file: a,
+                                        db: a.split('.')[0],
+                                    }]
+                                        $('.'+remove[0].db).remove();
+                                            _main._properties.delete(newData,remove[0]);
+                                }
+                        });
                     break;
             }
           
-        },
-        load: function(id) {
-            console.log(id +' load me');
         },
         change: function(newData) {
             switch(newData.apptype) {
@@ -127,7 +142,7 @@ const _main = {
             }
 
         },
-        submit: function(newData,elem) {
+        submit: function(newData) {
             switch(newData.apptype) {
                 case 'Header':
                 break;
@@ -135,33 +150,20 @@ const _main = {
                 break;
             }
         },
-        hover: function(newData,elem) {
+        load: function(id) {
+            console.log(id +' load me');
+        },
+        hover: function(newData) {
             console.log('hover me');
         },
     },
     _method: {
-        saving: function(newData,elem) {
+        saving: function(newData) {
             console.log('save data');
         },
-        view: function(newData) {
-            console.log('view data');
-            let cardClass = $(newData.class.card);
-            let e = newData.actionView;
-                $.post(url,{e},function(data){ 
-                        //    header(data);
-                        //         viewHeader(function(output){
-                        //         console.log(output);
-                        //         });
-                            let a = $(data).length+1;
-                            let b = cardClass.length;
-                            let c = cardClass.attr('class').split(' ')[0];
-                                if (a != b) {
-                                    $(data).insertAfter('.'+c+':first');
-                                }
-
-                                _main._events.click(newData);
-
-                        });
+        display: function(newData) {
+            console.log('display data');
+            
         },
 
     }

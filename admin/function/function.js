@@ -89,7 +89,7 @@ $(document).ready(function(){
                                                         e.preventDefault();
                                                         _main._properties.insert(newData[0]);
                                                     });
-                                                        _main._method.view(newData[0]);
+                                                        _main._properties.select(newData[0]);
                                         }
                             break;
                             case 'About':
