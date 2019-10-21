@@ -52,11 +52,13 @@ const _main = {
                                             elem.removeAttr('style');
                                             $('.card-title').text('No file chosen');
                                             $(data).insertAfter('.admin-content-card-body:first');
-                                            // $(".header-upload").toggleClass('d-flex d-none');
-                                            // $("#form").trigger('reset');
+                                            _main._method.view('view_header',$('.admin-content-card-body'));
                                         }
-                                    }, 
+                                    },
+                                    
                             });
+                           
+                          
                 break;
             }
 
@@ -64,8 +66,18 @@ const _main = {
         update: function(param){
             console.log('update data');
         },
-        delete: function(param){
+        delete: function(param,id,data){
             console.log('delete data');
+            console.log(param);
+            console.log(id);
+            console.log(data.header);
+            // $.post(url,{e:param,app,apptype,appname,value},function(data){ 
+            //     console.log(data);
+
+            // });
+
+            
+            
         },
 
 
@@ -73,14 +85,21 @@ const _main = {
     _events: {
         click: function(param,elem) {
             switch(param) {
-                case 'Header':
-                    // $("#uploadImage")
-                    console.log(param);
-                    console.log(elem);
-
-                    let a = elem.files;
-                    console.log(a);
-
+                case 'header':
+                    if (elem == 'close') {
+                        $('.close').parents('.admin-content-card-body').on('click',function() {
+                            let toRemove = $(this).attr('class').split(' ')[0];
+                            console.log('tickle me');
+                            console.log(toRemove);
+                            var b = []
+                            var c = {'header':'ako ay header','appname':'appname'}
+                            b.push(c);
+                            console.log(b);
+                            console.log(b.header);
+                            $('.'+toRemove).remove();
+                            _main._properties.delete('delete_header',toRemove,b[0]);
+                        });
+                    }
                 break;
             }
           
@@ -114,16 +133,7 @@ const _main = {
         },
         submit: function(param,id,data) {
             switch(param) {
-                case 'Header':
-                    console.log(param);
-                    console.log(id);
-                    // $(".header-form")
-                    // $(id).on('submit',function(e){
-                    //     console.log(data);
-                    //     e.preventDefault();
-
-                    //     _main._properties.insert(param);
-                    // })
+                case 'header':
                 break;
                 case 'text':
                 break;
@@ -142,6 +152,7 @@ const _main = {
             console.log(url);
             console.log(param);
             console.log(id);
+            let header = param.split('_')[1];
             $.post(url,{e:param},function(data){ 
                         console.log(data);
                     //    header(data);
@@ -154,6 +165,9 @@ const _main = {
                             if (a != b) {
                                 $(data).insertAfter('.'+c+':first');
                             }
+
+                            _main._events.click(header,'close');
+
                         });
         },
 

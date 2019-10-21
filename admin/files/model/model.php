@@ -85,6 +85,18 @@
                     echo $var;
                   }
             break;
+            case 'delete_header':
+              $stmt = $mysqli -> prepare('DELETE FROM users WHERE id = ?');
+              $userId = 4;
+              $stmt -> bind_param('i', $userId);
+              $stmt -> execute();
+
+              // number of deleted rows
+              echo $stmt -> affected_rows;
+            break;
+            case 'update_header':
+                  echo 'update header';
+            break;
             case 'save_about':
                   echo 'save about';
             break;
