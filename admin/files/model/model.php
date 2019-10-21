@@ -54,26 +54,23 @@
             break;
             case 'view_header':
                 $var = '';
-                $stmt = $mysqli -> prepare("SELECT APP, APPTYPE, APPNAME, NAME, DESCRIPTION, VALUE FROM headers ORDER BY ID DESC"); 
+                $stmt = $mysqli -> prepare("SELECT APP, APPTYPE, APPNAME, NAME, DESCRIPTION, VALUE FROM headers ORDER BY ID DESC "); 
                 $stmt -> execute(); 
                 $stmt -> store_result(); 
                 $stmt -> bind_result($app, $apptype, $appname, $name, $description, $value); 
                   while ($stmt -> fetch()) {
                     $str = explode('.',$value);
                     $nName = $str[0]; 
-                      // echo $name; 
-                      // echo $description; 
-                      // echo $value;
-                      $var  = '<div class="'.$nName.' card admin-content-card-body m-2 p-1" style="width: 18rem;">
-                                 <div class="card-body text-center p-0">
-                                    <p class="card-text">" '.$name.' "
-                                      <button type="button" class="close" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                      </button>
-                                    </p>
-                                  </div>
-                                <img src="files/model/uploads/'.$value.'" class="'.$nName.' card-img-top p-2 shadow-lg bg-light rounded" alt="Header Image" style="height: 20rem;">
-                              </div>';
+                    $var  = '<div class="'.$nName.' card admin-content-card-body m-2 p-1" style="width: 18rem;">
+                                <div class="card-body text-center p-0">
+                                  <p class="card-text">" '.$name.' "
+                                    <button type="button" class="close" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </p>
+                                </div>
+                              <img src="files/model/uploads/'.$value.'" class="'.$nName.' card-img-top p-2 shadow-lg bg-light rounded" alt="Header Image" style="height: 20rem;">
+                            </div>';
                     echo $var;
                   }
             break;
@@ -85,21 +82,44 @@
               $value = $_POST['value'].'%';
               $path = 'uploads/'.$_POST['file'];
               unlink($path);
-              $stmt = $mysqli -> prepare("DELETE FROM headers WHERE APP = ? AND APPTYPE = ? AND APPNAME = ? AND VALUE LIKE ? ");
+              $stmt = $mysqli -> prepare("DELETE FROM headers WHERE APP=? AND APPTYPE=? AND APPNAME=? AND VALUE LIKE ? ");
               $stmt -> bind_param('ssss', $app,$apptype,$appname,$value);
               $stmt -> execute();
 
-              // number of deleted rows
               echo $stmt -> affected_rows;
             break;
-            case 'update_header':
-                  echo 'update header';
+            case 'update_about':
+              $app = $_POST['app'];
+              $apptype = $_POST['apptype'];
+              $appname = $_POST['appname'];
+              $value = $_POST['value'];
+              $stmt = $mysqli -> prepare("UPDATE about SET VALUE=? WHERE APP=? AND APPTYPE=? AND APPNAME=? LIMIT 1 ");
+              $stmt -> bind_param('ssss', $value, $app, $apptype, $appname);
+              $stmt -> execute();
+              echo $value;
+              echo $stmt -> affected_rows;
             break;
             case 'save_about':
                   echo 'save about';
+              $app = $_POST['app'];
+              $apptype = $_POST['apptype'];
+              $appname = $_POST['appname'];
+              $value = $_POST['value'];
+              $stmt = $mysqli -> prepare("INSERT about (APP, APPTYPE, APPNAME, VALUE) VALUES (?,?,?,?) ");
+              $stmt -> bind_param('ssss', $app, $apptype, $appname, $value);
+              $stmt -> execute();
             break;
             case 'view_about':
-                  echo 'view about';
+              $var = '';
+              $stmt = $mysqli -> prepare("SELECT VALUE FROM about ");
+              $stmt -> execute(); 
+              $stmt -> store_result(); 
+              $stmt -> bind_result($value);
+              $stmt -> fetch();
+              $string = preg_replace('/\s+/', ' ', $value);
+              echo $string;
+              // $var  = '<textarea class="admin-text-area admin-text-area-edit form-control w-100 "/></textarea>';
+              // echo $var;
             break;
         }
 }

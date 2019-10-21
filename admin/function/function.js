@@ -25,7 +25,8 @@ $(document).ready(function(){
         }
     })
     $('.admin-sections li').click(function(event){
-        if ($('.admin-selected-project').text() != ''){
+        var projectName = $('.admin-selected-project').text();
+        if (projectName != ''){
             event.preventDefault();
             const content_page_sections = this.dataset.page;
             const title = decodeURIComponent(content_page_sections);
@@ -33,27 +34,28 @@ $(document).ready(function(){
             $('.page').hide();
             $('.admin-content-'+title+'-section').show();
 
-                const _app = $('#'+$('.admin-selected-project').text()).parents('.collapse').attr('class').split(' ')[0].split('-')[2];
+                const _app = $('#'+projectName).parents('.collapse').attr('class').split(' ')[0].split('-')[2];
                     var newData = [
                         {
                             app:  _app.replace(/\b[a-z]/g, function(letter){
                                     return letter.toUpperCase();
                                     }), // Premier
                             apptype: title, // Header
-                            appname: $('.admin-selected-project').text(), // Coast
+                            appname: projectName, // Coast
                             actionView: 'view_'+title.toLowerCase(),
                             actionInsert: 'save_'+title.toLowerCase(),
                             actionDelete: 'delete_'+title.toLowerCase(),
+                            actionUpdate: 'update_'+title.toLowerCase(),
                             do: {
                                 close: 'close',
                                 click: 'click',
                                 change: 'change',
                             },
                             class: {
-                                this: '',
                                 src: '.card-img-top',
                                 upload: 'uploadImage',
                                 card: '.admin-content-card-body',
+                                text: '.admin-text-area',
 
                             },
                             id: {
@@ -67,6 +69,9 @@ $(document).ready(function(){
                             this: {
                                 choose: $('#uploadImage')[0],
                             },
+                            value: {
+                                about: '.admin-text-area',
+                            },
                             css: {
                                 dflex: 'd-flex',
                                 dnone: 'd-none'
@@ -74,27 +79,34 @@ $(document).ready(function(){
                         }
                     ];
                     console.log(newData[0]);
-                        switch (title) {
-                            case 'Header':
-                                    var $this = $(this);
-                                        if ($this.data('clicked')) { } else {
-                                            $this.data('clicked',true);
-                                                let uploadImage = newData[0].id.file;
-                                                let uploadButton = newData[0].id.upload;
-                                                
-                                                    $(uploadImage).on('change',function(){
-                                                        _main._events.change(newData[0]);
-                                                    });
-                                                    $(uploadButton).on('click',function(e){
-                                                        e.preventDefault();
-                                                        _main._properties.insert(newData[0]);
-                                                    });
-                                                        _main._properties.select(newData[0]);
-                                        }
-                            break;
-                            case 'About':
-
-                            break;
+                    var $this = $(this);
+                        if ($this.data('clicked')) { } else {
+                            $this.data('clicked',true);
+                            let xData = newData[0];
+                                switch (title) {
+                                    case 'Header':
+                                        let uploadImage = xData.id.file;
+                                        let uploadButton = xData.id.upload;
+                                        
+                                            $(uploadImage).on('change',function(){
+                                                _main._events.change(xData);
+                                            });
+                                            $(uploadButton).on('click',function(e){
+                                                e.preventDefault();
+                                                _main._properties.insert(xData);
+                                            });
+                                                _main._properties.select(xData);
+                                                break;
+                                    case 'About':
+                                            let textArea = xData.class.text;
+                                                $(textArea).one('keyup',function(){
+                                                    console.log('change');
+                                                    _main._events.keyup(xData);
+                                                    $(textArea).text($(textArea).val());
+                                                });
+                                                _main._properties.select(xData);
+                                        break;
+                                    }
                         }
                
                
@@ -104,12 +116,12 @@ $(document).ready(function(){
         }
     })
 
-    $('.admin-About-Add').click(function(){
-        var newText = "<textarea class='admin-text-area admin-text-area-new' name='p' id='p' cols='30' rows='10' style='width:100%;'></textarea>"
-        $(newText).insertBefore($(this));
-        $('.admin-About-btns').show();
-        $(this).hide();
-    });
+    // $('.admin-About-Add').click(function(){
+    //     var newText = "<textarea class='admin-text-area admin-text-area-new' name='p' id='p' cols='30' rows='10' style='width:100%;'></textarea>"
+    //     $(newText).insertBefore($(this));
+    //     $('.admin-About-btns').show();
+    //     $(this).hide();
+    // });
 
   
     // $('.admin-About-new-cancel').click(function(){
@@ -117,7 +129,10 @@ $(document).ready(function(){
     // });
 
     // $('.admin-About-new-Insert').click(forAboutNew)
-    $('.admin-content-About-item-container').on('click', forAboutEdit)
+
+
+
+    // $('.admin-content-About-item-container').on('click', forAboutEdit)
 
     $('.Admin-change-map').click(AdminMap)
 

@@ -18,7 +18,13 @@ const _main = {
         insert: function(newData){
             console.log('insert data');
             let sectionHeader = newData.section.header;
+            let sectionAbout = newData.section.about;
             let uploadId = newData.id.upload;
+            let app = newData.app;
+            let apptype = newData.apptype;
+            let appname = newData.appname;
+            let e = newData.actionInsert;
+
                 switch(newData.apptype) {
                     case sectionHeader:
                         let input = newData.this.choose;
@@ -26,10 +32,10 @@ const _main = {
                         let name = description.split('.')[0];
                         let images = new FormData();
                             images.append('image', input.files[0]);
-                            images.append('e', newData.actionInsert);
-                            images.append('app', newData.app);
-                            images.append('apptype', newData.apptype);
-                            images.append('appname', newData.appname);
+                            images.append('e', e);
+                            images.append('app', app);
+                            images.append('apptype', apptype);
+                            images.append('appname', appname);
                             images.append('name', name);
                             images.append('description', description);
                                 $.ajax({
@@ -53,33 +59,43 @@ const _main = {
                                         },
                                         
                                 });
-                           
-                          
                     break;
+                    case sectionAbout:
+                        let val = newData.value.about;
+                        let value = $(val).val();
+                            $.post(url,{e,app,apptype,appname,value},function(data){
+                            });
+                    break;
+                    
             }
 
         },
         select: function(newData) {
             console.log('select data');
-            let cardClass = $(newData.class.card);
             let e = newData.actionView;
                 $.post(url,{e},function(data){ 
-                        //    header(data);
-                        //         viewHeader(function(output){
-                        //         console.log(output);
-                        //         });
-                            let a = $(data).length+1;
-                            let b = cardClass.length;
-                            let c = cardClass.attr('class').split(' ')[0];
-                                if (a != b) {
-                                    $(data).insertAfter('.'+c+':first');
-                                }
-                                _main._events.click(newData);
-
-                        });
+                console.log(data)
+                    _main._method.display(newData,data);
+                    _main._events.click(newData,data);
+                });
         },
         update: function(newData){
             console.log('update data');
+            let sectionAbout = newData.section.about;
+            let app = newData.app;
+            let apptype = newData.apptype;
+            let appname = newData.appname;
+            let e = newData.actionUpdate;
+                switch(newData.apptype) {
+                    case sectionAbout:
+                        let val = newData.value.about;
+                        let value = $(val).val();
+                            $.post(url,{e,value,app,apptype,appname},function(data){
+                                console.log(data);
+                                _main._events.click(newData,data);
+                            });
+                    break;
+                }
         },
         delete: function(newData,remove){
             console.log('delete data');
@@ -95,7 +111,7 @@ const _main = {
         },
     },
     _events: {
-        click: function(newData) {
+        click: function(newData,data) {
             console.log('click data');
             let cardClass = newData.class.card;
             let cardSrc = newData.class.src;
@@ -112,6 +128,21 @@ const _main = {
                                         $('.'+remove[0].db).remove();
                                             _main._properties.delete(newData,remove[0]);
                                 }
+                        });
+                    break;
+                    case 'About':
+                        let textArea = $(newData.class.text);
+                        $('.admin-saveNew-about').on('click',function(){
+                            console.log('you click me!');
+                            if ($.trim(data)) {
+                                _main._properties.update(newData);
+                            } else {
+                                _main._properties.insert(newData);
+                            }
+                            textArea.text(textArea.val());
+                        });
+                        $('.admin-about-edit-cancel').on('click',function(){
+                            textArea.val(textArea.text());
                         });
                     break;
             }
@@ -142,6 +173,14 @@ const _main = {
             }
 
         },
+        keyup: function(newData) {
+            console.log('keyup data');
+            switch(newData.apptype) {
+                case 'About':
+                    $('.admin-about-edit-btns-container').removeClass('d-none').addClass('d-flex');
+                break;
+            }
+        },
         submit: function(newData) {
             switch(newData.apptype) {
                 case 'Header':
@@ -161,11 +200,31 @@ const _main = {
         saving: function(newData) {
             console.log('save data');
         },
-        display: function(newData) {
+        display: function(newData,data) {
             console.log('display data');
+            let cardClass = $(newData.class.card);
+            let e = newData.actionView;
+            let section = e.split('_')[1];
+            let textArea = $(newData.value.about);
+                switch(section) {
+                    case 'header':
+                        let a = $(data).length+1;
+                        let b = cardClass.length;
+                        let c = cardClass.attr('class').split(' ')[0];
+                            if (a != b) {
+                                $(data).insertAfter('.'+c+':first');
+                            }
+                    break;
+                    case 'about':
+                        if ($.trim(data)) {
+                            textArea.val(data);
+                        }
+                    break;
+                }
             
         },
 
     }
 
 }
+console.log(_main);

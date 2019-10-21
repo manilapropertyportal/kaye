@@ -118,14 +118,19 @@
             </section>
             <section class="page admin-content-About-section">
                 <div class="container">
-                    <div class="admin-content-About-item-container">
-                        <p style="border:1px solid gray;padding:5px;white-space:pre-wrap;"></p>
+                    <div class="admin-content-About-item-container m-2 p-1">
+                        <!-- <p style="border:1px solid gray; padding:5px; white-space:pre-wrap;"></p> -->
+                        <textarea class="admin-text-area admin-text-area-edit form-control w-100 shadow-lg bg-white rounded" id="admin-textarea-about"></textarea> 
                     </div>
-                    <!-- <button class="btn btn-secondary admin-About-Add">Add New</button> -->
-                    <span class="admin-About-btns" style="display:none;">
+                    <!-- <button class="btn btn-secondary admin-About-Add">Add New</!-->
+                    <!-- <span class="admin-About-btns" style="display:none;">
                         <button class="btn btn-secondary admin-About-new-Insert">Save</button>
                         <button class="btn btn-secondary admin-About-new-cancel">Cancel</button>
-                    </span>
+                    </span> -->
+                    <div class='justify-content-end admin-about-edit-btns-container mb-3 px-3 d-none '>
+                        <button class='btn btn-secondary admin-saveNew-about mx-2'>Save Changes</button>
+                        <button class='btn btn-secondary admin-about-edit-cancel'>Cancel</button>
+                    </div>
                 </div>
             </section>
             <section class="page admin-content-Units-section">
