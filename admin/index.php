@@ -269,7 +269,7 @@
                 </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary Admin-unit-Save" name="add">Save changes</button>
+                    <button type="submit" class="btn btn-primary Admin-unit-Save" data-dismiss="modal" name="add">Save changes</button>
                     <button type="button" class="btn btn-secondary Admin-unit-Cancel" data-dismiss="modal">Cancel</button>
                     <button type="button" class="btn btn-secondary Admin-unit-Delete" data-dismiss="modal">Delete</button>
                 </div>

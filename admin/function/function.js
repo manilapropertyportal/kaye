@@ -443,12 +443,6 @@ function onBlur(){
     }
 }
 
-// if (localStorage.getItem('data') != null) 
-// {
-//     AdminAbout = AdminAbout.concat(JSON.parse(localStorage.data));
-//     console.log(AdminAbout);
-// };
-
 var AdminUnitMainArray = new Array();
 function AdminUnitSaving(){
     var e = {};
@@ -464,56 +458,45 @@ function AdminUnitSaving(){
     var f = AdminUnitMainArray.length-1;
     console.log(AdminUnitMainArray);
     $('.AdminUnit-ADNEW').prev("div.grid-item-container").first().attr('data-index', f);
-    // $('.admin-units-image').next().find("h5").html(e.UnitCategory+' '+e.UnitType);
     $('.AdminUnit-ADNEW').show();
-    // $(".modal").removeClass('Admin-unit-new')
 }
-
 
 function AdminUnitEditing(){
     var data_index = $(this).parents("div.grid-item-container").attr('data-index');
-    console.log(data_index);
+    var valuess = AdminUnitMainArray
     if (data_index == undefined){
         console.log("undefined boi")
-        var a = $('.Admin-unit-new').find("select.admin-unit-category-dd").val('')
-        var b = $('.Admin-unit-new').find("select.admin-unit-unittype-dd").val('')
-        var c = $('.Admin-unit-new').find("div.admin-units-floorplan-image-holder").next("div").find("h5").text('Click to Change Size(in sqr m)')
-        $(".Admin-unit-Save").click(AdminUnitSaving)
+        $(".AuC").html('Select Category')
+        $(".AuT").html('')
+        $('.Admin-unit-new').find("select.admin-unit-category-dd").val('')
+        $('.Admin-unit-new').find("select.admin-unit-unittype-dd").val('')
+        $('.Admin-unit-new').find("div.admin-units-floorplan-image-holder").next("div").find("h5").text('Click to Change Size(in sqr m)')
+        $(".Admin-unit-Save").one("click" ,AdminUnitSaving)
+        var a = valuess[data_index]
+        // console.log($(this).parents("div.grid-item-container").eq($(this).index()).find("h5").html());
+        console.log(a);
     } else {
         console.log("meron")
-        console.log(data_index)
-        console.log(AdminUnitMainArray)
-        var valuess = AdminUnitMainArray
         $(".AuC").html(valuess[data_index].UnitCategory)
-        $(".Aut").html(valuess[data_index].UnitType)
+        $(".AuT").html(valuess[data_index].UnitType)
         $('.admin-unit-category-dd').val(valuess[data_index].UnitCategory)
         $('.admin-unit-unittype-dd').val(valuess[data_index].UnitType)
         $('.admin-units-floorplan-image-holder').next("div").find("h5").text(valuess[data_index].UnitSize)
         console.log(valuess)
-
-        $(".Admin-unit-Save").click(function(){
-            // AdminUnitMainArray[data_index].UnitCategory = $('.admin-unit-category-dd').val()
-            // var b = $('.admin-unit-unittype-dd').val()
-            // var c = $('.admin-units-floorplan-image-holder').next("div").find("h5").text()
-            // var d  = "IMAGE URL HERE"
-            // console.log(AdminUnitMainArray[data_index].UnitCategory = $('.admin-unit-unittype-dd').val())
-
+        $(".Admin-unit-Save").one("click", function(){
+            valuess[data_index].UnitCategory = $('.admin-unit-category-dd').val();
+            valuess[data_index].UnitType = $('.admin-unit-unittype-dd').val();
+            valuess[data_index].UnitSize = $('.admin-units-floorplan-image-holder').next("div").find("h5").text();
         });
     }
-   
 }
 
-// function AdminUnitImageTitle(){
-//     var AUIT = $('.admin-units-image').parents("div.grid-item-container").attr('data-index');
-//     $('.admin-units-image').parents("div.grid-item-container").attr('data-index',AUIT).children().find("h5");
-//     console.log(AdminUnitMainArray[AUIT])
-//     // $('.admin-units-image').next().find("h5").html(AdminUnitMainArray[AUIT].UnitCategory+' '+AdminUnitMainArray[AUIT].UnitType)
-// }
 
 //------------------------------------------------------------END OF ADMIN UNITS----------------------------------------------------------//
 //------------------------------------------------------------END OF ADMIN UNITS----------------------------------------------------------//
 //------------------------------------------------------------END OF ADMIN UNITS----------------------------------------------------------//
 //------------------------------------------------------------END OF ADMIN UNITS----------------------------------------------------------//
+
 function AdminMap(){
     var MapAddress = $(this).parents("span").siblings("div").children("input").val();
     var frameSource = $(this).parents("span").siblings("iframe");
