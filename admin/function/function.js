@@ -184,51 +184,51 @@ $(document).ready(function(){
 //     $('.admin-About-Add').show();
 // }
 
-function forAboutEdit(){
-    var thiscontainer = $(this).find("p").html().replace(/\&amp;/g,'&');
-    var editableText = $("<textarea class='admin-text-area admin-text-area-edit' name='p' id='p' cols='30' rows='10' style='width:100%;'/>")
-    editableText.val(thiscontainer)
-    $(this).find("p").replaceWith(editableText);
-    editableText.focus();
-    // var data_index = $(this).attr('data-index');
-    // var data = AdminAbout;
-    // var data = JSON.parse(adminAboutToBeParsed);
-    // var data_keys = Object.keys(data)[data_index];
-    var backtoPar = $("<p style='border:1px solid gray;padding:5px;white-space:pre-wrap;'></p>");
-    // var a = Object.values(data)[data_index];
+// function forAboutEdit(){
+//     var thiscontainer = $(this).find("p").html().replace(/\&amp;/g,'&');
+//     var editableText = $("<textarea class='admin-text-area admin-text-area-edit' name='p' id='p' cols='30' rows='10' style='width:100%;'/>")
+//     editableText.val(thiscontainer)
+//     $(this).find("p").replaceWith(editableText);
+//     editableText.focus();
+//     // var data_index = $(this).attr('data-index');
+//     // var data = AdminAbout;
+//     // var data = JSON.parse(adminAboutToBeParsed);
+//     // var data_keys = Object.keys(data)[data_index];
+//     var backtoPar = $("<p style='border:1px solid gray;padding:5px;white-space:pre-wrap;'></p>");
+//     // var a = Object.values(data)[data_index];
 
-    if ($(this).next().hasClass('admin-about-edit-btns-container')){
+//     if ($(this).next().hasClass('admin-about-edit-btns-container')){
         
-    } else { 
-        $("<div class='d-flex justify-content-end admin-about-edit-btns-container mb-3'><button class='btn btn-secondary admin-saveNew-about mx-2'>Save New Changes</button><button class='btn btn-secondary admin-about-edit-cancel'>Cancel</button></div>").insertAfter($(this));
+//     } else { 
+//         $("<div class='d-flex justify-content-end admin-about-edit-btns-container mb-3'><button class='btn btn-secondary admin-saveNew-about mx-2'>Save New Changes</button><button class='btn btn-secondary admin-about-edit-cancel'>Cancel</button></div>").insertAfter($(this));
         
-        //-----------INSERTING-------------//
+//         //-----------INSERTING-------------//
 
-        $(".admin-saveNew-about").click(function(){
-            $(this).parents().first("div").remove();
-            backtoPar.text(editableText.val());
-            editableText.replaceWith(backtoPar);
-            console.log(editableText.val());
-            // a.content = editableText.val()
-            // localStorage.setItem("AdminAbout" ,JSON.stringify(AdminAbout));
-            // console.log(Object.values(AdminAbout));
-            saving('about');
-        })
+//         $(".admin-saveNew-about").click(function(){
+//             $(this).parents().first("div").remove();
+//             backtoPar.text(editableText.val());
+//             editableText.replaceWith(backtoPar);
+//             console.log(editableText.val());
+//             // a.content = editableText.val()
+//             // localStorage.setItem("AdminAbout" ,JSON.stringify(AdminAbout));
+//             // console.log(Object.values(AdminAbout));
+//             saving('about');
+//         })
 
-        //-----------INSERTING-------------//
+//         //-----------INSERTING-------------//
 
-        $('.admin-about-edit-cancel').click(function(){
-            $(this).parents().first("div").remove();
-            // console.log($(this).parents().first().prev("div").first().children("textarea"));
-            // backtoPar.html(a.content);
-            backtoPar.html(thiscontainer);
-            editableText.replaceWith(backtoPar)
-            // editableText
-        });
+//         $('.admin-about-edit-cancel').click(function(){
+//             $(this).parents().first("div").remove();
+//             // console.log($(this).parents().first().prev("div").first().children("textarea"));
+//             // backtoPar.html(a.content);
+//             backtoPar.html(thiscontainer);
+//             editableText.replaceWith(backtoPar)
+//             // editableText
+//         });
       
-    }
+//     }
 
-}
+// }
     
 //------------------------------------------------------------END OF ADMIN ABOUT----------------------------------------------------------//
 //------------------------------------------------------------END OF ADMIN ABOUT----------------------------------------------------------//
