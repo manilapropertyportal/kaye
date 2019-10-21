@@ -62,15 +62,16 @@ const _main = {
         update: function(param){
             console.log('update data');
         },
-        delete: function(newData,toRemove){
+        delete: function(newData,remove){
             console.log('delete data');
             let a = newData;
             let e = a.actionDelete;
             let app = a.app;
             let apptype = a.apptype;
             let appname = a.appname;
-            let value = toRemove;
-                $.post(url,{e,app,apptype,appname,value},function(){ 
+            let value = remove.db;
+            let file = remove.file;
+                $.post(url,{e,app,apptype,appname,value,file},function(){ 
                 });
         },
 
@@ -80,15 +81,18 @@ const _main = {
         click: function(newData) {
             console.log('click data');
             let cardClass = newData.class.card;
+            let cardSrc = newData.class.src;
             let close = newData.do.close;
                 switch(newData.apptype) {
                     case 'Header':
                         if (newData.do.close) {
                             $('.'+close).parents(cardClass).on('click',function() {
-                                let toRemove = $(this).attr('class').split(' ')[0];
-                                console.log('tickle me');
-                                $('.'+toRemove).remove();
-                                _main._properties.delete(newData,toRemove);
+                                var remove = [{
+                                    db: $(this).attr('class').split(' ')[0],
+                                    file: $(cardClass+' '+cardSrc).attr('src').split('/')[3],
+                                }]
+                                    $('.'+remove[0].db).remove();
+                                        _main._properties.delete(newData,remove[0]);
                             });
                         }
                     break;

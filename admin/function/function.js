@@ -51,7 +51,7 @@ $(document).ready(function(){
                             },
                             class: {
                                 this: '',
-                                file: 'asdasd',
+                                src: '.card-img-top',
                                 upload: 'uploadImage',
                                 card: '.admin-content-card-body',
 

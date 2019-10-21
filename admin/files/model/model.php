@@ -12,14 +12,6 @@
 
     if(isset( $_POST['e'] )) {
         switch($_POST['e']) {
-            case 'admin-header-upload':
-                echo $_POST['header'];
-//                 // $stmt = $mysqli -> prepare('INSERT INTO header (app,[value]) VALUES (?,?)');
-//                 // $app = 'John';
-//                 // $value = $_POST['header'];
-//                 // $stmt -> bind_param('sb', $app,$value);
-//                 // $stmt -> execute();
-            break;
             case 'save_header':
               $img = $_FILES["image"]["name"]; 
               $tmp = $_FILES["image"]["tmp_name"]; 
@@ -91,6 +83,8 @@
               $apptype = $_POST['apptype'];
               $appname = $_POST['appname'];
               $value = $_POST['value'].'%';
+              $path = 'uploads/'.$_POST['file'];
+              unlink($path);
               $stmt = $mysqli -> prepare("DELETE FROM headers WHERE APP = ? AND APPTYPE = ? AND APPNAME = ? AND VALUE LIKE ? ");
               $stmt -> bind_param('ssss', $app,$apptype,$appname,$value);
               $stmt -> execute();
