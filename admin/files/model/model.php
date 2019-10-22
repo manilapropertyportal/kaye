@@ -40,20 +40,19 @@
                           $appname = $_POST['appname'];
                           $name = $_POST['name'];
                           $description = $_POST['description'];
-                          $remarks = '<div class="'.$nClass.' admin-content-card-body col-4 my-5 admin-upload-new-container">
-                                        <div class="admin-content-card-body-inner m-auto">
-                                          <div class="h-100 d-flex align-items-center px-3 position-relative admin-upload-new">
-                                            <img id="preview-img" class="'.$nClass.' h-100 mt-5 position-absolute m-auto" src="files/model/'.$path.'" alt="your image"/>
+                          $remarks = '<div class="'.$nClass.' card admin-content-card-body m-2 p-1" style="width: 18rem;">
+                                        <div class="card-body text-center p-0">
+                                            <p class="card-text">" '.$name.' "
+                                              <button type="button" class="close" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                              </button>
+                                            </p>
                                           </div>
-                                        </div>
+                                        <img src="files/model/'.$path.'" class="'.$nClass.' card-img-top p-2 shadow-lg bg-light rounded" alt="Header Image" style="height: 20rem;">
                                       </div>';
                           echo $remarks;
                           $stmt = $mysqli -> prepare("INSERT headers (APP,APPTYPE,APPNAME,NAME,DESCRIPTION,VALUE) VALUES (?,?,?,?,?,?) ");
                           $stmt -> bind_param('ssssss',$app, $apptype, $appname, $name, $description, $value);
-
-                        //   while ($stmt -> fetch()) { 
-                        //     print_r($value); 
-                        // }
                           $stmt -> execute();
                         }
                     } else {
@@ -67,19 +66,36 @@
                 $stmt -> execute(); 
                 $stmt -> store_result(); 
                 $stmt -> bind_result($app, $apptype, $appname, $name, $description, $value); 
-                  while ($stmt -> fetch()) { 
+                  while ($stmt -> fetch()) {
+                    $str = explode('.',$value);
+                    $nName = $str[0]; 
                       // echo $name; 
                       // echo $description; 
                       // echo $value;
-                      $var  = '<div class="'.$name.' admin-content-card-body col-4 my-5 admin-upload-new-container">
-                          <div class="admin-content-card-body-inner m-auto">
-                            <div class="h-100 d-flex align-items-center px-3 position-relative admin-upload-new">
-                              <img id="preview-img" class="'.$name.' h-100 mt-5 position-absolute m-auto" src="files/model/uploads/'.$value.'" alt="your image"/>
-                            </div>
-                          </div>
-                        </div>';
+                      $var  = '<div class="'.$nName.' card admin-content-card-body m-2 p-1" style="width: 18rem;">
+                                 <div class="card-body text-center p-0">
+                                    <p class="card-text">" '.$name.' "
+                                      <button type="button" class="close" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </p>
+                                  </div>
+                                <img src="files/model/uploads/'.$value.'" class="'.$nName.' card-img-top p-2 shadow-lg bg-light rounded" alt="Header Image" style="height: 20rem;">
+                              </div>';
                     echo $var;
                   }
+            break;
+            case 'delete_header':
+              $stmt = $mysqli -> prepare('DELETE FROM users WHERE id = ?');
+              $userId = 4;
+              $stmt -> bind_param('i', $userId);
+              $stmt -> execute();
+
+              // number of deleted rows
+              echo $stmt -> affected_rows;
+            break;
+            case 'update_header':
+                  echo 'update header';
             break;
             case 'save_about':
                   echo 'save about';

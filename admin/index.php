@@ -88,11 +88,11 @@
             </div>
             <section class="page admin-content-Header-section">
                 <div class="admin-content-card-container row container h-100 m-auto">
-                    <div class="admin-content-card-body col-4 my-5 admin-upload-new-container header">
+                    <!-- <div class="admin-content-card-body col-4 my-5 admin-upload-new-container header">
                         <div class="admin-content-card-body-inner m-auto">
                             <div class="h-100 d-flex align-items-center px-3 position-relative admin-upload-new">
                                 <form id="form" class="h-60 mt-5 header-form" action="files/model/model.php" method="post" enctype="multipart/form-data">
-                                    <input class="w-100" id="uploadImage" type="file" accept="image/*" name="image" />
+                                    <input class="w-100" id="uploadImage" onClick="_main._events.click('image','#uploadImage')" type="file" accept="image/*" name="image" />
                                         <div id="preview">
                                             <img id="preview-img" class="d-none position-absolute m-auto" src="#" alt="your image"/>
                                         </div>
@@ -102,7 +102,18 @@
                                 </div>
                             </div>
                         </div>
+                    </div> -->
+
+                    <div class="admin-content-card-body card m-2 shadow-lg p-3 mb-5 bg-white rounded" style="width: 18rem;">
+                        <input type="file" class="custom-file-input" id="uploadImage" accept="image/*" name="image">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">No file chosen</h5>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary m-auto shadow-lg bg-light rounded d-none" type="button" id="inputGroupFileAddon04">Upload</button>
+                                    </div>
+                            </div>
                     </div>
+
                 </div> 
             </section>
             <section class="page admin-content-About-section">
@@ -281,6 +292,7 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="function/function.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
 </html>

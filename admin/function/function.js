@@ -1,4 +1,6 @@
 $(document).ready(function(){
+   
+
     $('.admin-sidenavburger').click(function(){
         if($('.admin-sidenav, .admin-sidenav-md').hasClass('admin-sidenav-open') && $('.admin-content').hasClass("position-absolute")){
             $('.admin-sidenav, .admin-sidenav-md').hide().removeClass('admin-sidenav-open');
@@ -23,29 +25,79 @@ $(document).ready(function(){
         }
     })
     $('.admin-sections li').click(function(event){
-        if ($('.admin-selected-project').text() != ''){ 
+        if ($('.admin-selected-project').text() != ''){
             event.preventDefault();
             const content_page_sections = this.dataset.page;
             const title = decodeURIComponent(content_page_sections);
-            console.log(title);
             $('.admin-content-title h2').text(content_page_sections);
             $('.page').hide();
             $('.admin-content-'+title+'-section').show();
-                switch (title) {
-                    case 'Header':
-                        console.log('nasa header ka na');
-                        $('#'+title).click(function(){
-                            var $this = $(this);
-                                if ($this.data('clicked')) { } else {
-                                    $this.data('clicked',true);
-                                        viewHeader();
-                                }
-                        });
-                    break;
-                    case 'About':
 
-                    break;
-                }    
+                const _app = $('#'+$('.admin-selected-project').text()).parents('.collapse').attr('class').split(' ')[0].split('-')[2];
+                    var newData = [
+                        {
+                            app:  _app.replace(/\b[a-z]/g, function(letter){
+                                    return letter.toUpperCase();
+                                    }), // Premier
+                            apptype: title, // Header
+                            appname: $('.admin-selected-project').text(), // Coast
+                            actionView: 'view_'+title.toLowerCase(),
+                            actionInsert: 'save_'+title.toLowerCase(),
+                            actionDelete: 'delete_'+title.toLowerCase(),
+                            do: {
+                                close: 'close',
+                                click: 'click',
+                                change: 'change',
+                            },
+                            class: {
+                                this: '',
+                                file: 'asdasd',
+                                upload: 'uploadImage',
+                                card: '.admin-content-card-body',
+
+                            },
+                            id: {
+                                file: '#uploadImage',
+                                upload: '#inputGroupFileAddon04'
+                            },
+                            section: {
+                                header: 'Header',
+                                about: 'About',
+                            },
+                            this: {
+                                choose: $('#uploadImage')[0],
+                            },
+                            css: {
+                                dflex: 'd-flex',
+                                dnone: 'd-none'
+                            },
+                        }
+                    ];
+                    console.log(newData[0]);
+                        switch (title) {
+                            case 'Header':
+                                    var $this = $(this);
+                                        if ($this.data('clicked')) { } else {
+                                            $this.data('clicked',true);
+                                                let uploadImage = newData[0].id.file;
+                                                let uploadButton = newData[0].id.upload;
+                                                
+                                                    $(uploadImage).on('change',function(){
+                                                        _main._events.change(newData[0]);
+                                                    });
+                                                    $(uploadButton).on('click',function(e){
+                                                        e.preventDefault();
+                                                        _main._properties.insert(newData[0]);
+                                                    });
+                                                        _main._method.view(newData[0]);
+                                        }
+                            break;
+                            case 'About':
+
+                            break;
+                        }
+               
+               
             
         } else {
             // $('.alert').alert()
@@ -102,202 +154,7 @@ $(document).ready(function(){
 
     
     $(document).on("click", ".admin-units-image",AdminUnitEditing)
-        
-    
-
-//------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
-//------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
-//------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
-//------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
-//------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
-//------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
-//------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
-//------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
-//------------------------------------------------------------ IMAGE UPLOADING ------------------------------------------------------------------------------------------------//
-
-    
-
-    // $("#admin-header-upload").on('change',function(e) {
-    //     var uploadedd = `<div class="admin-content-card-body col-4 my-5"><div class="admin-content-card-body-inner m-auto admin-image-banner-item"><div class="h-100 d-flex align-items-center px-3 position-relative"><img id="blah" src="#" alt="your image"/><div class="justify-content-end admin-uploaded-img"><button class="btn btn-secondary admin-edit-banner mx-2">Edit</button><button class="btn btn-secondary cancel">Cancel</button></div></div></div></div>`
-
-    //     $(uploadedd).insertBefore('.admin-upload-new-container');      
-    //     readURL(this);
-        
-    //     $('#blah').click(function(){
-    //        $('.admin-uploaded-img').show().addClass('d-flex');
-    //        $(this).css({opacity:'0.5'});
-    //     });  
-    //     $('.cancel').click(function(){
-    //         $('.admin-uploaded-img').removeClass('d-flex').hide();
-    //         $('#blah').css({opacity:'1'});
-    //     });
-
-    // });
-
-    // $(".header-form").on('submit',(function(e) {
-    //     console.log('submitted 1');
-    //     e.preventDefault();
-    //         const apptype = $('.admin-content-title .title').text();
-    //         const appname = $('.admin-selected-project').text();
-    //         const a = appname.replace(/\s/g,'');
-    //         const app = $('#'+a).parents('.collapse').prop('class').split(' ')[0].split('-')[2];
-    //         console.log(app);
-    //         const description = $('#uploadImage').val().split('\\')[2];
-    //         const name = description.split('.')[0];
-    //         const images = new FormData(this);
-    //             images.append('e', 'save_header');
-    //             images.append('app', app);
-    //             images.append('apptype', apptype);
-    //             images.append('appname', appname);
-    //             images.append('name', name);
-    //             images.append('description', description);
-    //                 $.ajax({
-    //                     url: "files/model/model.php",
-    //                     type: "POST",
-    //                     data:  images,
-    //                     contentType: false,
-    //                     cache: false,
-    //                     processData:false,
-    //                         success: function(data) {
-    //                             console.log(data);
-    //                             if(data == 'error') {
-    //                                 console.log('bobobobobobo');
-    //                                 alert('Bobo Choose File muna!');
-    //                             } else {
-    //                                 $('#preview-img').removeClass('d-flex').addClass('d-none').removeAttr('src');
-    //                                 $(data).insertAfter('.admin-content-card-body:first');
-    //                                 $(".header-upload").toggleClass('d-flex d-none');
-    //                                 $("#form").trigger('reset');
-    //                             }
-    //                         }, 
-    //                 });
-    // }));
-
 });
-
-function saving(param,app,apptype,appname,description,name,value)  {
-    switch (param) {
-        case 'header':
-            $(".header-form").on('submit',(function(e) {
-                console.log('submitted 2');
-                e.preventDefault();
-                    const apptype = $('.admin-content-title .title').text();
-                    const appname = $('.admin-selected-project').text();
-                    const a = appname.replace(/\s/g,'');
-                    const app = $('#'+a).parents('.collapse').prop('class').split(' ')[0].split('-')[2];
-                    console.log(app);
-                    const description = $('#uploadImage').val().split('\\')[2];
-                    const name = description.split('.')[0];
-                    const images = new FormData(this);
-                        images.append('e', 'save_header');
-                        images.append('app', app);
-                        images.append('apptype', apptype);
-                        images.append('appname', appname);
-                        images.append('name', name);
-                        images.append('description', description);
-                            $.ajax({
-                                url: "files/model/model.php",
-                                type: "POST",
-                                data:  images,
-                                contentType: false,
-                                cache: false,
-                                processData:false,
-                                    success: function(data) {
-                                        console.log(data);
-                                        if(data == 'error') {
-                                            console.log('bobobobobobo');
-                                            alert('Bobo Choose File muna!');
-                                        } else {
-                                            $('#preview-img').removeClass('d-flex').addClass('d-none').removeAttr('src');
-                                            $(data).insertAfter('.admin-content-card-body:first');
-                                            $(".header-upload").toggleClass('d-flex d-none');
-                                            $("#form").trigger('reset');
-                                        }
-                                    }, 
-                            });
-            }));
-        break;
-        case 'about':
-            console.log('ABOUT PRE');
-        break;
-
-    }
-}
-function editImage() {
-    $('#preview-img').on('click',function(){
-        console.log(this)
-        // const a = this;
-        // $(this).remove();
-         $(this).addClass('d-none').attr('src','#');
-        $('#uploadImage').trigger('click');
-        console.log($('#uploadImage')[0]);
-        readURL($('#uploadImage')[0]);
-    });
-    saving('header');
-}
-
-function uploadImage() {
-    $("#uploadImage").on('click',function(e) {
-        readURL(this);
-        console.log(this);
-        console.log('fuckk u');
-      });
-      editImage(); 
-}
-
-function readURL(input) {
-    console.log(input);
-    console.log(input.files);
-    console.log(input.files[0]);
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-            reader.onload = function(e) {
-    console.log(e.target.result);
-                $('#preview-img').attr('src', e.target.result);
-            console.log(e);
-            console.log(input.files[0]);
-        //     $('#preview-img').removeClass('d-none');
-        // const a = $('.header-upload');
-        //     if (a.hasClass('d-none') == true){
-        //             a.removeClass('d-none').addClass('d-flex');
-        //     }
-            }
-            reader.readAsDataURL(input.files[0]);
-    }
-   
-}
-
-function viewHeader(header) {
-    $.post('files/model/model.php',{e:'view_header'},function(data){ 
-        console.log('view');
-    //    header(data);
-    //         viewHeader(function(output){
-    //         console.log(output);
-    //         });
-        const a = $(data).length+1;
-        const b = $('.admin-content-card-body').length;
-        const c = $('.admin-content-card-container');
-            if (a != b) {
-                c.html(c.html()+data);
-            }
-            uploadImage();
-
-        });
-
-        
-}
-
-//---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
-//---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
-//---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
-//---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
-//---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
-//---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
-//---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
-//---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
-//---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
-//---------------------------------------------------END OF ADMIN HEADER/BANNER IMAGE UPLOADING-----------------------------------------------------------//
-
 
 //-----------------------------------------------------------------ADMIN ABOUT-----------------------------------------------------------------------// 
 //-----------------------------------------------------------------ADMIN ABOUT-----------------------------------------------------------------------// 
@@ -507,29 +364,3 @@ function AdminMap(){
     console.log(MapAddress)
     console.log(frameSource.attr('src','https://maps.google.com/?q='+encodeURIComponent(MapAddress)+'&output=embed'));
 }
-
-// function getImg(image) {
-//        header = image;
-//        $.post('files/model/model.php',{e:'save_profile',header},function(data){  result=data },'json')
-//         console.log('asdas');
-//         //$('.admin-upload-new-container').parent().find('#blah')[0].currentSrc
-// }
-
-// function triggerClick(e) {
-//     console.log('nasa trigger ka!')
-//     document.querySelector('#profileImage').click();
-
-//   }
-//   function displayImage(e) {
-//     if (e.files[0]) {
-//       var reader = new FileReader();
-//       reader.onload = function(e){
-//           console.log($('#profileImage').val().split('\\')[2]);
-//         header = $('#profileImage').val().split('\\')[2];
-//         document.querySelector('#profileDisplay').setAttribute('src', e.target.result);
-//         $.post('files/model/model.php',{e:'save_header',header},function(){},'json')
-//         // getImg(e.target.result);
-//       }
-//       reader.readAsDataURL(e.files[0]);
-//     }
-//   }
