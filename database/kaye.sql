@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2019 at 08:15 PM
+-- Generation Time: Oct 22, 2019 at 02:24 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.13
 
@@ -30,13 +30,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `about` (
   `ID` int(60) NOT NULL,
-  `APP` varchar(60) NOT NULL,
-  `APPTYPE` varchar(60) NOT NULL,
-  `APPNAME` varchar(60) NOT NULL,
-  `NAME` varchar(60) NOT NULL,
-  `DESCRIPTION` varchar(255) NOT NULL,
-  `VALUE` varchar(255) NOT NULL,
-  `REMARKS` longtext NOT NULL,
+  `APP` varchar(60) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `APPTYPE` varchar(60) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `APPNAME` varchar(60) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `NAME` varchar(60) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `DESCRIPTION` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `VALUE` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `REMARKS` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `CREATEDDATE` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -140,13 +140,13 @@ ALTER TABLE `sections`
 -- AUTO_INCREMENT for table `about`
 --
 ALTER TABLE `about`
-  MODIFY `ID` int(60) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(60) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `headers`
 --
 ALTER TABLE `headers`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=309;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `projects`
