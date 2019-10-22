@@ -215,38 +215,6 @@ function forAboutEdit(){
 
 }
     
-// var AdminAbout = new Array();
-// if (localStorage.getItem('data') != null) 
-// {
-//     AdminAbout = AdminAbout.concat(JSON.parse(localStorage.data));
-//     console.log(AdminAbout);
-// };
-// function forAboutNew(){
-
-//     var AdminAboutData = {};
-//     var AboutNewToBeReplaced = $(this).parents().siblings("textarea");
-//     var AboutNewDiv = $("<div class='admin-content-About-item-container mb-2'><p style='border:1px solid gray;padding:5px;white-space:pre-wrap;'></p></div>");
-//     var AboutNewval = $(this).parents().siblings("textarea").val();
-
-//     if (AboutNewval != ''){
-
-//         AboutNewToBeReplaced.replaceWith(AboutNewDiv);
-//         AboutNewDiv.find("p").html(AboutNewval)
-//         AdminAboutData.content = AboutNewval;
-//         AdminAbout.push(AdminAboutData);
-//         localStorage.setItem("AdminAbout", JSON.stringify(AdminAbout));
-//         var AdminAboutLastIndex = AdminAbout.length-1;
-//         AboutNewDiv.attr('data-index', AdminAboutLastIndex);
-        
-//         $('.admin-About-Add').show();
-//         $(this).parents().eq(0).hide();
-
-//     } else {
-//         console.log(cancellation($(this)));
-//     }
-
-// }
-
 //------------------------------------------------------------END OF ADMIN ABOUT----------------------------------------------------------//
 //------------------------------------------------------------END OF ADMIN ABOUT----------------------------------------------------------//
 //------------------------------------------------------------END OF ADMIN ABOUT----------------------------------------------------------//
