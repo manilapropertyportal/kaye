@@ -76,9 +76,55 @@ $(document).ready(function(){
                                 dflex: 'd-flex',
                                 dnone: 'd-none'
                             },
-                        }
+                            button: {
+                                save: 'save',
+                                cancel: 'cancel',
+                            },
+                            units: {
+                                // 'one':'1',
+                                // 'one':'1',
+                                // 'two':'2',
+                                // 'two':'2',
+                                one: {value:'1',text:'1'},
+                                two: {value:'2',text:'2'},
+                                // one: [
+                                //     {'one':'only'},
+                                //     {'one':'with balcony'},
+                                //     {'one':'end unit'},
+                                //     {'one':'end unit with balcony'},
+                                //     {'one':'with den'},
+                                //     {'one':'with den and balcony'},
+                                //     {'one':'corner den with balcony'}
+                                // ],
+                                // two: [
+                                //     {'two':'only'},
+                                //     {'two':'with balcony'},
+                                //     {'two':'end unit'},
+                                //     {'two':'end unit with balcony'},
+                                //     {'two':'with mezzanine'},
+                                //     {'two':'end unit with mezzanine'},
+                                //     {'two':'with mezzanine and balcony'},
+                                //     {'two':'end unit with mezzanine with balcony'},
+                                //     {'two':'Family Suite A'},
+                                //     {'two':'Family Suite B'}
+                                // ],
+                                // studio: [
+                                //     {'UnitType':'unit only'},
+                                //     {'UnitType':'unit with balcony'},
+                                //     {'UnitType':'deluxe with balcony'},
+                                //     {'UnitType':'combined two studio units'}
+                                // ],
+                                // family: [
+                                //     {'UnitType':'A with balcony'},
+                                //     {'UnitType':'B with balcony'}
+                                // ],
+                            },
+                        },
+                       
                     ];
+                   
                     console.log(newData[0]);
+                    // console.log(Admin_unit_1b);
                     var $this = $(this);
                         if ($this.data('clicked')) {      
                          } else {
@@ -97,16 +143,23 @@ $(document).ready(function(){
                                                 _main._properties.insert(xData);
                                             });
                                                 _main._properties.select(xData);
-                                                break;
+                                    break;
                                     case 'About':
-                                            let textArea = xData.class.text;
-                                                $(textArea).one('keyup',function(){
-                                                    console.log('change');
-                                                    _main._events.keyup(xData);
-                                                    $(textArea).text($(textArea).val());
-                                                });
+                                        let textArea = xData.class.text;
+                                            $(textArea).one('keyup',function(){
+                                                _main._events.keyup(xData);
+                                                $(textArea).text($(textArea).val());
+                                            });
                                                 _main._properties.select(xData);
-                                        break;
+                                    break;
+                                    case 'Units':
+                                            $('.admin-units-image').on('click',function(){
+                                                _main._events.click(xData);
+                                            });
+                                            $('.admin-unit-category-dd').on('change',function(){
+                                                _main._events.change(xData);
+                                            });
+                                    break;
                                     }
                         }
                
@@ -137,36 +190,63 @@ $(document).ready(function(){
 
     $('.Admin-change-map').click(AdminMap)
 
-    $('.AdminUnit-ADNEW').click(AdminUnitsAddNew)
+    // $('.AdminUnit-ADNEW').click(AdminUnitsAddNew)
 
     $('.admin-unit-modal-holder:nth-of-type(2) div h5').click(AdminUnitSQR)
     
-    var AdminUnitsCategory = []
-    var Admin_unit_1b = {"OneBedRoom":[{"UnitType":"only"},{"UnitType":"with balcony"},{"UnitType":"end unit"},{"UnitType":"end unit with balcony"},{"UnitType":"with den"},{"UnitType":"with den and balcony"},{"UnitType":"corner den with balcony"}]};
-    var Admin_unit_2b = {"TwoBedRoom":[{"UnitType":"only"},{"UnitType":"with balcony"},{"UnitType":"end unit"},{"UnitType":"end unit with balcony"},{"UnitType":"with mezzanine"},{"UnitType":"end unit with mezzanine"},{"UnitType":"with mezzanine and balcony"},{"UnitType":"end unit with mezzanine with balcony"},{"UnitType":"Family Suite A"},{"UnitType":"Family Suite B"}]};
-    var Admin_unit_studio = {"Studio":[{"UnitType":"unit only"},{"UnitType":"unit with balcony"},{"UnitType":"deluxe with balcony"},{"UnitType":"combined two studio units"}]};
-    var Admin_unit_famsuite = {"FamilySuite":[{"UnitType":"A with balcony"},{"UnitType":"B with balcony"}]};
-    AdminUnitsCategory.push(Admin_unit_1b,Admin_unit_2b,Admin_unit_studio,Admin_unit_famsuite);
-    console.log(AdminUnitsCategory)
+    // var AdminUnitsCategory = []
+    // var Admin_unit_1b = {"OneBedRoom":[
+    //     {"UnitType":"only"},
+    //     {"UnitType":"with balcony"},
+    //     {"UnitType":"end unit"},
+    //     {"UnitType":"end unit with balcony"},
+    //     {"UnitType":"with den"},
+    //     {"UnitType":"with den and balcony"},
+    //     {"UnitType":"corner den with balcony"}
+    // ]};
+    // var Admin_unit_2b = {"TwoBedRoom":[
+    //     {"UnitType":"only"},
+    //     {"UnitType":"with balcony"},
+    //     {"UnitType":"end unit"},
+    //     {"UnitType":"end unit with balcony"},
+    //     {"UnitType":"with mezzanine"},
+    //     {"UnitType":"end unit with mezzanine"},
+    //     {"UnitType":"with mezzanine and balcony"},
+    //     {"UnitType":"end unit with mezzanine with balcony"},
+    //     {"UnitType":"Family Suite A"},
+    //     {"UnitType":"Family Suite B"}
+    // ]};
+    // var Admin_unit_studio = {"Studio":[
+    //     {"UnitType":"unit only"},
+    //     {"UnitType":"unit with balcony"},
+    //     {"UnitType":"deluxe with balcony"},
+    //     {"UnitType":"combined two studio units"}
+    // ]};
+    // var Admin_unit_famsuite = {"FamilySuite":[
+    //     {"UnitType":"A with balcony"},
+    //     {"UnitType":"B with balcony"}
+    // ]};
+    // AdminUnitsCategory.push(Admin_unit_1b,Admin_unit_2b,Admin_unit_studio,Admin_unit_famsuite);
+    // console.log(AdminUnitsCategory)
 
-    $('.admin-unit-category-dd').on('change' ,function(){
-        var cat = $(this).find(":selected").attr('data-index');
-        var UniTtypeOptions = $(this).parents().first().next("div").find("select");
-        var aa = Object.values(Object.values(AdminUnitsCategory)[cat])[0];
-        var aalength = Object.keys(Object.values(aa)).length;
-        var bb = '';
-        var i = 0;
-        while (i < aalength) {
-            bb += "<option>"+Object.values(aa)[i].UnitType+"</option>"
-            i++;
-        }
-        $(UniTtypeOptions).html("<option></option>"+bb);
-        $('.AuC').html($(this).val());
-        $('.admin-unit-unittype-dd').on('change',function(){
-            $('.AuT').html(' '+$(this).val());
-            $('.admin-units-image-holder').next("div").find("h5").text();
-        });
-    });
+    // $('.admin-unit-category-dd').on('change' ,function(){
+    //     var cat = $(this).find(":selected").attr('data-index');
+    //     var UniTtypeOptions = $(this).parents().first().next("div").find("select");
+    //     var aa = Object.values(Object.values(AdminUnitsCategory)[cat])[0];
+    //     var aalength = Object.keys(Object.values(aa)).length;
+    //     var bb = '';
+    //     var i = 0;
+    //     while (i < aalength) {
+    //         bb += "<option>"+Object.values(aa)[i].UnitType+"</option>"
+    //         i++;
+    //     }
+    //     $(UniTtypeOptions).html("<option></option>"+bb);
+    //     $('.AuC').html($(this).val());
+    //     $('.admin-unit-unittype-dd').on('change',function(){
+    //         $('.AuT').html(' '+$(this).val());
+    //         $('.admin-units-image-holder').next("div").find("h5").text();
+    //     });
+    // });
 
     
     $(document).on("click", ".admin-units-image",AdminUnitEditing)
@@ -240,23 +320,27 @@ $(document).ready(function(){
 //------------------------------------------------------------END OF ADMIN ABOUT----------------------------------------------------------//
 //------------------------------------------------------------END OF ADMIN ABOUT----------------------------------------------------------//
 
+
+
+
+
 //------------------------------------------------------------ADMIN UNITS-----------------------------------------------------------------//
 //------------------------------------------------------------ADMIN UNITS-----------------------------------------------------------------//
 //------------------------------------------------------------ADMIN UNITS-----------------------------------------------------------------//
 //------------------------------------------------------------ADMIN UNITS-----------------------------------------------------------------//
 
-function AdminUnitsAddNew(){
-    var AdminUnitsNewContainer = 
-    `<div class='grid-item-container'>
-        <div class='admin-units-image my-2' data-toggle='modal' data-target='.bd-example-modal-xl'></div>
-        <span class='d-flex justify-content-center mt-1'>
-            <h5>Title Here</h5>
-        </span>
-    </div>`
-    $(AdminUnitsNewContainer).insertBefore($(this));
-    $(this).hide();
-    // $('.admin-units-image').click(function)
-}
+// function AdminUnitsAddNew(){
+//     var AdminUnitsNewContainer = 
+//     `<div class='grid-item-container'>
+//         <div class='admin-units-image my-2' data-toggle='modal' data-target='.bd-example-modal-xl'></div>
+//         <span class='d-flex justify-content-center mt-1'>
+//             <h5>Title Here</h5>
+//         </span>
+//     </div>`
+//     $(AdminUnitsNewContainer).insertBefore($(this));
+//     $(this).hide();
+//     // $('.admin-units-image').click(function)
+// }
 
 function AdminUnitSQR(){
     var AdminUnitDefVal = $(this).html();
