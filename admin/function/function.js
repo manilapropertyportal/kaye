@@ -80,7 +80,8 @@ $(document).ready(function(){
                     ];
                     console.log(newData[0]);
                     var $this = $(this);
-                        if ($this.data('clicked')) { } else {
+                        if ($this.data('clicked')) {      
+                         } else {
                             $this.data('clicked',true);
                             let xData = newData[0];
                                 switch (title) {

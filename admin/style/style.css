@@ -73,7 +73,7 @@
 .page{
     display:none;
 }
-#preview-img{
+/* #preview-img{
     top: 0;
     left: 0;
     width: 100%;
@@ -86,7 +86,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-}
+} */
 a{
     text-decoration:none !important;
 }
@@ -118,6 +118,9 @@ input#uploadImage {
   -o-border-radius: 5px;
 }
 
+h2 {
+    text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3);
+    color: rgba(0,0,0,0.6);
 }
 /* .admin-content-About-item-container{
     border: 1px solid black;

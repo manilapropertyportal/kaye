@@ -219,6 +219,7 @@ const _main = {
                         if ($.trim(data)) {
                             textArea.val(data);
                         }
+                        textArea.focus();
                     break;
                 }
             

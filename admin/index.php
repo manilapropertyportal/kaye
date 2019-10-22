@@ -120,7 +120,7 @@
                 <div class="container">
                     <div class="admin-content-About-item-container m-2 p-1">
                         <!-- <p style="border:1px solid gray; padding:5px; white-space:pre-wrap;"></p> -->
-                        <textarea class="admin-text-area admin-text-area-edit form-control w-100 shadow-lg bg-white rounded" id="admin-textarea-about"></textarea> 
+                        <textarea class="admin-text-area admin-text-area-edit form-control w-100 shadow-lg bg-white rounded" id="admin-textarea-about" autofocus></textarea> 
                     </div>
                     <!-- <button class="btn btn-secondary admin-About-Add">Add New</!-->
                     <!-- <span class="admin-About-btns" style="display:none;">
