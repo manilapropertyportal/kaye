@@ -19,61 +19,59 @@ const _main = {
             console.log('insert data');
             let sectionHeader = newData.section.header;
             let uploadId = newData.id.upload;
-            switch(newData.apptype) {
-                case sectionHeader:
-                    let input = newData.this.choose;
-                    let description = input.files[0].name;
-                    let name = description.split('.')[0];
-                    let images = new FormData();
-                        images.append('image', input.files[0]);
-                        images.append('e', newData.actionInsert);
-                        images.append('app', newData.app);
-                        images.append('apptype', newData.apptype);
-                        images.append('appname', newData.appname);
-                        images.append('name', name);
-                        images.append('description', description);
-                            $.ajax({
-                                url: url,
-                                type: "POST",
-                                data:  images,
-                                contentType: false,
-                                cache: false,
-                                processData:false,
-                                    success: function(data) {
-                                        // let newAction = 'view_'+newData.apptype.toLowerCase();
-                                        if(data == 'error') {
-                                            console.log('bobobobobobo');
-                                            alert('Bobo Choose File muna!');
-                                        } else {
-                                            $(uploadId).removeClass('d-flex').addClass('d-none')
-                                            $(newData.id.file).removeAttr('style');
-                                            $('.card-title').text('No file chosen');
-                                            $(data).insertAfter('.admin-content-card-body:first');
-                                            // _main._method.view(appname,apptype,newAction,$('.admin-content-card-body'));
-                                            _main._method.view(newData);
-                                        }
-                                    },
-                                    
-                            });
+                switch(newData.apptype) {
+                    case sectionHeader:
+                        let input = newData.this.choose;
+                        let description = input.files[0].name;
+                        let name = description.split('.')[0];
+                        let images = new FormData();
+                            images.append('image', input.files[0]);
+                            images.append('e', newData.actionInsert);
+                            images.append('app', newData.app);
+                            images.append('apptype', newData.apptype);
+                            images.append('appname', newData.appname);
+                            images.append('name', name);
+                            images.append('description', description);
+                                $.ajax({
+                                    url: url,
+                                    type: "POST",
+                                    data:  images,
+                                    contentType: false,
+                                    cache: false,
+                                    processData:false,
+                                        success: function(data) {
+                                            if(data == 'error') {
+                                                console.log('bobobobobobo');
+                                                alert('Bobo Choose File muna!');
+                                            } else {
+                                                $(uploadId).removeClass('d-flex').addClass('d-none')
+                                                $(newData.id.file).removeAttr('style');
+                                                $('.card-title').text('No file chosen');
+                                                $(data).insertAfter('.admin-content-card-body:first');
+                                                _main._method.view(newData);
+                                            }
+                                        },
+                                        
+                                });
                            
                           
-                break;
+                    break;
             }
 
         },
         update: function(param){
             console.log('update data');
         },
-        delete: function(newData){
+        delete: function(newData,toRemove){
             console.log('delete data');
-            console.log(newData);
-            // $.post(url,{e:param,app,apptype,appname,value},function(data){ 
-            //     console.log(data);
-
-            // });
-
-            
-            
+            let a = newData;
+            let e = a.actionDelete;
+            let app = a.app;
+            let apptype = a.apptype;
+            let appname = a.appname;
+            let value = toRemove;
+                $.post(url,{e,app,apptype,appname,value},function(){ 
+                });
         },
 
 
@@ -82,22 +80,18 @@ const _main = {
         click: function(newData) {
             console.log('click data');
             let cardClass = newData.class.card;
-            switch(newData.apptype) {
-                case 'Header':
-                    if (newData.do.close) {
-                        $('.close').parents(cardClass).on('click',function() {
-                            let toRemove = $(this).attr('class').split(' ')[0];
-                            console.log('tickle me');
-                            console.log(toRemove);
-                            var b = []
-                            var c = {'header':'ako ay header','appname':'appname'}
-                            b.push(c);
-                            console.log(b);
-                            $('.'+toRemove).remove();
-                            _main._properties.delete(newData.actionDelete,toRemove,b[0]);
-                        });
-                    }
-                break;
+            let close = newData.do.close;
+                switch(newData.apptype) {
+                    case 'Header':
+                        if (newData.do.close) {
+                            $('.'+close).parents(cardClass).on('click',function() {
+                                let toRemove = $(this).attr('class').split(' ')[0];
+                                console.log('tickle me');
+                                $('.'+toRemove).remove();
+                                _main._properties.delete(newData,toRemove);
+                            });
+                        }
+                    break;
             }
           
         },
