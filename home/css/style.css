@@ -1,0 +1,102 @@
+
+.navigation.scrolled{
+    background:#007bff !important;
+    transition:0.5s ease;
+}
+.navigation.scrolled a{
+    color:white !important;
+    transition:0.5s ease;
+}
+.navigation.scrolled .navbar-toggler{
+    border-color:white !important;
+}
+input,textarea{
+        text-indent: 5px;
+}
+hr{
+        border:1px solid #007bff;
+}
+.services hr{
+    border:1px solid white;
+}
+h4{
+        width: 200px;
+        margin: auto;
+}
+.carousel-inner img{
+        min-height: 240px;
+        width: 100%;
+}
+.services{
+        background-image: url("../blurred.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+}
+.services,.blurred span,.blurred p{
+        color:white;
+}
+/* div nav a,div nav a{
+    color:white !important;
+} */
+.navbar-dark .navbar-toggler{
+    border-color:white !important;
+}
+footer span{
+    font-size:50px;
+    color:white;
+}
+.card-body{
+    width:310px;
+    height:310px;
+    margin:auto;
+}
+.card-body img{
+    width:100%;
+    height:100%;
+}
+.cardimagetop-wrapper{
+    position:relative;
+    width: 100%;
+    height: 100%;
+}
+.secret,.secret:before,.secret:after,.secret-child{
+    position: absolute;
+}
+.secret {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+.secret:before {
+    border-bottom: 10px solid #007bff;
+    border-top: 10px solid #007bff;
+    transform: scale(0,1);
+}
+.secret:after {
+    border-left: 10px solid #007bff;
+    border-right: 10px solid #007bff;
+    transform: scale(1,0);  
+}
+.secret:before,.secret:after{
+    width: 100%;
+    height: 100%;
+    content: ''; 
+    transition: 0.7s;
+}
+.secret:hover:before,.secret:hover:after{
+    transform: scale(1); 
+}
+.secret-child {
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    z-index: 100;
+    transition:0.5s
+}
+.secret-child:hover{
+    background: black;
+    opacity: 0.5;
+    cursor: pointer;
+}

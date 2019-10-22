@@ -5,112 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <title>ManilaPropertyPortal</title>
     </head>
-    <style>
-        .navigation.scrolled{
-            background:#007bff !important;
-            transition:0.5s ease;
-        }
-        .navigation.scrolled a{
-            color:white !important;
-            transition:0.5s ease;
-        }
-        .navigation.scrolled .navbar-toggler{
-            border-color:white !important;
-        }
-        input,textarea{
-                text-indent: 5px;
-        }
-        /* i{
-                color:white;
-        } */
-        hr{
-                border:1px solid #007bff;
-        }
-        h4{
-                width: 200px;
-                margin: auto;
-        }
-        .carousel-inner img{
-                min-height: 240px;
-                width: 100%;
-        }
-        .blurred{
-                background-image: url("blurred.jpg");
-                background-size: cover;
-                background-attachment: fixed;
-        }
-        .blurred span,.blurred p{
-                color:white;
-        }
-        /* div nav a,div nav a{
-            color:white !important;
-        } */
-        .navbar-dark .navbar-toggler{
-            border-color:white !important;
-        }
-        footer span{
-            font-size:50px;
-            color:white;
-        }
-        .card-body{
-            width:310px;
-            height:310px;
-            margin:auto;
-        }
-        .card-body img{
-            width:100%;
-            height:100%;
-        }
-        .cardimagetop-wrapper{
-            position:relative;
-            width: 100%;
-            height: 100%;
-        }
-        .secret,.secret:before,.secret:after,.secret-child{
-            position: absolute;
-        }
-        .secret {
-            top: 0px;
-            left: 0px;
-            right: 0px;
-            bottom: 0px;
-        }
-        .secret:before {
-            border-bottom: 10px solid #007bff;
-            border-top: 10px solid #007bff;
-            transform: scale(0,1);
-        }
-        .secret:after {
-            border-left: 10px solid #007bff;
-            border-right: 10px solid #007bff;
-            transform: scale(1,0);  
-        }
-        .secret:before,.secret:after{
-            width: 100%;
-            height: 100%;
-            content: ''; 
-            transition: 0.7s;
-        }
-        .secret:hover:before,.secret:hover:after{
-            transform: scale(1); 
-        }
-        .secret-child {
-            top: 10px;
-            bottom: 10px;
-            left: 10px;
-            right: 10px;
-            z-index: 100;
-            transition:0.5s
-        }
-        .secret-child:hover{
-            background: black;
-            opacity: 0.5;
-            cursor: pointer;
-        }
-    </style>
     <body>
         <header id="HOME">
             <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top navigation">
@@ -161,7 +59,7 @@
             </div>
         </header>
         <div class="new-nav">
-            <section class="premiere mb-5" id="PREMIERE">
+            <section class="premiere py-5" id="PREMIERE">
                 <div class="container">
                     <br>
                     <div class="text-center">
@@ -268,7 +166,7 @@
                     </div>
                 </div>
             </section>
-            <section class="preselling mb-5" id="PRESELLING">
+            <section class="preselling py-5" id="PRESELLING" style="background:whitesmoke;">
                 <div class="container">
                     <div class="text-center">
                         <h4>
@@ -332,7 +230,7 @@
                     </div>
                 </div>
             </section>
-            <section class="services mb-5" id="SERVICES">
+            <section class="services py-5" id="SERVICES">
                 <div class="text-center mb-4">
                     <h4>
                         SERVICES
@@ -391,7 +289,7 @@
                 </div>
             </section>
             <!-- Section: About/Contact -->
-            <section class="About-Contact mb-5" id="ABOUTCONTACT">
+            <section class="About-Contact py-5" id="ABOUTCONTACT">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6" data-aos="fade-right" data-aos-duration="1500">
