@@ -21,16 +21,16 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="#HOME">Home</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a class="nav-link" href="#PREMIERE">Premiere</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a class="nav-link" href="#PRESELLING">Pre-selling</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a class="nav-link" href="#SERVICES">Services</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a class="nav-link" href="#ABOUTCONTACT">About-Contact us</a>
                         </li>
                     </ul>
@@ -39,13 +39,28 @@
             <div id="carouselExampleInterval" id="HOME" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-interval="3000">
-                            <img src="img/img1.jpg" class="d-block" alt="...">
+                        <img src="img/img1.jpg" class="d-block" alt="...">
                     </div>
                     <div class="carousel-item" data-interval="3000">
-                            <img src="img/mg2.jpg" class="d-block" alt="...">
+                        <img src="img/mg2.jpg" class="d-block" alt="...">
                     </div>
                     <div class="carousel-item" data-interval="3000">
-                            <img src="img/mg3.jpg" class="d-block" alt="...">
+                        <img src="img/mg3.jpg" class="d-block" alt="...">
+                    </div>
+                    <div class="carousel-item" data-interval="3000">
+                        <img src="img/mg4.jpg" class="d-block" alt="...">
+                    </div>
+                    <div class="carousel-item" data-interval="3000">
+                        <img src="img/mg5.jpg" class="d-block" alt="...">
+                    </div>
+                    <div class="carousel-item" data-interval="3000">
+                        <img src="img/mg6.jpg" class="d-block" alt="...">
+                    </div>
+                    <div class="carousel-item" data-interval="3000">
+                        <img src="img/mg7.jpg" class="d-block" alt="...">
+                    </div>
+                    <div class="carousel-item" data-interval="3000">
+                        <img src="img/mg8.jpg" class="d-block" alt="...">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
@@ -59,8 +74,8 @@
             </div>
         </header>
         <div class="new-nav">
-            <section class="premiere py-5" id="PREMIERE">
-                <div class="container">
+            <section class="premiere py-5 position-relative" id="PREMIERE">
+                <div class="container-fluid">
                     <br>
                     <div class="text-center">
                         <h4>
@@ -73,7 +88,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/premiere/air.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route="air">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -83,7 +98,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/premiere/coast.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route="coast">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -93,7 +108,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/premiere/light2.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route="light2">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -105,7 +120,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/premiere/lush.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route="lush">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -115,7 +130,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/premiere/red.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route="red">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -125,7 +140,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/premiere/shore3.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route="shore3">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -137,7 +152,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/premiere/sresidences.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route="sresidences">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -147,7 +162,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/box/mg2.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route>
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -157,7 +172,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/box/mg3.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route>
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -167,7 +182,7 @@
                 </div>
             </section>
             <section class="preselling py-5" id="PRESELLING" style="background:whitesmoke;">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="text-center">
                         <h4>
                             PRE-SELLING
@@ -179,7 +194,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/preselling/bloom.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route="bloom">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -189,7 +204,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/preselling/fernproperties.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route="fern">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -199,7 +214,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/preselling/field.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route="field">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -211,7 +226,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/preselling/park.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route="park">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -237,7 +252,7 @@
                         <hr>
                     </h4>
                 </div>
-                <div class="blurred py-5">
+                <div class="blurred py-3">
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12 col-md-4 my-5" data-aos="fade-down-right" data-aos-duration="1500">
@@ -288,7 +303,6 @@
                     </div>
                 </div>
             </section>
-            <!-- Section: About/Contact -->
             <section class="About-Contact py-5" id="ABOUTCONTACT">
                 <div class="container">
                     <div class="row">
@@ -322,41 +336,38 @@
                 </div>
             </section>
         </div>
-
         <footer>
             <div class="text-white">
-                <div class="py-5 text-center" style="background:#007bff" data-aos="flip-up" data-aos-duration="1500">
+                <div class="py-5 text-center" style="background:#007bff">
                     <h5>Follow Manila Property Portal</h5>
-                    <div>
-                        <a href="#">
+                    <div class="w-50 m-auto" data-aos="flip-up" data-aos-duration="1500">
+                        <a>
                             <span>
                                 <i class="fab fa-facebook-square"></i>
                             </span>
                         </a>
-                        <a href="#">
+                        <a>
                             <span>
                                 <i><img class="rounded circle" style="width:43.75px;height:45px;margin-bottom: 11px;" src="img/Lblue.png"></i>
                             </span>
                         </a>
-                        <a href="#">
+                        <a>
                             <span>
                                 <i class="fab fa-google-plus-square"></i>
                             </span>
                         </a>
                     </div>
                 </div>
-                <div style="background:#0073ec" data-aos="flip-down" data-aos-duration="1500">
+                <div style="background:#0073ec">
                     <div class="container py-4">
                         <small>
                             <h5 class="text-center">Disclaimer</h5>
-                        </small>
                         <p>
-                            <small>
-                                This is not the official website of SMDC and is solely created for marketing purposes of SMDC Properties. The owner will not be held liable for damages that may arise from using this website. Any unauthorized use and reproduction of the logos and photos of SMDC will be subject to copyright infringement.
-        
-                                The particulars, details and visuals shown herein are intended to give a general idea of the project and such as are not to be relied upon as statements of facts. While such particulars and details are based on present plans which have been prepared with utmost care and are given in good faith, buyers are invited to verify their factual correctness and subsequent changes, if any. The contents herein are subject to change without prior notice and do not constitute part of an offer or contract.
-                            </small>
+                            This is not the official website of SMDC and is solely created for marketing purposes of SMDC Properties. The owner will not be held liable for damages that may arise from using this website. Any unauthorized use and reproduction of the logos and photos of SMDC will be subject to copyright infringement.
+    
+                            The particulars, details and visuals shown herein are intended to give a general idea of the project and such as are not to be relied upon as statements of facts. While such particulars and details are based on present plans which have been prepared with utmost care and are given in good faith, buyers are invited to verify their factual correctness and subsequent changes, if any. The contents herein are subject to change without prior notice and do not constitute part of an offer or contract.
                         </p>
+                    </small>
                     </div>
                 </div>
             </div>
@@ -388,13 +399,22 @@
             });
             
             $(window).scroll(function(){
-                if ($(this).scrollTop() > Math.ceil($("header").height())) {
-                    // $("nav").removeClass("navbar-light bg-light").addClass("navbar-dark bg-primary")
+                if ($(this).scrollTop() > Math.ceil($("header").height() - 70)) {
                     $("nav").removeClass('navbar-light').addClass("scrolled navbar-dark")
                 } else {
                     $("nav").removeClass("scrolled navbar-dark").addClass("navbar-light")
                 }
             });
+            function resize() {
+                if ($(window).width() < 768) {
+                    $('#navbarNavProp').addClass('navbar-collapse');
+                } else {
+                    $('#navbarNavProp').removeClass('navbar-collapse');
+                }
+            }
+            resize();
+            $(window).on('resize' , resize);
+            $(".secret").click(function(){location.href = "properties/#" + $(this).attr('route')})
         });
         </script>
         <!-- <script>

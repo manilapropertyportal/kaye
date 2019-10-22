@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    STANDARD @IMPORT
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arimo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arimo:700&display=swap" rel="stylesheet">
+    <title>ManilaPropertyPortal</title>
+</head>
+<body>
+    <style>
+        #BANNERPARALLAX{
+           background-image: url('../properties/AIR/img/banner/air_banner-1.jpg');
+           background-size: cover;
+           background-position: center;
+           background-attachment: fixed;
+           font-family: 'EB Garamond', serif;
+           text-shadow: 4px 4px 4px #aaa;
+        }   
+        h3{
+            width: 400px;
+            margin: auto;
+        }
+        .about{
+            font-family: 'Arimo', sans-serif;
+        }
+        #about{
+            font-family: 'Arimo', sans-serif;
+        } 
+        .cloudone{
+            animation: one 40s linear infinite;
+        }
+        .cloudtwo{
+            animation: three 20s linear infinite;
+        }
+        @keyframes one {
+            0% {
+                transform: translate3d(0,0,0);
+            }
+            50% {
+                transform: translate3d(200px,0,0);
+            }
+        }
+        .cloudthree{
+            animation: three 20s linear infinite;
+        }
+        @keyframes three {
+            0% {
+                transform: translate3d(0,0,0);
+            }
+            50% {
+                transform: translate3d(-170px,0,0);
+            }
+        }
+    </style>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top navigation">
+            <div class="collapse navbar-collapse w-100" id="nav-left">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Portal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">units</a>
+                    </li>
+                </ul>
+            </div>
+            <a class="navbar-brand m-0 text-center"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavProp" aria-controls="navbarNavProp" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse w-100">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Amenities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Location</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="collapse w-100" id="navbarNavProp">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#HOME">Portal</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#units">units</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#amenities">Amenities</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#location">Location</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="BANNERPARALLAX" class="position-relative">
+            <h2 class="text-center text-light" style="line-height: 500px;">AIR RESIDENCES</h2>
+            <div class="position-absolute cloudone" style="top: 130px;max-width: 250px;">
+                <img src="../properties/AIR/img/effects/cloud1.png" style="width: 100%;height: 100%;">
+            </div>
+            <div class="position-absolute cloudtwo" style="bottom: 0px;right: 0;;max-width: 250px;">
+                <img src="../properties/AIR/img/effects/cloud2.png" style="width: 100%;height: 100%;">
+            </div>
+            <div class="position-absolute cloudthree" style="bottom: 0;width: 260px;max-width: 250px;">
+                <img src="../properties/AIR/img/effects/cloud3.png" style="width: 100%;height: 100%;">
+            </div>
+        </div>
+    </header>
+    <section class="mb-5" id="about">
+        <div class="container">
+            <h3 class="text-center">
+                ABOUT
+                <hr>
+            </h3>
+            <div class="properties-about">
+                <div class="text-center mb-3"> Residences brings you to the doorstep of success.</div>
+                <p>
+                    Nothing says you’ve made it quite like a Makati Address. Air Residences gives you a privileged lifestyle combining a convenient location with the luxurious comfort of its signature amenities. Located within the Philippines’ premier business and financial district, Air Residences brings you to the doorstep of success.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="mb-5" id="units">
+        <div class="container">
+            <h3 class="text-center">
+                UNITS
+                <hr>
+            </h3>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="border border-1 m-auto" style="width:250px;height:300px">
+                        <img src="../properties/AIR/img/unit/bedroom/air_model-unit-1.jpg" class="w-100 h-100">
+                    </div>
+                    <div class="p-units-title text-center mt-2">
+                        <h5>LOREM IPSUM</h5>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="border border-1 m-auto" style="width:250px;height:300px">
+                        <img src="../properties/AIR/img/unit/bedroom/air_model-unit-2.jpg" class="w-100 h-100">
+                    </div>
+                    <div class="p-units-title text-center mt-2">
+                        <h5>LOREM IPSUM</h5>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="border border-1 m-auto" style="width:250px;height:300px">
+                        <img src="../properties/AIR/img/unit/bedroom/air_model-unit-3.jpg" class="w-100 h-100">
+                    </div>
+                    <div class="p-units-title text-center mt-2">
+                        <h5>LOREM IPSUM</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="mb-5" id="amenities">
+        <div class="container">
+            <h3 class="text-center">
+                AMENITIES
+                <hr>
+            </h3>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="border border-1 m-auto" style="width:250px;height:300px">
+                        <img src="../properties/AIR/img/amenities/air_amenities-3.jpg" class="w-100 h-100">
+                    </div>
+                    <div class="p-units-title text-center mt-2">
+                        <h5>LOREM IPSUM</h5>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="border border-1 m-auto" style="width:250px;height:300px">
+                        <img src="../properties/AIR/img/amenities/air_amenities-5.jpg" class="w-100 h-100">
+                    </div>
+                    <div class="p-units-title text-center mt-2">
+                        <h5>LOREM IPSUM</h5>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="border border-1 m-auto" style="width:250px;height:300px">
+                        <img src="../properties/AIR/img/amenities/air_amenities-2.jpg" class="w-100 h-100">
+                    </div>
+                    <div class="p-units-title text-center mt-2">
+                        <h5>LOREM IPSUM</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="mb-5" id="location">
+        <h3 class="text-center">
+            LOCATION
+            <hr>
+        </h3>
+        <div class="p-map-container border border-1" style="height:400px"></div>
+    </section>
+    <section class="mb-5" id="contact">
+        <div class="container">
+            <h3 class="text-center">
+                CONTACT
+                <hr>
+            </h3>
+        </div>
+    </section>
+    <!-- <footer></footer> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="../function/route.js"></script>
+    <!-- <script>
+    function resize() {
+        if ($(window).width() < 768) {
+            $('#navbarNavProp').addClass('navbar-collapse');
+        } else {
+            $('#navbarNavProp').removeClass('navbar-collapse show');
+        }
+    }
+    resize();
+    $(window).resize(resize)
+    </script> -->
+</body>
+</html>
