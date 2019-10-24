@@ -300,6 +300,7 @@ function AdminUnitSaving(){
     e.UnitSize = c;
     e.UnitImageURL = d;
     AdminUnitMainArray.push(e);
+    // console.log(e)
     var f = AdminUnitMainArray.length-1;
     console.log(AdminUnitMainArray);
     $('.AdminUnit-ADNEW').prev("div.grid-item-container").first().attr('data-index', f);
