@@ -39,13 +39,28 @@
             <div id="carouselExampleInterval" id="HOME" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-interval="3000">
-                            <img src="img/img1.jpg" class="d-block" alt="...">
+                        <img src="img/img1.jpg" class="d-block" alt="...">
                     </div>
                     <div class="carousel-item" data-interval="3000">
-                            <img src="img/mg2.jpg" class="d-block" alt="...">
+                        <img src="img/mg2.jpg" class="d-block" alt="...">
                     </div>
                     <div class="carousel-item" data-interval="3000">
-                            <img src="img/mg3.jpg" class="d-block" alt="...">
+                        <img src="img/mg3.jpg" class="d-block" alt="...">
+                    </div>
+                    <div class="carousel-item" data-interval="3000">
+                        <img src="img/mg4.jpg" class="d-block" alt="...">
+                    </div>
+                    <div class="carousel-item" data-interval="3000">
+                        <img src="img/mg5.jpg" class="d-block" alt="...">
+                    </div>
+                    <div class="carousel-item" data-interval="3000">
+                        <img src="img/mg6.jpg" class="d-block" alt="...">
+                    </div>
+                    <div class="carousel-item" data-interval="3000">
+                        <img src="img/mg7.jpg" class="d-block" alt="...">
+                    </div>
+                    <div class="carousel-item" data-interval="3000">
+                        <img src="img/mg8.jpg" class="d-block" alt="...">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
@@ -59,8 +74,8 @@
             </div>
         </header>
         <div class="new-nav">
-            <section class="premiere py-5" id="PREMIERE">
-                <div class="container">
+            <section class="premiere py-5 position-relative" id="PREMIERE">
+                <div class="container-fluid">
                     <br>
                     <div class="text-center">
                         <h4>
@@ -167,7 +182,7 @@
                 </div>
             </section>
             <section class="preselling py-5" id="PRESELLING" style="background:whitesmoke;">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="text-center">
                         <h4>
                             PRE-SELLING
@@ -349,14 +364,12 @@
                     <div class="container py-4">
                         <small>
                             <h5 class="text-center">Disclaimer</h5>
-                        </small>
                         <p>
-                            <small>
-                                This is not the official website of SMDC and is solely created for marketing purposes of SMDC Properties. The owner will not be held liable for damages that may arise from using this website. Any unauthorized use and reproduction of the logos and photos of SMDC will be subject to copyright infringement.
-        
-                                The particulars, details and visuals shown herein are intended to give a general idea of the project and such as are not to be relied upon as statements of facts. While such particulars and details are based on present plans which have been prepared with utmost care and are given in good faith, buyers are invited to verify their factual correctness and subsequent changes, if any. The contents herein are subject to change without prior notice and do not constitute part of an offer or contract.
-                            </small>
+                            This is not the official website of SMDC and is solely created for marketing purposes of SMDC Properties. The owner will not be held liable for damages that may arise from using this website. Any unauthorized use and reproduction of the logos and photos of SMDC will be subject to copyright infringement.
+    
+                            The particulars, details and visuals shown herein are intended to give a general idea of the project and such as are not to be relied upon as statements of facts. While such particulars and details are based on present plans which have been prepared with utmost care and are given in good faith, buyers are invited to verify their factual correctness and subsequent changes, if any. The contents herein are subject to change without prior notice and do not constitute part of an offer or contract.
                         </p>
+                    </small>
                     </div>
                 </div>
             </div>
@@ -388,7 +401,7 @@
             });
             
             $(window).scroll(function(){
-                if ($(this).scrollTop() > Math.ceil($("header").height())) {
+                if ($(this).scrollTop() > Math.ceil($("header").height() - 70)) {
                     // $("nav").removeClass("navbar-light bg-light").addClass("navbar-dark bg-primary")
                     $("nav").removeClass('navbar-light').addClass("scrolled navbar-dark")
                 } else {
