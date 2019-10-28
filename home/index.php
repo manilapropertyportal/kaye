@@ -21,16 +21,16 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="#HOME">Home</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a class="nav-link" href="#PREMIERE">Premiere</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a class="nav-link" href="#PRESELLING">Pre-selling</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a class="nav-link" href="#SERVICES">Services</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a class="nav-link" href="#ABOUTCONTACT">About-Contact us</a>
                         </li>
                     </ul>
@@ -88,7 +88,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/premiere/air.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route="air">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -98,7 +98,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/premiere/coast.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route="coast">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -108,7 +108,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/premiere/light2.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route="light2">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -120,7 +120,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/premiere/lush.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route="lush">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -130,7 +130,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/premiere/red.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route="red">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -140,7 +140,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/premiere/shore3.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route="shore3">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -152,7 +152,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/premiere/sresidences.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route="sresidences">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -162,7 +162,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/box/mg2.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route>
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -172,7 +172,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/box/mg3.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route>
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -194,7 +194,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/preselling/bloom.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route="bloom">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -204,7 +204,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/preselling/fernproperties.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route="fern">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -214,7 +214,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/preselling/field.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route="field">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -226,7 +226,7 @@
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
                                     <img class="card-img-top"src="img/preselling/park.jpg">
-                                    <div class="secret">
+                                    <div class="secret" route="park">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -303,7 +303,6 @@
                     </div>
                 </div>
             </section>
-            <!-- Section: About/Contact -->
             <section class="About-Contact py-5" id="ABOUTCONTACT">
                 <div class="container">
                     <div class="row">
@@ -337,23 +336,22 @@
                 </div>
             </section>
         </div>
-
         <footer>
             <div class="text-white">
                 <div class="py-5 text-center" style="background:#007bff">
                     <h5>Follow Manila Property Portal</h5>
                     <div class="w-50 m-auto" data-aos="flip-up" data-aos-duration="1500">
-                        <a href="#">
+                        <a>
                             <span>
                                 <i class="fab fa-facebook-square"></i>
                             </span>
                         </a>
-                        <a href="#">
+                        <a>
                             <span>
                                 <i><img class="rounded circle" style="width:43.75px;height:45px;margin-bottom: 11px;" src="img/Lblue.png"></i>
                             </span>
                         </a>
-                        <a href="#">
+                        <a>
                             <span>
                                 <i class="fab fa-google-plus-square"></i>
                             </span>
@@ -408,8 +406,18 @@
                     $("nav").removeClass("scrolled navbar-dark").addClass("navbar-light")
                 }
             });
+            function resize() {
+                if ($(window).width() < 768) {
+                    $('#navbarNavProp').addClass('navbar-collapse');
+                } else {
+                    $('#navbarNavProp').removeClass('navbar-collapse');
+                }
+            }
+            resize();
+            $(window).on('resize' , resize);
         });
         </script>
+        <script src="function/route.js"></script>
         <!-- <script>
                 $('#myCarousel').on('slide.bs.carousel', function () {
                 // do something...

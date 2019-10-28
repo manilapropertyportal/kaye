@@ -1,6 +1,6 @@
 
-nav{
-    height:70px;
+nav,.navigation.scrolled{
+    box-shadow: 0 0 15px 10px rgba(15, 16, 16, 0.49);
 }
 .navigation.scrolled{
     background:#007bff !important;
