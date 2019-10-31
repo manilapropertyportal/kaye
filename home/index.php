@@ -400,7 +400,6 @@
             
             $(window).scroll(function(){
                 if ($(this).scrollTop() > Math.ceil($("header").height() - 70)) {
-                    // $("nav").removeClass("navbar-light bg-light").addClass("navbar-dark bg-primary")
                     $("nav").removeClass('navbar-light').addClass("scrolled navbar-dark")
                 } else {
                     $("nav").removeClass("scrolled navbar-dark").addClass("navbar-light")
@@ -415,9 +414,9 @@
             }
             resize();
             $(window).on('resize' , resize);
+            $(".secret").click(function(){location.href = "properties/#" + $(this).attr('route')})
         });
         </script>
-        <script src="function/route.js"></script>
         <!-- <script>
                 $('#myCarousel').on('slide.bs.carousel', function () {
                 // do something...
