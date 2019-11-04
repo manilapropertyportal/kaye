@@ -65,11 +65,11 @@
 .admin-units-image:hover,.admin-units-image-holder:hover,.admin-units-floorplan-image-holder:hover,.admin-unit-modal-holder:nth-of-type(2) div h5:hover{
     cursor:pointer;
 }
-.Admin-unit-modal-grid-container {
+/* .Admin-unit-modal-grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 50%;
-}
+} */
 .page{
     display:none;
 }

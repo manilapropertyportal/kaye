@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Ruda:700&display=swap" rel="stylesheet">
         <title>ManilaPropertyPortal</title>
     </head>
     <body>
@@ -161,8 +162,8 @@
                                 <div class=" col-12 col-lg-4  ">
                                     <div class="card-body">
                                         <div class="cardimagetop-wrapper">
-                                            <img class="card-img-top"src="img/box/mg2.jpg">
-                                            <div class="secret" route>
+                                            <img class="card-img-top"src="img/premiere/sail.jpg">
+                                            <div class="secret" route="sail">
                                                 <div class="secret-child"></div>
                                             </div>
                                         </div>
@@ -171,8 +172,8 @@
                                 <div class=" col-12 col-lg-4 ">
                                     <div class="card-body">
                                         <div class="cardimagetop-wrapper">
-                                            <img class="card-img-top"src="img/box/mg3.jpg">
-                                            <div class="secret" route>
+                                            <img class="card-img-top"src="img/premiere/Glam.jpg">
+                                            <div class="secret" route="glam">
                                                 <div class="secret-child"></div>
                                             </div>
                                         </div>
@@ -357,12 +358,17 @@
                 <div style="background:#0073ec">
                     <div class="container py-4">
                         <small>
-                            <h5 class="text-center">Disclaimer</h5>
+                        <div class="d-flex mb-3">
+                            <button type="button" class="btn btn-primary text-center m-auto" data-toggle="collapse" data-target="#demo">Disclaimer</button>
+                        </div>
+                        <div id="demo" class="collapse">
+                            <!-- <h5 class="text-center">Disclaimer</h5> -->
                         <p>
                             This is not the official website of SMDC and is solely created for marketing purposes of SMDC Properties. The owner will not be held liable for damages that may arise from using this website. Any unauthorized use and reproduction of the logos and photos of SMDC will be subject to copyright infringement.
     
                             The particulars, details and visuals shown herein are intended to give a general idea of the project and such as are not to be relied upon as statements of facts. While such particulars and details are based on present plans which have been prepared with utmost care and are given in good faith, buyers are invited to verify their factual correctness and subsequent changes, if any. The contents herein are subject to change without prior notice and do not constitute part of an offer or contract.
                         </p>
+                        </div>
                     </small>
                     </div>
                 </div>

@@ -136,7 +136,18 @@
             <section class="page admin-content-Units-section">
                 <div class="container">
                     <div class="w-100 Admin-Unit-grid">
-                        <button class="btn btn-secondary m-auto AdminUnit-ADNEW" style="height:40px;width:180px">Add New Unit Photo</button>
+                        <!-- <button class="btn btn-secondary m-auto AdminUnit-ADNEW" style="height:40px;width:180px">Add New Unit Photo</button> -->
+
+
+
+                        <div class='grid-item-container'>
+        <div class='admin-units-image my-2 shadow-lg rounded' data-toggle='modal' data-target='.bd-example-modal-xl'></div>
+        <!-- <span class='d-flex justify-content-center mt-1'>
+            <h5>Title Here</h5>
+        </span> -->
+    </div>
+
+
                     </div>
                 </div>
             </section>
@@ -236,7 +247,7 @@
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Upload New Image</h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Add New Unit</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -260,8 +271,8 @@
                             <h5 class="text-center">Click to Change Size(in sqr m)</h5>
                         </div>
                     </div>
-                    <div class="Admin-unit-modal-grid-container">
-                        <div class="Admin-unit-modal-grid-item text-center">
+                    <div class="Admin-unit-modal-grid-container mx-5 w-100 px-5">
+                        <!-- <div class="Admin-unit-modal-grid-item text-center">
                             <div class="mx-2 mb-1">Category:</div>
                             <div class="mx-2 mb-1">Unit-type:</div>
                         </div>
@@ -280,7 +291,35 @@
                                     <option></option>
                                 </select>
                             </div>
+                        </div> -->
+
+                        <div class="input-group mb-1">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Category</label>
+                            </div>
+                            <select class="custom-select admin-unit-category-dd" id="inputGroupSelect01">
+                                <option selected></option>
+                                <option value="one" data-index=0 >1 Bedroom</option>
+                                <option value="two" data-index=1 >2 Bedroom</option>
+                                <option value="studio" data-index=2 >Studio</option>
+                                <option value="family" data-index=3>Family Suite</option>
+                                <!-- <option value="One Bedroom" data-index=0 >1 Bedroom</option>
+                                <option value="Two Bedroom" data-index=1 >2 Bedroom</option>
+                                <option value="Studio" data-index=2 >Studio</option>
+                                <option value="Family Suite" data-index=3>Family Suite</option> -->
+                            </select>
                         </div>
+
+                        <div class="input-group mb-1">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect02">Unit type</label>
+                            </div>
+                            <select class="custom-select admin-unit-unittype-dd" id="inputGroupSelect02">
+                                <option selected></option>
+                            </select>
+                        </div>
+
+
                     </div>
                 </div>
                 </div>

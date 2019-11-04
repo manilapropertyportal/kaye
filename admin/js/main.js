@@ -145,6 +145,10 @@ const _main = {
                             textArea.val(textArea.text());
                         });
                     break;
+                    case 'Units':
+                        console.log('click add Units');
+                      
+                    break;
             }
           
         },
@@ -161,7 +165,7 @@ const _main = {
                                     img.siblings('.card-body').children('.card-title').text(name);
                                     img.css({
                                     'background' : 'url("'+e.target.result+'") center center no-repeat rgba(255, 255, 255, 0.5)',
-                                    'background-size' : 'contain'
+                                    'background-size' : 'contain',
                                     });  
                                         if (img.attr('style') != 'undefined') {
                                             $('.btn').removeClass('d-none').addClass('d-flex');
@@ -169,6 +173,23 @@ const _main = {
                                 }
                                 reader.readAsDataURL($this.files[0]);
                         }
+                break;        
+                case 'About':
+
+                break;
+                case 'Units':
+                    console.log(newData.units);
+   
+                        // $.each(newData.units, function(i, item){
+                        //     console.log(i);
+                        //     console.log(item);
+                        //     var a = $('.admin-unit-unittype-dd').append($('<option>', { 
+                        //         value : newData.units.value,
+                        //         text : newData.units.text}));
+                        //     console.log(a)
+                        // })
+                    // console.log(options);
+                    // $('.admin-unit-unittype-dd').append(options)
                 break;
             }
 
@@ -222,7 +243,6 @@ const _main = {
                         textArea.focus();
                     break;
                 }
-            
         },
 
     }
