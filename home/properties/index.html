@@ -13,9 +13,9 @@
 <body>
     <style>
         #BANNERPARALLAX{
-           background-image: url('../properties/AIR/img/banner/air_banner-1.jpg');
+           background-image: url('../properties/AIR/img/banner/air_banner-2.jpg');
            background-size: cover;
-           background-position: center;
+           background-position: bottom;
            background-attachment: fixed;
            font-family: 'EB Garamond', serif;
            text-shadow: 4px 4px 4px #aaa;
@@ -167,6 +167,12 @@
             </div>
         </div>
     </section>
+    <section class="mb-5" id="pricelist">
+            <h3 class="text-center">
+                SUMMARY OF PRICES AND AVAILABILITY
+                <hr>
+            </h3>
+    </section>
     <section class="mb-5" id="amenities">
         <div class="container">
             <h3 class="text-center">
@@ -201,6 +207,79 @@
             </div>
         </div>
     </section>
+    <section class="mb-5 container" id="features">
+            <h3 class="text-center">
+                FEATURES
+                <hr>
+            </h3>
+            <div class="row">
+                    <div class="col-12 col-md-3">
+                        <div class="m-auto" style="width:125px;height:120px">
+                            <img src="../properties/AIR/img/features/alarm-icon.png" class="w-100 h-100">
+                        </div>
+                        <div class="p-units-title text-center mt-2">
+                            <h5>ALARM SYSTEM</h5>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="m-auto" style="width:125px;height:120px">
+                            <img src="../properties/AIR/img/features/cctv-icon.png" class="w-100 h-100">
+                        </div>
+                        <div class="p-units-title text-center mt-2">
+                            <h5>CCTV SYSTEM</h5>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="m-auto" style="width:125px;height:120px">
+                            <img src="../properties/AIR/img/features/elevator-icon-copy.png" class="w-100 h-100">
+                        </div>
+                        <div class="p-units-title text-center mt-2">
+                            <h5>ELEVATORS</h5>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="m-auto" style="width:125px;height:120px">
+                            <img src="../properties/AIR/img/features/generator-icon.png" class="w-100 h-100">
+                        </div>
+                        <div class="p-units-title text-center mt-2">
+                            <h5>STANDBY GENERATOR SET</h5>
+                        </div>
+                    </div>
+                        <div class="col-12 col-md-3">
+                                <div class="m-auto" style="width:125px;height:120px">
+                                    <img src="../properties/AIR/img/features/mailroom-icon.png" class="w-100 h-100">
+                                </div>
+                                <div class="p-units-title text-center mt-2">
+                                    <h5>MAILROOM</h5>
+                                </div>
+                            </div>
+                        <div class="col-12 col-md-3">
+                                <div class="m-auto" style="width:125px;height:120px">
+                                    <img src="../properties/AIR/img/features/security-icon-1.png" class="w-100 h-100">
+                                </div>
+                                <div class="p-units-title text-center mt-2">
+                                    <h5>24-HR SECURITY</h5>
+                                </div>
+                            </div>
+                        <div class="col-12 col-md-3">
+                                <div class="m-auto" style="width:125px;height:120px">
+                                    <img src="../properties/AIR/img/features/water-icon.png" class="w-100 h-100">
+                                </div>
+                                <div class="p-units-title text-center mt-2">
+                                    <h5>WATER TANK</h5>
+                                </div>
+                            </div>
+                        <div class="col-12 col-md-3">
+                                <div class="m-auto" style="width:125px;height:120px">
+                                    <img src="../properties/AIR/img/features/wifi-icon.png" class="w-100 h-100">
+                                </div>
+                                <div class="p-units-title text-center mt-2">
+                                    <h5>WiFi-READY ZONES</h5>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+    </section>
     <section class="mb-5" id="location">
         <h3 class="text-center">
             LOCATION
@@ -217,12 +296,29 @@
                 <hr>
             </h3>
             <div class="row">
-                <div class="col-4">
-                    <p>
-                        <strong>Ms.KAYE FABROS</strong>
-                    </p>
+                <div class="col-12 col-lg-6">
+                    <h5>FOR SALES INQUIRY:</h5>
+                    <div><strong>MS. MA. KAYE MICHAELA F. FABROS</strong></div>
+                    <div>SMDC International Property Specialist 1</div>
+                    <div><span><i class="fas fa-mobile-alt"></i> +63 916 6577029</span></div>
+                    <div><span><i class="far fa-envelope"></i> fabroskaye@gmail.com</span></div>
+                    <div>HLURB #0144995</div>
+                    <h5 class="mt-2">Office Address:</h5>  
+                    <div><strong>SM Development Corporation</strong></div> 
+                    <div>SMDC Head Office, 14/F Two E-Com Center</div>
+                    <div>Mall of Asia Complex</div>
                 </div>
-                <div class="col-8"></div>
+                <div class="col-12 col-lg-6">
+                        <div>
+                                <form class="form-group">
+                                        <input class="form-control w-100 mb-3" type="text" name="name" id="name" placeholder="Name..">
+                                        <input class="form-control w-100 mb-3" type="email" name="email" id="email" placeholder="Email..">
+                                        <input class="form-control w-100 mb-3" type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required placeholder="Phone Format 555-555-5555">
+                                        <textarea class="form-control w-100 mb-3" name="" id="" cols="30" rows="5" placeholder="Message.."></textarea>
+                                        <input class="btn btn-primary w-50 mb-3" type="submit" value="Send">
+                                </form>
+                            </div>
+                </div>
             </div>
         </div>
     </section>
@@ -231,6 +327,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/1b58120270.js" crossorigin="anonymous"></script>
     <script src="../function/route.js"></script>
     <!-- <script>
     function resize() {
