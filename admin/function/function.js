@@ -169,11 +169,7 @@ $(document).ready(function(){
                                             $('.admin-units-image').on('click',function(){
                                                 _main._events.click(xData);
                                             });
-                                            $('.admin-unit-category-dd').on('change',function(){
-                                                _main._events.change(xData);
-                                                console.log($('.admin-unit-category-dd .admin-unit-unittype-dd'));
-                                            });
-                                            $(uploadUnit).on('change',function(){
+                                            $('.admin-unit-category-dd,.admin-unit-unittype-dd,'+uploadUnit).on('change',function(){
                                                 _main._events.change(xData);
                                             });
                                     break;
