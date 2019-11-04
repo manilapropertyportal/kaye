@@ -22,10 +22,7 @@
                             <a class="nav-link" href="#HOME">Home</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="#PREMIERE">Premiere</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#PRESELLING">Pre-selling</a>
+                            <a class="nav-link" href="#PROPERTIES">Properties</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="#SERVICES">Services</a>
@@ -74,175 +71,174 @@
             </div>
         </header>
         <div class="new-nav">
-            <section class="premiere py-5 position-relative" id="PREMIERE">
-                <div class="container-fluid">
-                    <br>
-                    <div class="text-center">
-                        <h4>
-                            PREMIERE
-                            <hr>
-                        </h4>
-                    </div>
-                    <div class="row ">
-                        <div class="col-sm-12 col-md-4">
-                            <div class="card-body">
-                                <div class="cardimagetop-wrapper">
-                                    <img class="card-img-top"src="img/premiere/air.jpg">
-                                    <div class="secret" route="air">
-                                        <div class="secret-child"></div>
+            <section class="pt-5" id="PROPERTIES">
+                <ul class="nav nav-tabs justify-content-center border-0 mb-3" role="tablist">
+                    <li class="nav-item">
+                        <h4 class="text-center nav-link active" role="tab" href="#PREMIERE" data-toggle="tab" aria-selected="true">Premiere</h4>
+                    </li>
+                    <li>
+                        <h4 class="text-center nav-link" role="tab" href="#PRESELLING" data-toggle="tab">Pre-Selling</h4>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <section class="premiere py-5 position-relative tab-pane active" id="PREMIERE">
+                        <div class="container-fluid">
+                            <div class="row ">
+                                <div class="col-12 col-lg-4">
+                                    <div class="card-body">
+                                        <div class="cardimagetop-wrapper">
+                                            <img class="card-img-top"src="img/premiere/air.jpg">
+                                            <div class="secret" route="air">
+                                                <div class="secret-child"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <div class="card-body">
+                                        <div class="cardimagetop-wrapper">
+                                            <img class="card-img-top"src="img/premiere/coast.jpg">
+                                            <div class="secret" route="coast">
+                                                <div class="secret-child"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <div class="card-body">
+                                        <div class="cardimagetop-wrapper">
+                                            <img class="card-img-top"src="img/premiere/light2.jpg">
+                                            <div class="secret" route="light2">
+                                                <div class="secret-child"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-12 col-lg-4 ">
+                                    <div class="card-body">
+                                        <div class="cardimagetop-wrapper">
+                                            <img class="card-img-top"src="img/premiere/lush.jpg">
+                                            <div class="secret" route="lush">
+                                                <div class="secret-child"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" col-12 col-lg-4  ">
+                                    <div class="card-body">
+                                        <div class="cardimagetop-wrapper">
+                                            <img class="card-img-top"src="img/premiere/red.jpg">
+                                            <div class="secret" route="red">
+                                                <div class="secret-child"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" col-12 col-lg-4 ">
+                                    <div class="card-body">
+                                        <div class="cardimagetop-wrapper">
+                                            <img class="card-img-top"src="img/premiere/shore3.jpg">
+                                            <div class="secret" route="shore3">
+                                                <div class="secret-child"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class=" col-12 col-lg-4 ">
+                                    <div class="card-body">
+                                        <div class="cardimagetop-wrapper">
+                                            <img class="card-img-top"src="img/premiere/sresidences.jpg">
+                                            <div class="secret" route="sresidences">
+                                                <div class="secret-child"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" col-12 col-lg-4  ">
+                                    <div class="card-body">
+                                        <div class="cardimagetop-wrapper">
+                                            <img class="card-img-top"src="img/box/mg2.jpg">
+                                            <div class="secret" route>
+                                                <div class="secret-child"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" col-12 col-lg-4 ">
+                                    <div class="card-body">
+                                        <div class="cardimagetop-wrapper">
+                                            <img class="card-img-top"src="img/box/mg3.jpg">
+                                            <div class="secret" route>
+                                                <div class="secret-child"></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-4">
-                            <div class="card-body">
-                                <div class="cardimagetop-wrapper">
-                                    <img class="card-img-top"src="img/premiere/coast.jpg">
-                                    <div class="secret" route="coast">
-                                        <div class="secret-child"></div>
+                    </section>
+                    <section class="preselling py-5 position-relative tab-pane" id="PRESELLING">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12 col-lg-4">
+                                    <div class="card-body">
+                                        <div class="cardimagetop-wrapper">
+                                            <img class="card-img-top"src="img/preselling/bloom.jpg">
+                                            <div class="secret" route="bloom">
+                                                <div class="secret-child"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <div class="card-body">
+                                        <div class="cardimagetop-wrapper">
+                                            <img class="card-img-top"src="img/preselling/fernproperties.jpg">
+                                            <div class="secret" route="fern">
+                                                <div class="secret-child"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <div class="card-body">
+                                        <div class="cardimagetop-wrapper">
+                                            <img class="card-img-top"src="img/preselling/field.jpg">
+                                            <div class="secret" route="field">
+                                                <div class="secret-child"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-12 col-lg-4">
+                                    <div class="card-body">
+                                        <div class="cardimagetop-wrapper">
+                                            <img class="card-img-top"src="img/preselling/park.jpg">
+                                            <div class="secret" route="park">
+                                                <div class="secret-child"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <div class="card-body">
+                                        <div class="cardimagetop-wrapper">
+                                            <img class="card-img-top"src="img/preselling/trees.jpg">
+                                            <div class="secret">
+                                                <div class="secret-child"></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-4">
-                            <div class="card-body">
-                                <div class="cardimagetop-wrapper">
-                                    <img class="card-img-top"src="img/premiere/light2.jpg">
-                                    <div class="secret" route="light2">
-                                        <div class="secret-child"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row ">
-                        <div class="col-sm-12 col-md-4 ">
-                            <div class="card-body">
-                                <div class="cardimagetop-wrapper">
-                                    <img class="card-img-top"src="img/premiere/lush.jpg">
-                                    <div class="secret" route="lush">
-                                        <div class="secret-child"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" col-sm-12 col-md-4  ">
-                            <div class="card-body">
-                                <div class="cardimagetop-wrapper">
-                                    <img class="card-img-top"src="img/premiere/red.jpg">
-                                    <div class="secret" route="red">
-                                        <div class="secret-child"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" col-sm-12 col-md-4 ">
-                            <div class="card-body">
-                                <div class="cardimagetop-wrapper">
-                                    <img class="card-img-top"src="img/premiere/shore3.jpg">
-                                    <div class="secret" route="shore3">
-                                        <div class="secret-child"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class=" col-sm-12 col-md-4 ">
-                            <div class="card-body">
-                                <div class="cardimagetop-wrapper">
-                                    <img class="card-img-top"src="img/premiere/sresidences.jpg">
-                                    <div class="secret" route="sresidences">
-                                        <div class="secret-child"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" col-sm-12 col-md-4  ">
-                            <div class="card-body">
-                                <div class="cardimagetop-wrapper">
-                                    <img class="card-img-top"src="img/box/mg2.jpg">
-                                    <div class="secret" route>
-                                        <div class="secret-child"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" col-sm-12 col-md-4 ">
-                            <div class="card-body">
-                                <div class="cardimagetop-wrapper">
-                                    <img class="card-img-top"src="img/box/mg3.jpg">
-                                    <div class="secret" route>
-                                        <div class="secret-child"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="preselling py-5" id="PRESELLING" style="background:whitesmoke;">
-                <div class="container-fluid">
-                    <div class="text-center">
-                        <h4>
-                            PRE-SELLING
-                            <hr>
-                        </h4>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12 col-md-4">
-                            <div class="card-body">
-                                <div class="cardimagetop-wrapper">
-                                    <img class="card-img-top"src="img/preselling/bloom.jpg">
-                                    <div class="secret" route="bloom">
-                                        <div class="secret-child"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-4">
-                            <div class="card-body">
-                                <div class="cardimagetop-wrapper">
-                                    <img class="card-img-top"src="img/preselling/fernproperties.jpg">
-                                    <div class="secret" route="fern">
-                                        <div class="secret-child"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-4">
-                            <div class="card-body">
-                                <div class="cardimagetop-wrapper">
-                                    <img class="card-img-top"src="img/preselling/field.jpg">
-                                    <div class="secret" route="field">
-                                        <div class="secret-child"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row ">
-                        <div class="col-sm-12 col-md-4">
-                            <div class="card-body">
-                                <div class="cardimagetop-wrapper">
-                                    <img class="card-img-top"src="img/preselling/park.jpg">
-                                    <div class="secret" route="park">
-                                        <div class="secret-child"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-4">
-                            <div class="card-body">
-                                <div class="cardimagetop-wrapper">
-                                    <img class="card-img-top"src="img/preselling/trees.jpg">
-                                    <div class="secret">
-                                        <div class="secret-child"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </section>
                 </div>
             </section>
             <section class="services py-5" id="SERVICES">
@@ -303,22 +299,22 @@
                     </div>
                 </div>
             </section>
-            <section class="About-Contact py-5" id="ABOUTCONTACT">
+            <section class="About-Contact py-5 position-relative" id="ABOUTCONTACT">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6" data-aos="fade-right" data-aos-duration="1500">
-                            <h4 class="text-center">
+                            <h4 class="text-center text-white">
                                 ABOUT
                                 <hr>
                             </h4>
                             <div>
-                                <p>
+                                <p class="text-white">
                                 Manila property Portal is an online real estate marketplace that caters SMDC Properties within Metro Manila. Our property specialist is dedicated to provide reliable guidance and excellent assistance in purchasing the future investment that's right for you.
                                 </p>
                             </div>
                         </div>
                         <div class="col-md-6" data-aos="fade-left" data-aos-duration="1500">
-                            <h4 class="text-center">
+                            <h4 class="text-center text-white">
                                 CONTACT-US
                                 <hr>
                             </h4>
