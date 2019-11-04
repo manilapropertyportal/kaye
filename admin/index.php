@@ -256,7 +256,9 @@
                 <div class="row admin-unit-change">
                     <div class="my-2 col-12 col-lg-6 admin-unit-modal-holder">
                         <h5 class="text-center">Unit</h5>
-                        <div class="admin-units-image-holder mb-2"></div>
+                        <div class="admin-units-image-holder mb-2 shadow-lg">
+                            <input type="file" class="custom-file-input mt-3" id="uploadImage1" accept="image/*" name="image">
+                        </div>
                         <div class="w-50 m-auto">
                             <h5 class="text-center AdminUnitName">
                                 <span class="AuC">Select Category</span>
@@ -299,10 +301,12 @@
                             </div>
                             <select class="custom-select admin-unit-category-dd" id="inputGroupSelect01">
                                 <option selected></option>
-                                <option value="one" data-index=0 >1 Bedroom</option>
+                                <!-- <option value="one" data-index=0 >1 Bedroom</option>
                                 <option value="two" data-index=1 >2 Bedroom</option>
                                 <option value="studio" data-index=2 >Studio</option>
-                                <option value="family" data-index=3>Family Suite</option>
+                                <option value="family" data-index=3>Family Suite</option> -->
+
+
                                 <!-- <option value="One Bedroom" data-index=0 >1 Bedroom</option>
                                 <option value="Two Bedroom" data-index=1 >2 Bedroom</option>
                                 <option value="Studio" data-index=2 >Studio</option>
