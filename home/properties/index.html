@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     STANDARD @IMPORT
     <link href="https://fonts.googleapis.com/css?family=EB+Garamond&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Arimo&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Arimo:700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ruda:700&display=swap" rel="stylesheet">
     <title>ManilaPropertyPortal</title>
 </head>
 <body>
@@ -24,13 +23,8 @@
         h3{
             width: 400px;
             margin: auto;
+            font-family: 'Ruda', sans-serif;
         }
-        .about{
-            font-family: 'Arimo', sans-serif;
-        }
-        #about{
-            font-family: 'Arimo', sans-serif;
-        } 
         .cloudone{
             animation: one 40s linear infinite;
         }
@@ -68,7 +62,7 @@
                         <a class="nav-link" href="#">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">units</a>
+                        <a class="nav-link" href="#">Units</a>
                     </li>
                 </ul>
             </div>
@@ -98,7 +92,7 @@
                         <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#units">units</a>
+                        <a class="nav-link" href="#units">Units</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="#amenities">Amenities</a>
@@ -212,7 +206,9 @@
             LOCATION
             <hr>
         </h3>
-        <div class="p-map-container border border-1" style="height:400px"></div>
+        <div class="p-map-container">
+                <iframe class="w-100 h-100" src="https://maps.google.com/?q=SMDC Air Residences&output=embed"></iframe>
+        </div>
     </section>
     <section class="mb-5" id="contact">
         <div class="container">
@@ -220,6 +216,14 @@
                 CONTACT
                 <hr>
             </h3>
+            <div class="row">
+                <div class="col-4">
+                    <p>
+                        <strong>Ms.KAYE FABROS</strong>
+                    </p>
+                </div>
+                <div class="col-8"></div>
+            </div>
         </div>
     </section>
     <!-- <footer></footer> -->
