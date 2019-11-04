@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Ruda:700&display=swap" rel="stylesheet">
         <title>ManilaPropertyPortal</title>
     </head>
     <body>
@@ -78,7 +79,7 @@
                 <div class="container-fluid">
                     <br>
                     <div class="text-center">
-                        <h4>
+                        <h4 style="font-family: 'Ruda', sans-serif;">
                             PREMIERE
                             <hr>
                         </h4>
@@ -107,8 +108,8 @@
                         <div class="col-sm-12 col-md-4">
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
-                                    <img class="card-img-top"src="img/premiere/light2.jpg">
-                                    <div class="secret" route="light2">
+                                    <img class="card-img-top"src="img/premiere/Glam.jpg">
+                                    <div class="secret" route="Glam">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -119,8 +120,8 @@
                         <div class="col-sm-12 col-md-4 ">
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
-                                    <img class="card-img-top"src="img/premiere/lush.jpg">
-                                    <div class="secret" route="lush">
+                                    <img class="card-img-top"src="img/premiere/light2.jpg">
+                                    <div class="secret" route="light2">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -129,8 +130,8 @@
                         <div class=" col-sm-12 col-md-4  ">
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
-                                    <img class="card-img-top"src="img/premiere/red.jpg">
-                                    <div class="secret" route="red">
+                                    <img class="card-img-top"src="img/premiere/lush.jpg">
+                                    <div class="secret" route="lush">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -139,8 +140,8 @@
                         <div class=" col-sm-12 col-md-4 ">
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
-                                    <img class="card-img-top"src="img/premiere/shore3.jpg">
-                                    <div class="secret" route="shore3">
+                                    <img class="card-img-top"src="img/premiere/red.jpg">
+                                    <div class="secret" route="red">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -161,8 +162,8 @@
                         <div class=" col-sm-12 col-md-4  ">
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
-                                    <img class="card-img-top"src="img/box/mg2.jpg">
-                                    <div class="secret" route>
+                                    <img class="card-img-top"src="img/premiere/sail.jpg">
+                                    <div class="secret" route="sail">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -171,8 +172,8 @@
                         <div class=" col-sm-12 col-md-4 ">
                             <div class="card-body">
                                 <div class="cardimagetop-wrapper">
-                                    <img class="card-img-top"src="img/box/mg3.jpg">
-                                    <div class="secret" route>
+                                    <img class="card-img-top"src="img/premiere/shore3.jpg">
+                                    <div class="secret" route="shore3">
                                         <div class="secret-child"></div>
                                     </div>
                                 </div>
@@ -184,7 +185,7 @@
             <section class="preselling py-5" id="PRESELLING" style="background:whitesmoke;">
                 <div class="container-fluid">
                     <div class="text-center">
-                        <h4>
+                        <h4 style="font-family: 'Ruda', sans-serif;">
                             PRE-SELLING
                             <hr>
                         </h4>
@@ -247,7 +248,7 @@
             </section>
             <section class="services py-5" id="SERVICES">
                 <div class="text-center mb-4">
-                    <h4>
+                    <h4 style="font-family: 'Ruda', sans-serif;">
                         SERVICES
                         <hr>
                     </h4>
@@ -307,7 +308,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6" data-aos="fade-right" data-aos-duration="1500">
-                            <h4 class="text-center">
+                            <h4 class="text-center" style="font-family: 'Ruda', sans-serif;">
                                 ABOUT
                                 <hr>
                             </h4>
@@ -318,7 +319,7 @@
                             </div>
                         </div>
                         <div class="col-md-6" data-aos="fade-left" data-aos-duration="1500">
-                            <h4 class="text-center">
+                            <h4 class="text-center" style="font-family: 'Ruda', sans-serif;">
                                 CONTACT-US
                                 <hr>
                             </h4>
@@ -361,12 +362,17 @@
                 <div style="background:#0073ec">
                     <div class="container py-4">
                         <small>
-                            <h5 class="text-center">Disclaimer</h5>
+                        <div class="d-flex mb-3">
+                            <button type="button" class="btn btn-primary text-center m-auto" data-toggle="collapse" data-target="#demo">Disclaimer</button>
+                        </div>
+                        <div id="demo" class="collapse">
+                            <!-- <h5 class="text-center">Disclaimer</h5> -->
                         <p>
                             This is not the official website of SMDC and is solely created for marketing purposes of SMDC Properties. The owner will not be held liable for damages that may arise from using this website. Any unauthorized use and reproduction of the logos and photos of SMDC will be subject to copyright infringement.
     
                             The particulars, details and visuals shown herein are intended to give a general idea of the project and such as are not to be relied upon as statements of facts. While such particulars and details are based on present plans which have been prepared with utmost care and are given in good faith, buyers are invited to verify their factual correctness and subsequent changes, if any. The contents herein are subject to change without prior notice and do not constitute part of an offer or contract.
                         </p>
+                        </div>
                     </small>
                     </div>
                 </div>
