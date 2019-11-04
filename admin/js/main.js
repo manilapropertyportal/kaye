@@ -187,21 +187,18 @@ const _main = {
                     case 'Units':
                         console.log(units);
                         var selectedProduct = $('#inputGroupSelect01').val();
-                        let $thisUnit = newData.this.unit;
-                        let uploadUnit = newData.id.unit;
                         let auc = $('.AuC');
 
-                            if ($thisUnit.files && $thisUnit.files[0]) {
-                                var reader = new FileReader();
-                                let img = $(uploadUnit);
-                                    reader.onload = function(e) {
-                                        img.css({
-                                        'background' : 'url("'+e.target.result+'") center center no-repeat rgba(255, 255, 255, 0.5)',
-                                        'background-size' : 'contain',
-                                        });  
-                                    }
-                                    reader.readAsDataURL($thisUnit.files[0]);
-                            }
+                            // console.log(newData.id.floor);
+                            // console.log(newData.id.unit);
+                            // console.log($('#uploadImage1,#uploadImage2').id);
+                            // $('#uploadImage1,#uploadImage2').on("input", function() {
+                            //     console.log(this.id);
+                            //     // console.log("Change to " + this.value);
+                            // });
+
+                            
+
                             if (selectedProduct != '') {
                                 console.log('Show !');
                                 var getProduct = units.filter(function( obj ) {
@@ -234,6 +231,33 @@ const _main = {
                     $('.admin-about-edit-btns-container').removeClass('d-none').addClass('d-flex');
                 break;
             }
+        },
+        input: function(newData,data) {
+            console.log(newData);
+            console.log(data);
+                if (data == 'uploadImage1') {
+                    console.log('IMAGE 1 ONGAS')
+                    var $thisMe = newData.this.unit;
+                    var upload = newData.id.unit;
+                    
+                } else if (data == 'uploadImage2') {
+                    console.log('IMAGE 2 ONGAS');
+                    var $thisMe = newData.this.floor;
+                    var upload = newData.id.floor;
+
+                }
+
+                // if ($thisMe.files && $thisMe.files[0]) {
+                    var reader = new FileReader();
+                    var img = $(upload);
+                        reader.onload = function(e) {
+                            img.css({
+                            'background' : 'url("'+e.target.result+'") center center no-repeat rgba(255, 255, 255, 0.5)',
+                            'background-size' : 'contain',
+                            });  
+                        }
+                        reader.readAsDataURL($thisMe.files[0]);
+                // }
         },
         submit: function(newData) {
             switch(newData.apptype) {

@@ -268,7 +268,9 @@
                     </div>
                     <div class="my-2 col-12 col-lg-6 admin-unit-modal-holder">
                         <h5 class="text-center">Floor Plan</h5>
-                        <div class="admin-units-floorplan-image-holder mb-2"></div>
+                        <div class="admin-units-floorplan-image-holder mb-2 shadow-lg">
+                            <input type="file" class="custom-file-input mt-3" id="uploadImage2" accept="image/*" name="image">  
+                        </div>
                         <div class="w-50 m-auto">
                             <h5 class="text-center">Click to Change Size(in sqr m)</h5>
                         </div>

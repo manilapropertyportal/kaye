@@ -61,6 +61,7 @@ $(document).ready(function(){
                             id: {
                                 file: '#uploadImage',
                                 unit: '#uploadImage1',
+                                floor: '#uploadImage2',
                                 upload: '#inputGroupFileAddon04'
                             },
                             section: {
@@ -70,6 +71,7 @@ $(document).ready(function(){
                             this: {
                                 choose: $('#uploadImage')[0],
                                 unit: $('#uploadImage1')[0],
+                                floor: $('#uploadImage2')[0],
                             },
                             value: {
                                 about: '.admin-text-area',
@@ -166,12 +168,17 @@ $(document).ready(function(){
                                     break;
                                     case 'Units':
                                         let uploadUnit = xData.id.unit;
-                                            $('.admin-units-image').on('click',function(){
+                                        let uploadFloor = xData.id.floor;
+                                            $('.admin-units-image').on('click',function(e){
+                                                e.preventDefault();
                                                 _main._events.click(xData);
                                             });
-                                            $('.admin-unit-category-dd,.admin-unit-unittype-dd,'+uploadUnit).on('change',function(){
+                                            $('.admin-unit-category-dd,.admin-unit-unittype-dd').on('change',function(){
                                                 _main._events.change(xData);
                                             });
+                                            $(uploadUnit+','+uploadFloor).on('input',function(){
+                                                _main._events.input(xData,this.id);
+                                            })
                                     break;
                                     }
                         }
