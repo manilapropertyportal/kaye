@@ -60,6 +60,7 @@ $(document).ready(function(){
                             },
                             id: {
                                 file: '#uploadImage',
+                                unit: '#uploadImage1',
                                 upload: '#inputGroupFileAddon04'
                             },
                             section: {
@@ -68,6 +69,7 @@ $(document).ready(function(){
                             },
                             this: {
                                 choose: $('#uploadImage')[0],
+                                unit: $('#uploadImage1')[0],
                             },
                             value: {
                                 about: '.admin-text-area',
@@ -163,10 +165,15 @@ $(document).ready(function(){
                                                 _main._properties.select(xData);
                                     break;
                                     case 'Units':
+                                        let uploadUnit = xData.id.unit;
                                             $('.admin-units-image').on('click',function(){
                                                 _main._events.click(xData);
                                             });
                                             $('.admin-unit-category-dd').on('change',function(){
+                                                _main._events.change(xData);
+                                                console.log($('.admin-unit-category-dd .admin-unit-unittype-dd'));
+                                            });
+                                            $(uploadUnit).on('change',function(){
                                                 _main._events.change(xData);
                                             });
                                     break;

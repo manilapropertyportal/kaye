@@ -187,14 +187,42 @@ const _main = {
                     case 'Units':
                         console.log(units);
                         var selectedProduct = $('#inputGroupSelect01').val();
-                        var getProduct = units.filter(function( obj ) {
-                            return obj.id == selectedProduct;
-                        });
-                            $('#inputGroupSelect02').find('option').remove();
+                        let $thisUnit = newData.this.unit;
+                        let uploadUnit = newData.id.unit;
+                        let auc = $('.AuC');
 
-                                $.each(getProduct[0].sizes, function(key, val) {
-                                    $('#inputGroupSelect02').append('<option id="' + val.size + '">' + val.size + '</option>');
-                                    });
+                            if ($thisUnit.files && $thisUnit.files[0]) {
+                                var reader = new FileReader();
+                                let img = $(uploadUnit);
+                                    reader.onload = function(e) {
+                                        img.css({
+                                        'background' : 'url("'+e.target.result+'") center center no-repeat rgba(255, 255, 255, 0.5)',
+                                        'background-size' : 'contain',
+                                        });  
+                                    }
+                                    reader.readAsDataURL($thisUnit.files[0]);
+                            }
+                            if (selectedProduct != '') {
+                                console.log('Show !');
+                                var getProduct = units.filter(function( obj ) {
+                                    return obj.id == selectedProduct;
+                                });
+                                    $('#inputGroupSelect02').find('option').remove();
+                                    console.log(units[selectedProduct].name);
+                                  
+                                    auc.text(units[selectedProduct].name+' ');
+        
+                                        $.each(getProduct[0].sizes, function(key, val) {
+                                            $('#inputGroupSelect02').append('<option id="' + val.size + '">' + val.size + '</option>');
+                                            
+                                            });
+                                            console.log($('#inputGroupSelect02').val())
+                            } else {
+                                console.log('Do Nothing!');
+                                auc.text('Select Category');
+                                $('#inputGroupSelect02').find('option').remove();
+                            }
+                        
                     break;
                 }
 
