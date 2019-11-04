@@ -80,45 +80,55 @@ $(document).ready(function(){
                                 save: 'save',
                                 cancel: 'cancel',
                             },
-                            units: {
-                                // 'one':'1',
-                                // 'one':'1',
-                                // 'two':'2',
-                                // 'two':'2',
-                                one: {value:'1',text:'1'},
-                                two: {value:'2',text:'2'},
-                                // one: [
-                                //     {'one':'only'},
-                                //     {'one':'with balcony'},
-                                //     {'one':'end unit'},
-                                //     {'one':'end unit with balcony'},
-                                //     {'one':'with den'},
-                                //     {'one':'with den and balcony'},
-                                //     {'one':'corner den with balcony'}
-                                // ],
-                                // two: [
-                                //     {'two':'only'},
-                                //     {'two':'with balcony'},
-                                //     {'two':'end unit'},
-                                //     {'two':'end unit with balcony'},
-                                //     {'two':'with mezzanine'},
-                                //     {'two':'end unit with mezzanine'},
-                                //     {'two':'with mezzanine and balcony'},
-                                //     {'two':'end unit with mezzanine with balcony'},
-                                //     {'two':'Family Suite A'},
-                                //     {'two':'Family Suite B'}
-                                // ],
-                                // studio: [
-                                //     {'UnitType':'unit only'},
-                                //     {'UnitType':'unit with balcony'},
-                                //     {'UnitType':'deluxe with balcony'},
-                                //     {'UnitType':'combined two studio units'}
-                                // ],
-                                // family: [
-                                //     {'UnitType':'A with balcony'},
-                                //     {'UnitType':'B with balcony'}
-                                // ],
-                            },
+                            units: [
+                                {
+                                    "id": 0,
+                                    "name": "1 Bedroom",
+                                    "sizes": [
+                                        { "size": "only" },
+                                        { "size": "with balcony" },
+                                        { "size": "end unit" },
+                                        { "size": "end unit with balcony" },
+                                        { "size": "with den" },
+                                        { "size": "with den and balcony" },
+                                        { "size": "corner den with balcony" }
+                                    ]
+                                }, 
+                                {
+                                    "id": 1,
+                                    "name": "2 Bedroom",
+                                    "sizes": [
+                                        { "size": "only" },
+                                        { "size": "with balcony" },
+                                        { "size": "end unit" },
+                                        { "size": "end unit with balcony" },
+                                        { "size": "with mezzanine" },
+                                        { "size": "end unit with mezzanine" },
+                                        { "size": "with mezzanine and balcony" },
+                                        { "size": "end unit with mezzanine with balcony" },
+                                        { "size": "Family Suite A" },
+                                        { "size": "Family Suite B" }
+                                    ] 
+                                },
+                                {
+                                    "id": 2,
+                                    "name": "Studio",
+                                    "sizes": [
+                                        { "size": "unit only" },
+                                        { "size": "unit with balcony" },
+                                        { "size": "deluxe with balcony" },
+                                        { "size": "combined two studio units" }
+                                    ] 
+                                },
+                                {
+                                    "id": 3,
+                                    "name": "Family Suite",
+                                    "sizes": [
+                                        { "size": "A with balcony" },
+                                        { "size": "B with balcony" }
+                                    ] 
+                                }
+                            ],
                         },
                        
                     ];

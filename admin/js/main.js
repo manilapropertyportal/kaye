@@ -116,6 +116,7 @@ const _main = {
             let cardClass = newData.class.card;
             let cardSrc = newData.class.src;
             let close = newData.do.close;
+            let units = newData.units;
                 switch(newData.apptype) {
                     case 'Header':
                         $('.'+close).on('click',function() {
@@ -147,51 +148,55 @@ const _main = {
                     break;
                     case 'Units':
                         console.log('click add Units');
-                      
+                        console.log(units);
+
+                        $.each(units, function(key, val) {
+                            $('#inputGroupSelect01').append('<option value="' + val.id + '">' + val.name + '</option>');
+                        });
+
                     break;
             }
           
         },
         change: function(newData) {
-            switch(newData.apptype) {
-                case 'Header':
-                    let $this = newData.this.choose;
-                    let name = $this.files[0].name;
-                    let uploadImage = newData.id.file;
-                        if ($this.files && $this.files[0]) {
-                            var reader = new FileReader();
-                            let img = $(uploadImage);
-                                reader.onload = function(e) {
-                                    img.siblings('.card-body').children('.card-title').text(name);
-                                    img.css({
-                                    'background' : 'url("'+e.target.result+'") center center no-repeat rgba(255, 255, 255, 0.5)',
-                                    'background-size' : 'contain',
-                                    });  
-                                        if (img.attr('style') != 'undefined') {
-                                            $('.btn').removeClass('d-none').addClass('d-flex');
-                                        }
-                                }
-                                reader.readAsDataURL($this.files[0]);
-                        }
-                break;        
-                case 'About':
+            let units = newData.units;
+                switch(newData.apptype) {
+                    case 'Header':
+                        let $this = newData.this.choose;
+                        let name = $this.files[0].name;
+                        let uploadImage = newData.id.file;
+                            if ($this.files && $this.files[0]) {
+                                var reader = new FileReader();
+                                let img = $(uploadImage);
+                                    reader.onload = function(e) {
+                                        img.siblings('.card-body').children('.card-title').text(name);
+                                        img.css({
+                                        'background' : 'url("'+e.target.result+'") center center no-repeat rgba(255, 255, 255, 0.5)',
+                                        'background-size' : 'contain',
+                                        });  
+                                            if (img.attr('style') != 'undefined') {
+                                                $('.btn').removeClass('d-none').addClass('d-flex');
+                                            }
+                                    }
+                                    reader.readAsDataURL($this.files[0]);
+                            }
+                    break;        
+                    case 'About':
 
-                break;
-                case 'Units':
-                    console.log(newData.units);
-   
-                        // $.each(newData.units, function(i, item){
-                        //     console.log(i);
-                        //     console.log(item);
-                        //     var a = $('.admin-unit-unittype-dd').append($('<option>', { 
-                        //         value : newData.units.value,
-                        //         text : newData.units.text}));
-                        //     console.log(a)
-                        // })
-                    // console.log(options);
-                    // $('.admin-unit-unittype-dd').append(options)
-                break;
-            }
+                    break;
+                    case 'Units':
+                        console.log(units);
+                        var selectedProduct = $('#inputGroupSelect01').val();
+                        var getProduct = units.filter(function( obj ) {
+                            return obj.id == selectedProduct;
+                        });
+                            $('#inputGroupSelect02').find('option').remove();
+
+                                $.each(getProduct[0].sizes, function(key, val) {
+                                    $('#inputGroupSelect02').append('<option id="' + val.size + '">' + val.size + '</option>');
+                                    });
+                    break;
+                }
 
         },
         keyup: function(newData) {
@@ -241,6 +246,9 @@ const _main = {
                             textArea.val(data);
                         }
                         textArea.focus();
+                    break;
+                    case 'units':
+                        console.log('walang selected');
                     break;
                 }
         },

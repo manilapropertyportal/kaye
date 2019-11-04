@@ -299,10 +299,12 @@
                             </div>
                             <select class="custom-select admin-unit-category-dd" id="inputGroupSelect01">
                                 <option selected></option>
-                                <option value="one" data-index=0 >1 Bedroom</option>
+                                <!-- <option value="one" data-index=0 >1 Bedroom</option>
                                 <option value="two" data-index=1 >2 Bedroom</option>
                                 <option value="studio" data-index=2 >Studio</option>
-                                <option value="family" data-index=3>Family Suite</option>
+                                <option value="family" data-index=3>Family Suite</option> -->
+
+                                
                                 <!-- <option value="One Bedroom" data-index=0 >1 Bedroom</option>
                                 <option value="Two Bedroom" data-index=1 >2 Bedroom</option>
                                 <option value="Studio" data-index=2 >Studio</option>
