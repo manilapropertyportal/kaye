@@ -13,22 +13,25 @@
 <body>
     <style>
         #BANNERPARALLAX{
-           background-image: url('../properties/AIR/img/banner/air_banner-1.jpg');
+           background-image: url('../properties/AIR/img/banner/air_banner-2.jpg');
            background-size: cover;
            background-position: center;
            background-attachment: fixed;
            font-family: 'EB Garamond', serif;
            text-shadow: 4px 4px 4px #aaa;
         }   
-        h3{
+        h3 {
             width: 400px;
             margin: auto;
             font-family: 'Ruda', sans-serif;
         }
-        .cloudone{
+        .cloudone {
             animation: one 40s linear infinite;
         }
-        .cloudtwo{
+        .cloudtwo {
+            animation: two 100s linear infinite;
+        }
+        .cloudthree {
             animation: three 20s linear infinite;
         }
         @keyframes one {
@@ -39,15 +42,20 @@
                 transform: translate3d(200px,0,0);
             }
         }
-        .cloudthree{
-            animation: three 20s linear infinite;
+        @keyframes two {
+            0% {
+                transform: translate3d(0,0,0);
+            }
+            50% {
+                transform: translate3d(-770px,0,0);
+            }
         }
         @keyframes three {
             0% {
                 transform: translate3d(0,0,0);
             }
             50% {
-                transform: translate3d(-170px,0,0);
+                transform: translate3d(170px,0,0);
             }
         }
     </style>
@@ -56,7 +64,7 @@
             <div class="collapse navbar-collapse w-100" id="nav-left">
                 <ul class="nav navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Portal</a>
+                        <a class="nav-link" href="../">Portal</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
@@ -119,7 +127,7 @@
             </div>
         </div>
     </header>
-    <section class="mb-5" id="about">
+    <section class="py-5" id="about">
         <div class="container">
             <h3 class="text-center">
                 ABOUT
@@ -133,7 +141,7 @@
             </div>
         </div>
     </section>
-    <section class="mb-5" id="units">
+    <section class="py-5" id="units">
         <div class="container">
             <h3 class="text-center">
                 UNITS
@@ -167,7 +175,17 @@
             </div>
         </div>
     </section>
+<<<<<<< HEAD
+    <section class="py-5" id="amenities">
+=======
+    <section class="mb-5" id="pricelist">
+            <h3 class="text-center">
+                SUMMARY OF PRICES AND AVAILABILITY
+                <hr>
+            </h3>
+    </section>
     <section class="mb-5" id="amenities">
+>>>>>>> 25d5d1f0ff921ad36b166b8236f114627e6fb0b9
         <div class="container">
             <h3 class="text-center">
                 AMENITIES
@@ -201,36 +219,171 @@
             </div>
         </div>
     </section>
+<<<<<<< HEAD
+    <section class="py-5" id="location">
+=======
+    <section class="mb-5 container" id="features">
+            <h3 class="text-center">
+                FEATURES
+                <hr>
+            </h3>
+            <div class="row">
+                    <div class="col-12 col-md-3">
+                        <div class="m-auto" style="width:125px;height:120px">
+                            <img src="../properties/AIR/img/features/alarm-icon.png" class="w-100 h-100">
+                        </div>
+                        <div class="p-units-title text-center mt-2">
+                            <h5>ALARM SYSTEM</h5>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="m-auto" style="width:125px;height:120px">
+                            <img src="../properties/AIR/img/features/cctv-icon.png" class="w-100 h-100">
+                        </div>
+                        <div class="p-units-title text-center mt-2">
+                            <h5>CCTV SYSTEM</h5>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="m-auto" style="width:125px;height:120px">
+                            <img src="../properties/AIR/img/features/elevator-icon-copy.png" class="w-100 h-100">
+                        </div>
+                        <div class="p-units-title text-center mt-2">
+                            <h5>ELEVATORS</h5>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="m-auto" style="width:125px;height:120px">
+                            <img src="../properties/AIR/img/features/generator-icon.png" class="w-100 h-100">
+                        </div>
+                        <div class="p-units-title text-center mt-2">
+                            <h5>STANDBY GENERATOR SET</h5>
+                        </div>
+                    </div>
+                        <div class="col-12 col-md-3">
+                                <div class="m-auto" style="width:125px;height:120px">
+                                    <img src="../properties/AIR/img/features/mailroom-icon.png" class="w-100 h-100">
+                                </div>
+                                <div class="p-units-title text-center mt-2">
+                                    <h5>MAILROOM</h5>
+                                </div>
+                            </div>
+                        <div class="col-12 col-md-3">
+                                <div class="m-auto" style="width:125px;height:120px">
+                                    <img src="../properties/AIR/img/features/security-icon-1.png" class="w-100 h-100">
+                                </div>
+                                <div class="p-units-title text-center mt-2">
+                                    <h5>24-HR SECURITY</h5>
+                                </div>
+                            </div>
+                        <div class="col-12 col-md-3">
+                                <div class="m-auto" style="width:125px;height:120px">
+                                    <img src="../properties/AIR/img/features/water-icon.png" class="w-100 h-100">
+                                </div>
+                                <div class="p-units-title text-center mt-2">
+                                    <h5>WATER TANK</h5>
+                                </div>
+                            </div>
+                        <div class="col-12 col-md-3">
+                                <div class="m-auto" style="width:125px;height:120px">
+                                    <img src="../properties/AIR/img/features/wifi-icon.png" class="w-100 h-100">
+                                </div>
+                                <div class="p-units-title text-center mt-2">
+                                    <h5>WiFi-READY ZONES</h5>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+    </section>
     <section class="mb-5" id="location">
+>>>>>>> 25d5d1f0ff921ad36b166b8236f114627e6fb0b9
         <h3 class="text-center">
             LOCATION
             <hr>
         </h3>
-        <div class="p-map-container">
-                <iframe class="w-100 h-100" src="https://maps.google.com/?q=SMDC Air Residences&output=embed"></iframe>
+        <div class="p-map-container" >
+                <iframe class="w-100" height="500" src="https://maps.google.com/?q=SMDC Air Residences&output=embed"></iframe>
         </div>
     </section>
-    <section class="mb-5" id="contact">
+    <section class="py-5" id="contact">
         <div class="container">
             <h3 class="text-center">
                 CONTACT
                 <hr>
             </h3>
             <div class="row">
-                <div class="col-4">
-                    <p>
-                        <strong>Ms.KAYE FABROS</strong>
-                    </p>
+                <div class="col-12 col-lg-6">
+                    <h5>FOR SALES INQUIRY:</h5>
+                    <div><strong>MS. MA. KAYE MICHAELA F. FABROS</strong></div>
+                    <div>SMDC International Property Specialist 1</div>
+                    <div><span><i class="fas fa-mobile-alt"></i> +63 916 6577029</span></div>
+                    <div><span><i class="far fa-envelope"></i> fabroskaye@gmail.com</span></div>
+                    <div>HLURB #0144995</div>
+                    <h5 class="mt-2">Office Address:</h5>  
+                    <div><strong>SM Development Corporation</strong></div> 
+                    <div>SMDC Head Office, 14/F Two E-Com Center</div>
+                    <div>Mall of Asia Complex</div>
                 </div>
-                <div class="col-8"></div>
+                <div class="col-12 col-lg-6">
+                        <div>
+                                <form class="form-group">
+                                        <input class="form-control w-100 mb-3" type="text" name="name" id="name" placeholder="Name..">
+                                        <input class="form-control w-100 mb-3" type="email" name="email" id="email" placeholder="Email..">
+                                        <input class="form-control w-100 mb-3" type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required placeholder="Phone Format 555-555-5555">
+                                        <textarea class="form-control w-100 mb-3" name="" id="" cols="30" rows="5" placeholder="Message.."></textarea>
+                                        <input class="btn btn-primary w-50 mb-3" type="submit" value="Send">
+                                </form>
+                            </div>
+                </div>
             </div>
         </div>
     </section>
-    <!-- <footer></footer> -->
+    <footer>
+            <div class="text-white">
+                <div class="py-5 text-center" style="background:#007bff">
+                    <h5>Follow Manila Property Portal</h5>
+                    <div class="w-50 m-auto" data-aos="flip-up" data-aos-duration="1500">
+                        <a>
+                            <span>
+                                <i class="fab fa-facebook-square"></i>
+                            </span>
+                        </a>
+                        <a>
+                            <span>
+                                <i><img class="rounded circle" style="width:43.75px;height:45px;margin-bottom: 11px;" src="img/Lblue.png"></i>
+                            </span>
+                        </a>
+                        <a>
+                            <span>
+                                <i class="fab fa-google-plus-square"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div style="background:#0073ec">
+                    <div class="container py-4">
+                        <small>
+                        <div class="d-flex mb-3">
+                            <button type="button" class="btn btn-primary text-center m-auto" data-toggle="collapse" data-target="#demo">Disclaimer</button>
+                        </div>
+                        <div id="demo" class="collapse">
+                            
+                        <p>
+                            This is not the official website of SMDC and is solely created for marketing purposes of SMDC Properties. The owner will not be held liable for damages that may arise from using this website. Any unauthorized use and reproduction of the logos and photos of SMDC will be subject to copyright infringement.
+    
+                            The particulars, details and visuals shown herein are intended to give a general idea of the project and such as are not to be relied upon as statements of facts. While such particulars and details are based on present plans which have been prepared with utmost care and are given in good faith, buyers are invited to verify their factual correctness and subsequent changes, if any. The contents herein are subject to change without prior notice and do not constitute part of an offer or contract.
+                        </p>
+                        </div>
+                    </small>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/1b58120270.js" crossorigin="anonymous"></script>
     <script src="../function/route.js"></script>
     <!-- <script>
     function resize() {

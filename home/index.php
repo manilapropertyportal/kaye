@@ -231,7 +231,7 @@
                                     <div class="card-body">
                                         <div class="cardimagetop-wrapper">
                                             <img class="card-img-top"src="img/preselling/trees.jpg">
-                                            <div class="secret">
+                                            <div class="secret" route="trees">
                                                 <div class="secret-child"></div>
                                             </div>
                                         </div>
@@ -385,8 +385,7 @@
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
         $(document).ready(function(){
-            $(".premiere .card-body").attr('data-aos','zoom-out-down')
-            $(".preselling .card-body").attr('data-aos','zoom-out-up')
+            $(".card-body").attr('data-aos','zoom-out-down')
             AOS.init();
             $('a[href*="#"]').on('click', function(e) {
                 e.preventDefault()
@@ -413,6 +412,7 @@
                 } else {
                     $('#navbarNavProp').removeClass('navbar-collapse');
                 }
+                $(".preselling").css({"min-height":$(".premiere").height()});
             }
             resize();
             $(window).on('resize' , resize);

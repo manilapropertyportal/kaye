@@ -39,6 +39,7 @@ section#PREMIERE::before,section#PRESELLING::before,section#ABOUTCONTACT::before
     left: 0;
     right: 0;
     bottom: 0;
+    -webkit-filter: blur(3px);
     filter: blur(3px);
 }
 /* section#PREMIERE::before,section#ABOUTCONTACT::before{
