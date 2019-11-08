@@ -384,46 +384,41 @@
         <script src="https://kit.fontawesome.com/1b58120270.js" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
-        $(document).ready(function(){
-            $(".card-body").attr('data-aos','zoom-out-down')
-            AOS.init();
-            $('a[href*="#"]').on('click', function(e) {
-                e.preventDefault()
-            
-                $('html, body').animate(
-                {
-                    scrollTop: $($(this).attr('href')).offset().top,
-                },
-                500,
-                'linear'
-                )
-            });
-            
-            $(window).scroll(function(){
-                if ($(this).scrollTop() > Math.ceil($("header").height() - 70)) {
-                    $("nav").removeClass('navbar-light').addClass("scrolled navbar-dark")
-                } else {
-                    $("nav").removeClass("scrolled navbar-dark").addClass("navbar-light")
+            $(document).ready(function(){
+                $(".card-body").attr('data-aos','zoom-out-down')
+                AOS.init();
+                $('a[href*="#"]').on('click', function(e) {
+                    e.preventDefault()
+                
+                    $('html, body').animate(
+                    {
+                        scrollTop: $($(this).attr('href')).offset().top,
+                    },
+                    500,
+                    'linear'
+                    )
+                });
+                
+                $(window).scroll(function(){
+                    if ($(this).scrollTop() > Math.ceil($("header").height() - 70)) {
+                        $("nav").removeClass('navbar-light').addClass("scrolled navbar-dark")
+                    } else {
+                        $("nav").removeClass("scrolled navbar-dark").addClass("navbar-light")
+                    }
+                });
+                
+                function resize() {
+                    if ($(window).width() < 768) {
+                        $('#navbarNavProp').addClass('navbar-collapse');
+                    } else {
+                        $('#navbarNavProp').removeClass('navbar-collapse');
+                    }
+                    $(".preselling").css({"min-height":$(".premiere").height()});
                 }
+                resize();
+                $(window).on('resize' , resize);
+                $(".secret").click(function(){location.href = "properties/#" + $(this).attr('route')})
             });
-            function resize() {
-                if ($(window).width() < 768) {
-                    $('#navbarNavProp').addClass('navbar-collapse');
-                } else {
-                    $('#navbarNavProp').removeClass('navbar-collapse');
-                }
-                $(".preselling").css({"min-height":$(".premiere").height()});
-            }
-            resize();
-            $(window).on('resize' , resize);
-            $(".secret").click(function(){location.href = "properties/#" + $(this).attr('route')})
-        });
         </script>
-        <!-- <script>
-                $('#myCarousel').on('slide.bs.carousel', function () {
-                // do something...
-                $('.carousel').carousel()
-                })
-        </script> -->
     </body>
 </html>

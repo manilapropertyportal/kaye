@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    STANDARD @IMPORT
     <link href="https://fonts.googleapis.com/css?family=EB+Garamond&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ruda:700&display=swap" rel="stylesheet">
-    <title>ManilaPropertyPortal</title>
+    <title></title>
 </head>
 <body>
     <style>
-        #BANNERPARALLAX{
+        nav.navigation.scrolled {
+            box-shadow: 0 0 15px 10px rgba(15, 16, 16, 0.49);
+        }
+        #BANNERPARALLAX {
            background-image: url('../properties/AIR/img/banner/air_banner-2.jpg');
            background-size: cover;
            background-position: center;
@@ -60,34 +62,34 @@
         }
     </style>
     <header>
-        <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top navigation">
+        <nav class="navbar navbar-expand-md fixed-top navigation py-2">
             <div class="collapse navbar-collapse w-100" id="nav-left">
                 <ul class="nav navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="../">Portal</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Units</a>
+                        <a class="nav-link" href="#units">Units</a>
                     </li>
                 </ul>
             </div>
             <a class="navbar-brand m-0 text-center"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavProp" aria-controls="navbarNavProp" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span><i class="fas fa-bars" aria-hidden="true"></i></span>
             </button>
             <div class="collapse navbar-collapse w-100">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Amenities</a>
+                        <a class="nav-link" href="#amenities">Amenities</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Location</a>
+                        <a class="nav-link" href="#location">Location</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -142,30 +144,30 @@
         </div>
     </section>
     <section class="py-5" id="units">
-        <div class="container">
+        <div class="px-5">
             <h3 class="text-center">
                 UNITS
                 <hr>
             </h3>
             <div class="row">
-                <div class="col-12 col-md-4">
-                    <div class="border border-1 m-auto" style="width:250px;height:300px">
+                <div class="col-12 col-md-6 py-2">
+                    <div class="border border-1 m-auto position-relative">
                         <img src="../properties/AIR/img/unit/bedroom/air_model-unit-1.jpg" class="w-100 h-100">
                     </div>
                     <div class="p-units-title text-center mt-2">
                         <h5>LOREM IPSUM</h5>
                     </div>
                 </div>
-                <div class="col-12 col-md-4">
-                    <div class="border border-1 m-auto" style="width:250px;height:300px">
+                <div class="col-12 col-md-6 py-2">
+                    <div class="border border-1 m-auto">
                         <img src="../properties/AIR/img/unit/bedroom/air_model-unit-2.jpg" class="w-100 h-100">
                     </div>
                     <div class="p-units-title text-center mt-2">
                         <h5>LOREM IPSUM</h5>
                     </div>
                 </div>
-                <div class="col-12 col-md-4">
-                    <div class="border border-1 m-auto" style="width:250px;height:300px">
+                <div class="col-12 col-md-6 py-2">
+                    <div class="border border-1 m-auto">
                         <img src="../properties/AIR/img/unit/bedroom/air_model-unit-3.jpg" class="w-100 h-100">
                     </div>
                     <div class="p-units-title text-center mt-2">
@@ -175,8 +177,7 @@
             </div>
         </div>
     </section>
-    <section class="py-5" id="amenities">
-    <section class="my-5" id="pricelist">
+    <section class="py-5" id="pricelist">
         <h3 class="text-center">
             SUMMARY OF PRICES AND AVAILABILITY
             <hr>
@@ -303,7 +304,7 @@
                 <hr>
             </h3>
             <div class="row">
-                <div class="col-12 col-lg-6">
+                <div class="col-12 col-lg-6 py-4">
                     <h5>FOR SALES INQUIRY:</h5>
                     <div><strong>MS. MA. KAYE MICHAELA F. FABROS</strong></div>
                     <div>SMDC International Property Specialist 1</div>
@@ -315,7 +316,7 @@
                     <div>SMDC Head Office, 14/F Two E-Com Center</div>
                     <div>Mall of Asia Complex</div>
                 </div>
-                <div class="col-12 col-lg-6">
+                <div class="col-12 col-lg-6 py-4">
                     <div>
                         <form class="form-group">
                             <input class="form-control w-100 mb-3" type="text" name="name" id="name" placeholder="Name..">
@@ -331,7 +332,7 @@
     </section>
     <footer>
         <div class="text-white">
-            <div class="py-5 text-center" style="background:#007bff">
+            <div class="socmedAcc py-5 text-center">
                 <h5>Follow Manila Property Portal</h5>
                 <div class="w-50 m-auto" data-aos="flip-up" data-aos-duration="1500">
                     <a>
@@ -351,7 +352,7 @@
                     </a>
                 </div>
             </div>
-            <div style="background:#0073ec">
+            <div class="disclaimer-container">
                 <div class="container py-4">
                     <small>
                     <div class="d-flex mb-3">
@@ -371,21 +372,12 @@
         </div>
     </footer>
 
+    <!-- <input type="hidden" class="scrolled"> -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/1b58120270.js" crossorigin="anonymous"></script>
     <script src="../function/route.js"></script>
-    <!-- <script>
-    function resize() {
-        if ($(window).width() < 768) {
-            $('#navbarNavProp').addClass('navbar-collapse');
-        } else {
-            $('#navbarNavProp').removeClass('navbar-collapse show');
-        }
-    }
-    resize();
-    $(window).resize(resize)
-    </script> -->
 </body>
 </html>
