@@ -121,7 +121,6 @@ $(document).ready(function(){
             return css.join("\n");
          }
    })
-
    $(window).scroll(function(){
       if ($(this).scrollTop() > Math.ceil($("header").height() - 70)) {
           $("nav").removeClass('navbar-light').addClass("scrolled")

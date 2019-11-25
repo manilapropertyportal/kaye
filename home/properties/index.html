@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=EB+Garamond&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ruda:700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
     <title></title>
 </head>
 <body>
@@ -143,22 +144,22 @@
             </div>
         </div>
     </section>
-    <section class="py-5" id="units">
-        <div class="px-5">
+    <section class="py-5 px-3" id="units">
+        <div>
             <h3 class="text-center">
                 UNITS
                 <hr>
             </h3>
-            <div class="row">
-                <div class="col-12 col-md-6 py-2">
-                    <div class="border border-1 m-auto position-relative">
+            <!-- <div class="row">
+                <div class="col-12 col-md-6 p-3">
+                    <div class="unit-container border border-1 m-auto position-relative">
                         <img src="../properties/AIR/img/unit/bedroom/air_model-unit-1.jpg" class="w-100 h-100">
                     </div>
                     <div class="p-units-title text-center mt-2">
                         <h5>LOREM IPSUM</h5>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 py-2">
+                <div class="col-12 col-md-6 p-3">
                     <div class="border border-1 m-auto">
                         <img src="../properties/AIR/img/unit/bedroom/air_model-unit-2.jpg" class="w-100 h-100">
                     </div>
@@ -166,7 +167,7 @@
                         <h5>LOREM IPSUM</h5>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 py-2">
+                <div class="col-12 col-md-6 p-3">
                     <div class="border border-1 m-auto">
                         <img src="../properties/AIR/img/unit/bedroom/air_model-unit-3.jpg" class="w-100 h-100">
                     </div>
@@ -174,6 +175,45 @@
                         <h5>LOREM IPSUM</h5>
                     </div>
                 </div>
+            </div> -->
+            <div class="unit-container container position-relative">
+                <div class="swiper-container">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <img src="../properties/AIR/img/unit/bedroom/air_model-unit-1.jpg" class="w-100 h-100">
+                            <!-- <img src="../properties/AIR/img/unit/layout/1bed_a.PNG" class="position-absolute"> -->
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../properties/AIR/img/unit/bedroom/air_model-unit-2.jpg" class="w-100 h-100">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../properties/AIR/img/unit/bedroom/air_model-unit-3.jpg" class="w-100 h-100">
+                        </div>
+                        ...
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+                
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
+                    <!-- If we need scrollbar -->
+                    <!-- <div class="swiper-scrollbar"></div> -->
+                </div>
+                <!-- <div class="floorplan-container position-absolute">
+                    <div class="floorplan-slide">
+                        <img src="../properties/AIR/img/unit/layout/1bed_a.PNG">
+                    </div>
+                    <div class="floorplan-slide">
+                        <img src="../properties/AIR/img/unit/layout/1bed_a.PNG">
+                    </div>
+                    <div class="floorplan-slide">
+                        <img src="../properties/AIR/img/unit/layout/1bed_a.PNG">
+                    </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -378,6 +418,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/1b58120270.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/swiper/js/swiper.js"></script>
     <script src="../function/route.js"></script>
+    <script>
+        $(document).ready(function(){
+            //initialize swiper when document ready
+            var mySwiper = new Swiper ('.swiper-container', {
+                // Optional parameters
+                effect:'overflow',
+                centeredSlides:true,
+                slidesPerview:'auto',
+                speed:1200,
+                loop: true,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    type: 'bullets',
+                },
+                autoplay: {
+                    delay: 5000,
+                }
+            });
+        })
+   </script>
 </body>
 </html>
